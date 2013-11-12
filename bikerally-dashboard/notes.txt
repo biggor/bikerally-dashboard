@@ -15,8 +15,3 @@ jsfiddle mockups:
 stats: http://jsfiddle.net/4ukyy/
 counter viewlist: http://jsfiddle.net/TQn4R/4/
 
-
-title:
-------
-
-
