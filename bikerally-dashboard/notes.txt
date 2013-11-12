@@ -1,0 +1,3 @@
+stats mockup: http://jsfiddle.net/4ukyy/
+counter viewlist: http://jsfiddle.net/TQn4R/4/
+
