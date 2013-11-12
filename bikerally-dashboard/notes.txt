@@ -1,3 +1,18 @@
-stats mockup: http://jsfiddle.net/4ukyy/
+run AppEngine with proxy connection
+-----------------------------------
+
+add the following arguments to launch configuration:
+-Dhttp.proxyHost=<http proxy hostname> -Dhttp.proxyPort=<http proxy port> 
+-Dhttps.proxyHost=<https proxy hostname> -Dhttps.proxyPort=<https proxy  hostname> 
+
+office:
+-Dhttp.proxyHost=10.61.128.178 -Dhttp.proxyPort=8080 
+-Dhttps.proxyHost=10.61.128.178 -Dhttps.proxyPort=8080 
+
+
+
+jsfiddle mockups:
+-----------------
+stats: http://jsfiddle.net/4ukyy/
 counter viewlist: http://jsfiddle.net/TQn4R/4/
 
