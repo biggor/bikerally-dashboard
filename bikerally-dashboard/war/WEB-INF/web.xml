@@ -8,9 +8,25 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Bikerally_dashboard</servlet-name>
 		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_dashboardServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Bikerally_updateDatabase</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_updateDatabaseServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Bikerally_checkin</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_checkinServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_dashboard</servlet-name>
 		<url-pattern>/bikerally_dashboard</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Bikerally_updateDatabase</servlet-name>
+		<url-pattern>/bikerally_updateDatabase</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Bikerally_checkin</servlet-name>
+		<url-pattern>/bikerally_checkin</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
