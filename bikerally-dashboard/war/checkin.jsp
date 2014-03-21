@@ -71,6 +71,8 @@ if (firstName != null) {
 		<h3 id="geo" />
 		<h3><%= timestamp %></h3>
 	</center>
+	
+	<iframe src="http://ridewithgps.com/routes/2841803/embed" height="500px" width="80%" frameborder="0"></iframe>
 
 </body>
 </html>
