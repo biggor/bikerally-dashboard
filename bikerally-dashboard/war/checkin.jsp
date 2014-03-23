@@ -68,7 +68,7 @@ if (firstName != null) {
 			<img style="width: 20%;" alt="" src="check.png">
 		</div>
 		<h1><%= fullName %></h1>
-		<h3 id="geo" />
+		<h3 id="geo"></h3>
 		<h3><%= timestamp %></h3>
 	</center>
 	

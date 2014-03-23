@@ -40,7 +40,6 @@ public class Bikerally_checkinServlet extends HttpServlet {
 			registrationDate = doc.getElementsByTagName("RegistrationDate").item(0).getChildNodes().item(0).getNodeValue();
 			totalRaised = doc.getElementsByTagName("totalRaised").item(0).getChildNodes().item(0).getNodeValue();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -65,16 +64,6 @@ public class Bikerally_checkinServlet extends HttpServlet {
 		resp.getWriter().println("participantLink: " + participantLink);
 		resp.getWriter().println("registrationDate: " + registrationDate);
 		resp.getWriter().println("totalRaised: " + totalRaised);
-
-		// URL url = new
-		// URL("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID="
-		// + artezId + "&Source=&uniqueID=");
-		// BufferedReader reader = new BufferedReader(new
-		// InputStreamReader(url.openStream()));
-		// String line;
-		// while ((line = reader.readLine()) != null) {
-		// resp.getWriter().println(line);
-		// }
 
 	}
 
