@@ -10,7 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.Document;
+
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.FilterOperator;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
 
 @SuppressWarnings("serial")
 public class Bikerally_checkinServlet extends HttpServlet {
@@ -28,19 +36,28 @@ public class Bikerally_checkinServlet extends HttpServlet {
 		Date date = new Date();
 		Timestamp timestamp = new Timestamp(date.getTime());
 
-		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
-		DocumentBuilder b;
-		try {
-			b = f.newDocumentBuilder();
-			Document doc = b.parse("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID=" + artezId + "&Source=&uniqueID=");
-			doc.getDocumentElement().normalize();
-			firstName = doc.getElementsByTagName("firstName").item(0).getFirstChild().getNodeValue();
-			lastName = doc.getElementsByTagName("lastName").item(0).getChildNodes().item(0).getNodeValue();
-			participantLink = doc.getElementsByTagName("participantLink").item(0).getChildNodes().item(0).getNodeValue();
-			registrationDate = doc.getElementsByTagName("RegistrationDate").item(0).getChildNodes().item(0).getNodeValue();
-			totalRaised = doc.getElementsByTagName("totalRaised").item(0).getChildNodes().item(0).getNodeValue();
-		} catch (Exception e) {
-			e.printStackTrace();
+//		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
+//		DocumentBuilder b;
+//		try {
+//			b = f.newDocumentBuilder();
+//			Document doc = b.parse("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID=" + artezId + "&Source=&uniqueID=");
+//			doc.getDocumentElement().normalize();
+//			firstName = doc.getElementsByTagName("firstName").item(0).getFirstChild().getNodeValue();
+//			lastName = doc.getElementsByTagName("lastName").item(0).getChildNodes().item(0).getNodeValue();
+//			participantLink = doc.getElementsByTagName("participantLink").item(0).getChildNodes().item(0).getNodeValue();
+//			registrationDate = doc.getElementsByTagName("RegistrationDate").item(0).getChildNodes().item(0).getNodeValue();
+//			totalRaised = doc.getElementsByTagName("totalRaised").item(0).getChildNodes().item(0).getNodeValue();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		Query q = new Query("124639").addSort("id").setFilter(new FilterPredicate("id", FilterOperator.EQUAL, artezId));
+		Entity participant = datastore.prepare(q).asSingleEntity();
+		if (participant != null) {
+			firstName = (String) participant.getProperty("firstName");
+			lastName = (String) participant.getProperty("lastName");
+			participantLink = (String) participant.getProperty("participantLink");
 		}
 
 		resp.setContentType("text/plain");

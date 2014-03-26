@@ -1,6 +1,7 @@
 package ca.biggor.bikerally.dashboard;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,13 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.FetchOptions;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+
 @SuppressWarnings("serial")
 public class Bikerally_updateDatabaseServlet extends HttpServlet {
 
@@ -23,8 +31,8 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		resp.setContentType("text/plain");
 		resp.getWriter().println("BikeRally - updateDatabase");
 		resp.getWriter().println();
-		
-//		get the participant list from artez		
+
+		// get the participant list from artez
 		List<String> artezRiderList = new ArrayList<String>();
 		List<String> artezCrewList = new ArrayList<String>();
 
@@ -50,19 +58,92 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		resp.getWriter().println("Artez db (master):");
-		resp.getWriter().println(artezRiderList.size() + " riders");
-		resp.getWriter().println(artezCrewList.size() + " crew");
-				
-//		get the participant list from the local db
-		List<String> riderList = new ArrayList<String>();
-		List<String> crewList = new ArrayList<String>();
-		
-		resp.getWriter().println("Local db (slave):");
-		resp.getWriter().println(riderList.size() + " riders");
-		resp.getWriter().println(crewList.size() + " crew");
-		
-				
-//		compare and sync (both ways in case participants drop - check how the artez api handles this)
+		resp.getWriter().println("Artez db (master): " + artezRiderList.size() + " riders, " + artezCrewList.size() + " crew");
+
+		// get the participant list from the local db		
+		List<Entity> riderList = getParticipants("124639");
+		List<Entity> crewList = getParticipants("125616");
+		resp.getWriter().println("Local db (slave): " + riderList.size() + " riders, " + crewList.size() + " crew");
+
+		// compare and sync (both ways in case participants drop - check how the artez api handles this)
+		resp.getWriter().println();
+		resp.getWriter().println("Rider updates");
+		syncDatabases(artezRiderList, riderList, "124639", resp);
+
+		resp.getWriter().println();
+		resp.getWriter().println("Crew updates");
+		syncDatabases(artezCrewList, crewList, "125616", resp);
 	}
+
+	private void syncDatabases(List<String> master, List<Entity> slave, String eventId, HttpServletResponse resp) throws IOException {
+		int x = 0;
+		int y = 0;
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		while ((x < slave.size()) || (y < master.size())) {
+			// If the master list is exhausted, delete the current element from the slave list
+			if (y >= master.size()) {
+				datastore.delete(slave.get(x).getKey());
+				resp.getWriter().println(slave.get(x).getProperty("id") + "-");
+				x += 1;
+
+				// otherwise, if the slave list is exhausted, insert the current element from the master list
+			} else if (x >= slave.size()) {
+				Entity participant = addParticipant(master.get(y), eventId);
+				datastore.put(participant);
+				resp.getWriter().println(master.get(y) + "+");
+				y += 1;
+
+				// otherwise, if the current slave element precedes the current master element, delete the current slave element.
+			} else if (Integer.valueOf(slave.get(x).getProperty("id").toString()) < Integer.valueOf(master.get(y))) {
+				datastore.delete(slave.get(x).getKey());
+				resp.getWriter().println(slave.get(x).getProperty("id") + "-");
+				x += 1;
+
+				// # otherwise, if the current slave element follows the current master element, insert the current master element.
+			} else if (Integer.valueOf(slave.get(x).getProperty("id").toString()) > Integer.valueOf(master.get(y))) {
+				Entity participant = addParticipant(master.get(y), eventId);
+				datastore.put(participant);
+				resp.getWriter().println(master.get(y) + "+");
+				y += 1;
+
+				// otherwise the current elements match; consider the next pair
+			} else {
+				x += 1;
+				y += 1;
+			}
+		}
+	}
+
+	private List<Entity> getParticipants(String eventId) {
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		Query q = new Query(eventId).addSort("id");
+		PreparedQuery participants = datastore.prepare(q);
+		return participants.asList(FetchOptions.Builder.withDefaults());
+	}
+	
+	private Entity addParticipant(String id, String eventId){
+		Entity p = new Entity(eventId);
+		p.setProperty("id", id);
+
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		try {
+			URL url = new URL("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID=" + id + "&Source=&uniqueID=");
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			Document doc = db.parse(url.openStream());
+			p.setProperty("firstName", doc.getElementsByTagName("firstName").item(0).getTextContent());
+			p.setProperty("lastName", doc.getElementsByTagName("lastName").item(0).getTextContent());
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return p;
+	}
+
 }
+
