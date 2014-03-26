@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.If"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -30,6 +31,12 @@
 <%@ page import="javax.xml.parsers.DocumentBuilder" %>
 <%@ page import="javax.xml.parsers.DocumentBuilderFactory" %>
 <%@ page import="org.w3c.dom.Document" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreService" %>
+<%@ page import="com.google.appengine.api.datastore.DatastoreServiceFactory" %>
+<%@ page import="com.google.appengine.api.datastore.Entity" %>
+<%@ page import="com.google.appengine.api.datastore.Query" %>
+<%@ page import="com.google.appengine.api.datastore.Query.FilterOperator" %>
+<%@ page import="com.google.appengine.api.datastore.Query.FilterPredicate" %>
 
 <%
 String firstName = null;
@@ -41,27 +48,27 @@ String totalRaised = null;
 Date date = new Date();
 Timestamp timestamp = new Timestamp(date.getTime());
 
-DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
-DocumentBuilder b;
-try {
-	b = f.newDocumentBuilder();
-	Document doc = b.parse("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID=" + request.getParameter("id") + "&Source=&uniqueID=");
-	doc.getDocumentElement().normalize();
-	firstName = doc.getElementsByTagName("firstName").item(0).getFirstChild().getNodeValue();
-	lastName = doc.getElementsByTagName("lastName").item(0).getChildNodes().item(0).getNodeValue();
-	participantLink = doc.getElementsByTagName("participantLink").item(0).getChildNodes().item(0).getNodeValue();
-	registrationDate = doc.getElementsByTagName("RegistrationDate").item(0).getChildNodes().item(0).getNodeValue();
-	totalRaised = doc.getElementsByTagName("totalRaised").item(0).getChildNodes().item(0).getNodeValue();
-} catch (Exception e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
-
-if (firstName != null) {
+DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+Query q = new Query("124639").addSort("id").setFilter(new FilterPredicate("id", FilterOperator.EQUAL, request.getParameter("id")));
+Entity participant = datastore.prepare(q).asSingleEntity();
+if (participant != null) {
+	firstName = (String) participant.getProperty("firstName");
+	lastName = (String) participant.getProperty("lastName");
+	participantLink = (String) participant.getProperty("participantLink");
 	fullName = firstName + " " + lastName;
 } else {
-	fullName = "unknown user";
+	q = new Query("125616").addSort("id").setFilter(new FilterPredicate("id", FilterOperator.EQUAL, request.getParameter("id")));
+	participant = datastore.prepare(q).asSingleEntity();
+	if(participant != null) {
+		firstName = (String) participant.getProperty("firstName");
+		lastName = (String) participant.getProperty("lastName");
+		participantLink = (String) participant.getProperty("participantLink");
+		fullName = firstName + " " + lastName;
+	} else {
+		fullName = "unknown user";
+	}
 }
+
  %>
 	<center>
 		<div>
@@ -71,8 +78,5 @@ if (firstName != null) {
 		<h3 id="geo"></h3>
 		<h3><%= timestamp %></h3>
 	</center>
-	
-	<iframe src="http://ridewithgps.com/routes/2841803/embed" height="500px" width="80%" frameborder="0"></iframe>
-
 </body>
 </html>
