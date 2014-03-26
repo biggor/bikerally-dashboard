@@ -19,6 +19,10 @@ public class Bikerally_cuesheetServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String routeId = req.getParameter("routeid");
+		String phone = req.getParameter("phone");
+		if (phone == null) {
+			phone = "416-550-7615";
+		}
 		
 		if (routeId != null) {
 			Document doc = Jsoup.connect("http://ridewithgps.com/routes/" + routeId + "/cue_sheet").get();
@@ -29,7 +33,15 @@ public class Bikerally_cuesheetServlet extends HttpServlet {
 			
 			doc.select("td:eq(1)").remove();
 			doc.select("td:eq(1)").remove();
-			doc.select("p.print_footer").remove();
+			
+			Elements tds = doc.select("td");
+			for (Element td : tds) {
+				td.text(td.text().replace("Turn ", ""));
+				td.text(td.text().replace("left", "Left"));
+				td.text(td.text().replace("right", "Right"));
+				td.text(td.text().replace(" onto ", " on "));
+			}
+			doc.select("p.print_footer").first().html("<a class='print_link' href='javascript:window.print()'>Print</a>Emergency phone: <span style='color:red;''>" + phone + "</span>");
 
 			resp.getWriter().println(doc);
 			
