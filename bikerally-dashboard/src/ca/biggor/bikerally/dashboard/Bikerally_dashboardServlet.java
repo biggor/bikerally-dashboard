@@ -14,6 +14,7 @@ import com.google.appengine.api.datastore.Query;
 @SuppressWarnings("serial")
 public class Bikerally_dashboardServlet extends HttpServlet {
 	
+	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
@@ -48,4 +49,5 @@ public class Bikerally_dashboardServlet extends HttpServlet {
 			resp.getWriter().println(String.format("%3s", index += 1) + ": " + id + " " + firstName + " " + lastName);
 		}
 	}
+	
 }
