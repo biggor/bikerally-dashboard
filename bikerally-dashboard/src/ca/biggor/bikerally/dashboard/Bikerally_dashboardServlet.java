@@ -10,6 +10,8 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.FilterOperator;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
 
 @SuppressWarnings("serial")
 public class Bikerally_dashboardServlet extends HttpServlet {
@@ -36,7 +38,7 @@ public class Bikerally_dashboardServlet extends HttpServlet {
 	
 	private PreparedQuery getParticipants(String eventId) {
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		Query q = new Query(eventId).addSort("id");
+		Query q = new Query(eventId).addSort("id").setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
 		return datastore.prepare(q);		
 	}
 
@@ -46,7 +48,8 @@ public class Bikerally_dashboardServlet extends HttpServlet {
 			String id = (String) participant.getProperty("id");
 			String firstName = (String) participant.getProperty("firstName");
 			String lastName = (String) participant.getProperty("lastName");
-			resp.getWriter().println(String.format("%3s", index += 1) + ": " + id + " " + firstName + " " + lastName);
+			String riderNumber = (String) participant.getProperty("riderNumber");
+			resp.getWriter().println(String.format("%3s", index += 1) + ": " + id + " " + String.format("%3s", riderNumber) + " " + firstName + " " + lastName);
 		}
 	}
 	
