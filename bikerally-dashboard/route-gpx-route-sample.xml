@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="http://ridewithgps.com/">
+  <metadata>
+    <name> 34km: Kipling - Courtneypark</name>
+    <link href="http://ridewithgps.com/routes/4123071">
+      <text> 34km: Kipling - Courtneypark</text>
+    </link>
+    <time>2014-02-27T11:36:43Z</time>
+  </metadata>
+  <rte>
+    <name> 34km: Kipling - Courtneypark</name>
+    <rtept lat="43.63709" lon="-79.5377">
+      <name>Generic</name>
+      <cmt>Start of route</cmt>
+    </rtept>
+    <rtept lat="43.63774" lon="-79.53708">
+      <name>Left</name>
+      <cmt>Turn left onto Aukland Rd</cmt>
+    </rtept>
+    <rtept lat="43.64065" lon="-79.54057">
+      <name>Left</name>
+      <cmt>Turn left onto Bloor St W</cmt>
+    </rtept>
+    <rtept lat="43.63205000000001" lon="-79.57515000000001">
+      <name>Right</name>
+      <cmt>Turn right onto Mill Rd</cmt>
+    </rtept>
+    <rtept lat="43.64546000000001" lon="-79.58994999999999">
+      <name>Straight</name>
+      <cmt>Continue onto Centennial Park Blvd</cmt>
+    </rtept>
+    <rtept lat="43.655930000000005" lon="-79.59843999999998">
+      <name>Straight</name>
+      <cmt>Continue onto Orbitor Dr</cmt>
+    </rtept>
+    <rtept lat="43.65804000000001" lon="-79.60355000000004">
+      <name>Left</name>
+      <cmt>Turn left onto Matheson Blvd E</cmt>
+    </rtept>
+    <rtept lat="43.633480000000006" lon="-79.64148">
+      <name>Right</name>
+      <cmt>Turn right onto Tomken Rd</cmt>
+    </rtept>
+    <rtept lat="43.654740000000004" lon="-79.6703">
+      <name>Left</name>
+      <cmt>Turn left onto Courtneypark Dr E</cmt>
+    </rtept>
+    <rtept lat="43.651700000000005" lon="-79.67822999999999">
+      <name>Left</name>
+      <cmt>Slight left to stay on Courtneypark Dr E</cmt>
+    </rtept>
+    <rtept lat="43.6469" lon="-79.68538999999998">
+      <name>Generic</name>
+      <cmt>BREAK at Tim Hortons. 
+Reverse directions to return to Kipling Station.</cmt>
+    </rtept>
+    <rtept lat="43.65466000000001" lon="-79.67018999999999">
+      <name>Right</name>
+      <cmt>Turn right onto Tomken Rd</cmt>
+    </rtept>
+    <rtept lat="43.6334" lon="-79.64163000000002">
+      <name>Left</name>
+      <cmt>Turn left onto Matheson Blvd E</cmt>
+    </rtept>
+    <rtept lat="43.64229" lon="-79.63039000000003">
+      <name>Left</name>
+      <cmt>Slight left to stay on Matheson Blvd E</cmt>
+    </rtept>
+    <rtept lat="43.65804000000001" lon="-79.60355000000004">
+      <name>Right</name>
+      <cmt>Turn right onto Orbitor Dr</cmt>
+    </rtept>
+    <rtept lat="43.655750000000005" lon="-79.59836999999999">
+      <name>Straight</name>
+      <cmt>Continue onto Centennial Park Blvd</cmt>
+    </rtept>
+    <rtept lat="43.64546000000001" lon="-79.58994999999999">
+      <name>Straight</name>
+      <cmt>Continue onto Mill Rd</cmt>
+    </rtept>
+    <rtept lat="43.63205000000001" lon="-79.57515000000001">
+      <name>Left</name>
+      <cmt>Turn left onto Bloor St W</cmt>
+    </rtept>
+    <rtept lat="43.64065" lon="-79.54057">
+      <name>Right</name>
+      <cmt>Turn right onto Aukland Rd</cmt>
+    </rtept>
+    <rtept lat="43.63774" lon="-79.53708">
+      <name>Right</name>
+      <cmt>Turn right onto Subway Crescent</cmt>
+    </rtept>
+    <rtept lat="43.63709" lon="-79.53771">
+      <name>Generic</name>
+      <cmt>End of route</cmt>
+    </rtept>
+  </rte>
+</gpx>
