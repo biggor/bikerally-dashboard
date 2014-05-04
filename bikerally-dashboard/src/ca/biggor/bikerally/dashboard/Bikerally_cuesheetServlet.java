@@ -69,7 +69,7 @@ public class Bikerally_cuesheetServlet extends HttpServlet {
 				i++;
 			}
 
-			doc.select("p.print_footer").first().html("<a class='print_link' href='javascript:window.print()'>Print</a><span style='font-weight:bold;color:#f00;'>Emergency phone number: 123-456-7890</span>");
+			doc.select("p.print_footer").first().html("<a class='print_link' href='javascript:window.print()'>Print</a><span style='font-weight:bold;color:#f00;'>Emergency phone number: " + phone);
 
 			resp.getWriter().println(doc);
 
