@@ -20,7 +20,31 @@
 	});
 </script>
 <title>Check-in</title>
-</head>
+<style>
+.center {
+	text-align: center;
+}
+
+.tick {
+	font-size: 20vw;
+}
+
+h1 {
+	font-size: 10vw;
+}
+
+h2 {
+	font-size: 4vw;
+}
+
+h3 {
+	font-size: 3vw;
+}
+
+body {
+	font-family: sans-serif;
+}
+</style></head>
 <body>
 
 <%@ page import="java.util.Date" %>
@@ -45,6 +69,8 @@ String fullName = null;
 String participantLink = null;
 String registrationDate = null;
 String totalRaised = null;
+String checkinSign = "&#10004;";
+String checkinSigncolor = "green";
 Date date = new Date();
 Timestamp timestamp = new Timestamp(date.getTime());
 
@@ -64,19 +90,20 @@ if (participant != null) {
 		lastName = (String) participant.getProperty("lastName");
 		participantLink = (String) participant.getProperty("participantLink");
 		fullName = firstName + " " + lastName;
+		checkinSigncolor = "blue";
 	} else {
 		fullName = "unknown user";
+		checkinSign = "&#10008;";
+		checkinSigncolor = "red";
 	}
 }
 
  %>
-	<center>
-		<div>
-			<img style="width: 20%;" alt="" src="check.png">
-		</div>
+	<div class="center">
+		<div class="tick" style="color:<%= checkinSigncolor %>;"><%= checkinSign %></div>
 		<h1><%= fullName %></h1>
-		<h3 id="geo"></h3>
 		<h3><%= timestamp %></h3>
-	</center>
+		<h2 id="geo"></h3>
+	</div>
 </body>
 </html>

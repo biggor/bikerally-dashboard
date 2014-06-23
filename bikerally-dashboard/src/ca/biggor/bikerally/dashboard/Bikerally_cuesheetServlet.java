@@ -60,7 +60,7 @@ public class Bikerally_cuesheetServlet extends HttpServlet {
 				}
 				direction = dir;
 				
-				String note = tr.getElementsByTag("td").get(2).text().replace("Turn left onto ", "").replace("Turn left", "turn left").replace("Turn right onto ", "").replace("Turn right", "turn right").replace("Continue onto", "becomes").replace("Continue straight", "continue straight").replace("Take the ", "take the").replace("Merge", "merge").replace("Slight", "slight");
+				String note = tr.getElementsByTag("td").get(2).text().replace("Turn left onto ", "").replace("Turn left", "turn left").replace("Turn right onto ", "").replace("Turn right", "turn right").replace("Continue onto", "becomes").replace("Continue straight", "continue straight").replace("Take the", "take the").replace("Merge", "merge").replace("Slight", "slight");
 
 				tr.getElementsByTag("td").get(0).text("" + i);
 				tr.getElementsByTag("td").get(1).text(distance);
