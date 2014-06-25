@@ -8,7 +8,8 @@
     $( window ).load(function() {
 		if(navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function(position) {
-				document.form1.action="/bikerally_checkin";
+				document.form1.action="http://localhost:8888/test_servlet";
+				document.getElementById("id").value = $.url().param('id');
 				document.getElementById("lat").value = position.coords.latitude;
 				document.getElementById("lng").value = position.coords.longitude;
 				document.form1.submit();
@@ -20,7 +21,7 @@
 </head>
 <body>
 	<form name="form1" method="POST">
-		<input type="hidden" name="id" value="<%= request.getParameter("id") %>">
+		<input type="hidden" name="id" id="id">
 		<input type="hidden" name="latitude" id="lat">
 		<input type="hidden" name="longitude" id="lng">
 	</form>
