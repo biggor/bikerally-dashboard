@@ -2,7 +2,9 @@ package ca.biggor.bikerally.dashboard;
 
 import java.io.IOException;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -15,8 +17,7 @@ import com.google.appengine.api.datastore.Query.FilterPredicate;
 
 @SuppressWarnings("serial")
 public class Bikerally_dashboardServlet extends HttpServlet {
-	
-	
+
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
@@ -35,11 +36,11 @@ public class Bikerally_dashboardServlet extends HttpServlet {
 		resp.getWriter().println("Crew list");
 		printParticipants(crew, resp);
 	}
-	
+
 	private PreparedQuery getParticipants(String eventId) {
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		Query q = new Query(eventId).addSort("id").setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
-		return datastore.prepare(q);		
+		return datastore.prepare(q);
 	}
 
 	private void printParticipants(PreparedQuery participants, HttpServletResponse resp) throws IOException {
@@ -52,5 +53,5 @@ public class Bikerally_dashboardServlet extends HttpServlet {
 			resp.getWriter().println(String.format("%3s", index += 1) + ": " + id + " " + String.format("%3s", riderNumber) + " " + firstName + " " + lastName);
 		}
 	}
-	
+
 }
