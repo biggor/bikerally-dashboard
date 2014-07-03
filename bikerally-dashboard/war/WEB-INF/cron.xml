@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
 	<cron>
-		<url>/bikerally_updateDatabase</url>
+		<url>/bikerally_updateDatabase?updateAll=true</url>
 		<description>Sync with Artez database once a day</description>
 		<schedule>every day 21:00</schedule>
 	</cron>
