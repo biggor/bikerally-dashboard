@@ -3,6 +3,11 @@
 	<cron>
 		<url>/bikerally_updateDatabase?updateAll=true</url>
 		<description>Sync with Artez database once a day</description>
+		<schedule>every 2 hours</schedule>
+	</cron>
+	<cron>
+		<url><![CDATA[/bikerally_updateDatabase?updateAll=true&riderEventId=124639&crewEventId=125616]]></url>
+		<description>Sync with Artez database once a day</description>
 		<schedule>every day 21:00</schedule>
 	</cron>
 </cronentries>

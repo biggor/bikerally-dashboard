@@ -33,16 +33,27 @@ public class Bikerally_checkinServlet extends HttpServlet {
 		Date date = new Date();
 		Timestamp timestamp = new Timestamp(date.getTime());
 
+		String riderEventId = req.getParameter("riderEventId");
+		if (riderEventId == null) {
+//	 		riderEventId = "124639";
+			riderEventId = "148513";
+		}
+		String crewEventId = req.getParameter("crewEventId");
+		if (crewEventId == null) {
+//	 		crewEventId = "125616";
+			crewEventId = "0";
+		}
+
 		if (id != null) {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			Query q = new Query("124639").addSort("id").setFilter(new FilterPredicate("id", FilterOperator.EQUAL, id));
+			Query q = new Query(riderEventId).addSort("id").setFilter(new FilterPredicate("id", FilterOperator.EQUAL, id));
 			Entity participant = datastore.prepare(q).asSingleEntity();
 			if (participant != null) {
 				firstName = (String) participant.getProperty("firstName");
 				lastName = (String) participant.getProperty("lastName");
 				fullName = firstName + " " + lastName;
 			} else {
-				q = new Query("125616").addSort("id").setFilter(new FilterPredicate("id", FilterOperator.EQUAL, id));
+				q = new Query(crewEventId).addSort("id").setFilter(new FilterPredicate("id", FilterOperator.EQUAL, id));
 				participant = datastore.prepare(q).asSingleEntity();
 				if(participant != null) {
 					firstName = (String) participant.getProperty("firstName");

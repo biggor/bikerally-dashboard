@@ -24,8 +24,19 @@ public class Bikerally_dashboardServlet extends HttpServlet {
 		resp.setContentType("text/plain");
 		resp.getWriter().println("BikeRally - Dashboard");
 
-		PreparedQuery riders = getParticipants("124639");
-		PreparedQuery crew = getParticipants("125616");
+		String riderEventId = req.getParameter("riderEventId");
+		if (riderEventId == null) {
+//	 		riderEventId = "124639";
+			riderEventId = "148513";
+		}
+		String crewEventId = req.getParameter("crewEventId");
+		if (crewEventId == null) {
+//	 		crewEventId = "125616";
+			crewEventId = "0";
+		}
+
+		PreparedQuery riders = getParticipants(riderEventId);
+		PreparedQuery crew = getParticipants(crewEventId);
 
 		resp.getWriter().println();
 		resp.getWriter().println("Riders: " + riders.countEntities(FetchOptions.Builder.withDefaults()) + ", Crew: " + crew.countEntities(FetchOptions.Builder.withDefaults()));
@@ -50,7 +61,8 @@ public class Bikerally_dashboardServlet extends HttpServlet {
 			String firstName = (String) participant.getProperty("firstName");
 			String lastName = (String) participant.getProperty("lastName");
 			String riderNumber = (String) participant.getProperty("riderNumber");
-			resp.getWriter().println(String.format("%3s", index += 1) + ": " + id + " " + String.format("%3s", riderNumber) + " " + firstName + " " + lastName);
+			String registrationDate = (String) participant.getProperty("registrationDate");
+			resp.getWriter().println(String.format("%3s", index += 1) + ": " + id + " " + String.format("%3s", riderNumber) + " " + firstName + " " + lastName + " (" + registrationDate + ")");
 		}
 	}
 

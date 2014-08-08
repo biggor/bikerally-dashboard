@@ -46,15 +46,24 @@
 	}%>
 
 	<%
-		String riderEventId = "124639";
-		String crewEventId = "125616";
+	String riderEventId = request.getParameter("riderEventId");
+	if (riderEventId == null) {
+// 		riderEventId = "124639";
+		riderEventId = "148513";
+	}
+	String crewEventId = request.getParameter("crewEventId");
+	if (crewEventId == null) {
+// 		crewEventId = "125616";
+		crewEventId = "0";
+	}
+
 		PreparedQuery riders = getParticipants(riderEventId);
 		PreparedQuery crew = getParticipants(crewEventId);
 	%>
 	<!-- Home page -->
 	<div id="home" data-role="page" style="text-align: center">
 		<div data-role="header" data-position="fixed">
-			<h3>Bike Rally 2014</h3>
+			<h3>Bike Rally dashboard</h3>
 		</div>
 		<div role="main" class="ui-content">
 			<div class="ui-grid-a" style="height: 125px">

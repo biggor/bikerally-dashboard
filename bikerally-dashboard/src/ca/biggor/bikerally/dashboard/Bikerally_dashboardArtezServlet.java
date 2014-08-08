@@ -23,9 +23,17 @@ public class Bikerally_dashboardArtezServlet extends HttpServlet {
 		resp.getWriter().println("BikeRally - dashboardArtez");
 		resp.getWriter().println();
 
-		String riderEventId = "124639";
-		String crewEventId = "125616";
-		
+		String riderEventId = req.getParameter("riderEventId");
+		if (riderEventId == null) {
+//	 		riderEventId = "124639";
+			riderEventId = "148513";
+		}
+		String crewEventId = req.getParameter("crewEventId");
+		if (crewEventId == null) {
+//	 		crewEventId = "125616";
+			crewEventId = "0";
+		}
+
 		try {
 			resp.getWriter().println("Artez: " + getEventParticipantsCount(riderEventId) + " riders, " + getEventParticipantsCount(crewEventId) + " crew");
 			resp.getWriter().println(getEventTotalCollected(riderEventId) + getEventTotalCollected(crewEventId));

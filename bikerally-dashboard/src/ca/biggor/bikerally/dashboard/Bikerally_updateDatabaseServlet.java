@@ -32,12 +32,23 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		resp.getWriter().println("BikeRally - updateDatabase");
 		resp.getWriter().println();
 
+		String riderEventId = req.getParameter("riderEventId");
+		if (riderEventId == null) {
+//	 		riderEventId = "124639";
+			riderEventId = "148513";
+		}
+		String crewEventId = req.getParameter("crewEventId");
+		if (crewEventId == null) {
+//	 		crewEventId = "125616";
+			crewEventId = "0";
+		}
+
 		// get the participant list from artez
 		List<String> artezRiderList = new ArrayList<String>();
 		List<String> artezCrewList = new ArrayList<String>();
 
-		URL ridersUrl = new URL("http://my.e2rm.com/webgetservice/get.asmx/getAllRegIDs?eventID=124639&Source=");
-		URL crewUrl = new URL("http://my.e2rm.com/webgetservice/get.asmx/getAllRegIDs?eventID=125616&Source=");
+		URL ridersUrl = new URL("http://my.e2rm.com/webgetservice/get.asmx/getAllRegIDs?eventID=" + riderEventId + "&Source=");
+		URL crewUrl = new URL("http://my.e2rm.com/webgetservice/get.asmx/getAllRegIDs?eventID=" + crewEventId + "&Source=");
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		try {
@@ -61,13 +72,13 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		resp.getWriter().println("Artez db (master): " + artezRiderList.size() + " riders, " + artezCrewList.size() + " crew");
 
 		// get the participant list from the local db		
-		List<Entity> riderList = getParticipants("124639");
-		List<Entity> crewList = getParticipants("125616");
+		List<Entity> riderList = getParticipants(riderEventId);
+		List<Entity> crewList = getParticipants(crewEventId);
 
 		// debug
 //		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
 //		ds.delete(riderList.get(0).getKey());
-//		riderList = getParticipants("124639");
+//		riderList = getParticipants(riderEventId);
 		// end debug
 
 		resp.getWriter().println("Local db (slave): " + riderList.size() + " riders, " + crewList.size() + " crew");
@@ -75,11 +86,11 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		// compare and sync (both ways in case participants drop - check how the artez api handles this)
 		resp.getWriter().println();
 		resp.getWriter().println("Rider updates");
-		syncDatabases(artezRiderList, riderList, "124639", req, resp);
+		syncDatabases(artezRiderList, riderList, riderEventId, req, resp);
 
 		resp.getWriter().println();
 		resp.getWriter().println("Crew updates");
-		syncDatabases(artezCrewList, crewList, "125616", req, resp);
+		syncDatabases(artezCrewList, crewList, crewEventId, req, resp);
 	}
 
 	private void syncDatabases(List<String> master, List<Entity> slave, String eventId, HttpServletRequest req, HttpServletResponse resp) throws IOException {
