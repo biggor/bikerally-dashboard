@@ -1,7 +1,6 @@
 package ca.biggor.bikerally.dashboard;
 
 import java.io.IOException;
-import java.text.NumberFormat;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
