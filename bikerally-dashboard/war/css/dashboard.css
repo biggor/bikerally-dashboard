@@ -1,0 +1,10 @@
+body {
+	padding-top: 50px;
+}
+
+.row h2 {
+	margin: 0;
+}
+
+.row i {color:#b2afaa;}
+.row div:hover i {color:#19bc9c;}
