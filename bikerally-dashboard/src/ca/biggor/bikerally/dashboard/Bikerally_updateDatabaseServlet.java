@@ -40,7 +40,7 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		String crewEventId = req.getParameter("crewEventId");
 		if (crewEventId == null) {
 //	 		crewEventId = "125616";
-			crewEventId = "0";
+			crewEventId = "153652";
 		}
 
 		// get the participant list from artez
@@ -133,10 +133,13 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 
 				// otherwise the current elements match; consider the next pair
 			} else {
+				Entity participant = slave.get(x);
 				if (req.getParameter("updateAll") != null) {
-					datastore.put(getParticipantDetails(slave.get(x)));
+					getParticipantDetails(slave.get(x));
 					resp.getWriter().println(slave.get(x).getProperty("id") + "*");
 				}
+				participant.setProperty("status", "active");
+				datastore.put(participant);
 				x += 1;
 				y += 1;
 			}
