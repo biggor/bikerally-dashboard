@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
 	<cron>
-		<url>/bikerally_updateDatabase</url>
-		<description>soft sync current year with Artez database every 2 hours</description>
-		<schedule>every 2 hours</schedule>
+		<url>/bikerally_recache</url>
+		<description>recache event totals at 6 am</description>
+		<schedule>every day 11:00</schedule>
+	</cron>
+	<cron>
+		<url>/bikerally_recache</url>
+		<description>recache event totals at 6 pm</description>
+		<schedule>every day 23:00</schedule>
 	</cron>
 	<cron>
 		<url><![CDATA[/bikerally_updateDatabase?updateAll=true]]></url>
 		<description>full sync current year with Artez database once a day</description>
-		<schedule>every day 21:00</schedule>
+		<schedule>every day 11:00</schedule>
 	</cron>
 </cronentries>

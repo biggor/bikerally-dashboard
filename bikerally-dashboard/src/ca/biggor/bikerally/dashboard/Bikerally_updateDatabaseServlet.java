@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -87,10 +89,13 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		resp.getWriter().println();
 		resp.getWriter().println("Rider updates");
 		syncDatabases(artezRiderList, riderList, riderEventId, req, resp);
+		Bikerally_util.deleteEventTotalsMemcache(riderEventId);
 
 		resp.getWriter().println();
 		resp.getWriter().println("Crew updates");
 		syncDatabases(artezCrewList, crewList, crewEventId, req, resp);
+		Bikerally_util.deleteEventTotalsMemcache(crewEventId);
+		
 	}
 
 	private void syncDatabases(List<String> master, List<Entity> slave, String eventId, HttpServletRequest req, HttpServletResponse resp) throws IOException {

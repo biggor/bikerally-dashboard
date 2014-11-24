@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,25 +19,36 @@ import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
-import com.google.appengine.api.memcache.Expiration;
 import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.MemcacheServiceFactory;
 
 public class Bikerally_util {
-	
+
 	static MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
 
 	static String getParticipantCount(String eventId) {
 		String participantCount = (String) memcache.get(eventId + "-participantCount");
 		if (participantCount == null) {
-			participantCount = "0";
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			Query query = new Query(eventId).setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
 			participantCount = Integer.toString(datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults()));
-			memcache.put(eventId + "-participantCount", participantCount, Expiration.byDeltaSeconds(3600));
+			memcache.put(eventId + "-participantCount", participantCount);
 		}
 
 		return participantCount;
+	}
+
+	static Integer getEventParticipantCount(String eventId) throws ParserConfigurationException, SAXException, IOException {
+		Integer eventParticipantCount = (Integer) memcache.get(eventId + "-eventParticipantCount");
+		if (eventParticipantCount == null) {
+			URL url = new URL("http://my.e2rm.com/webgetservice/get.asmx/getAllRegIDs?eventID=" + eventId + "&Source=");
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			Document doc = db.parse(url.openStream());
+			eventParticipantCount = doc.getElementsByTagName("registrantID").getLength();
+			memcache.put(eventId + "-eventParticipantCount", eventParticipantCount);
+		}
+		return eventParticipantCount;
 	}
 
 	static Integer getEventTotalCollected(String eventId) throws ParserConfigurationException, SAXException, IOException {
@@ -50,7 +62,7 @@ public class Bikerally_util {
 			Integer eventOnlineTotalCollected = Float.valueOf(doc.getElementsByTagName("eventOnlineTotalCollected").item(0).getTextContent()).intValue();
 			Integer eventOfflineTotalCollected = Float.valueOf(doc.getElementsByTagName("eventOfflineTotalCollected").item(0).getTextContent()).intValue();
 			eventTotalCollected = eventOnlineTotalCollected + eventOfflineTotalCollected;
-			memcache.put(eventId + "-eventTotalCollected", eventTotalCollected, Expiration.byDeltaSeconds(3600));
+			memcache.put(eventId + "-eventTotalCollected", eventTotalCollected);
 		}
 
 		return eventTotalCollected;
@@ -100,16 +112,32 @@ public class Bikerally_util {
 		default:
 			break;
 		}
-		
+
 		String byDateString = artezDateFormat.format(byDate.getTime());
-		String countRegistrationByDate = (String) memcache.get(eventId + "-" + byDateString);
-		if (countRegistrationByDate == null) {
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			Query query = new Query(eventId).setFilter(new FilterPredicate("registrationDate", FilterOperator.LESS_THAN, byDateString));
-			countRegistrationByDate = Integer.toString(datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults()));
-			memcache.put(eventId + "-" + byDateString, countRegistrationByDate);
+		
+		String countRegistrationByDate = "0";
+		if (byDate.compareTo(new GregorianCalendar()) >= 0) {
+			try {
+				countRegistrationByDate = Integer.toString(getEventParticipantCount(eventId));
+			} catch (ParserConfigurationException | SAXException | IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			countRegistrationByDate = (String) memcache.get(eventId + "-" + byDateString);
+			if (countRegistrationByDate == null) {
+				DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+				Query query = new Query(eventId).setFilter(new FilterPredicate("registrationDate", FilterOperator.LESS_THAN, byDateString));
+				countRegistrationByDate = Integer.toString(datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults()));
+				memcache.put(eventId + "-" + byDateString, countRegistrationByDate);
+			}
 		}
 
 		return countRegistrationByDate;
+	}
+	
+	static void deleteEventTotalsMemcache (String eventId) {
+		memcache.delete(eventId + "-participantCount");
+		memcache.delete(eventId + "-eventParticipantCount");
+		memcache.delete(eventId + "-eventTotalCollected");
 	}
 }
