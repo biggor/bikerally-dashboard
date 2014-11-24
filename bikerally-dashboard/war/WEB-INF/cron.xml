@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
 	<cron>
-		<url>/bikerally_updateDatabase?updateAll=true</url>
-		<description>Sync with Artez database once a day</description>
+		<url>/bikerally_updateDatabase</url>
+		<description>soft sync current year with Artez database every 2 hours</description>
 		<schedule>every 2 hours</schedule>
 	</cron>
 	<cron>
-		<url><![CDATA[/bikerally_updateDatabase?updateAll=true&riderEventId=124639&crewEventId=125616]]></url>
-		<description>Sync with Artez database once a day</description>
+		<url><![CDATA[/bikerally_updateDatabase?updateAll=true]]></url>
+		<description>full sync current year with Artez database once a day</description>
 		<schedule>every day 21:00</schedule>
 	</cron>
 </cronentries>

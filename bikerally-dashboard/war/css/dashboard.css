@@ -6,5 +6,18 @@ body {
 	margin: 0;
 }
 
-.row i {color:#b2afaa;}
-.row div:hover i {color:#19bc9c;}
+.row i {
+	color: #E2E3E4;
+}
+/* .row div:hover i {color:#19bc9c;} */
+.gray {
+	color: #b2afaa;
+}
+
+.bikerally_red {
+	color: #e21836;
+}
+
+.pwa_purple {
+	color: #872d91;
+}
