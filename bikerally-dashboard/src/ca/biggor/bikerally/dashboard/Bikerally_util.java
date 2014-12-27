@@ -135,9 +135,22 @@ public class Bikerally_util {
 		return countRegistrationByDate;
 	}
 	
+	static String getRecacheTime() {
+		
+		SimpleDateFormat stringDateFormat = new SimpleDateFormat("MMM dd, yyyy - HH:mm:ss");
+		String recacheTime = (String) memcache.get("recacheTime");
+		if (recacheTime == null) {
+			recacheTime = stringDateFormat.format(new GregorianCalendar().getTime());
+			memcache.put("recacheTime", recacheTime);
+		}
+		
+		return recacheTime;
+	}
+	
 	static void deleteEventTotalsMemcache (String eventId) {
 		memcache.delete(eventId + "-participantCount");
 		memcache.delete(eventId + "-eventParticipantCount");
 		memcache.delete(eventId + "-eventTotalCollected");
+		memcache.delete("recacheTime");
 	}
 }

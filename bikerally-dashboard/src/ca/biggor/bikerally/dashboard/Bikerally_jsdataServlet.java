@@ -25,11 +25,13 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		String ridersEventId = "148513";
 		String crewEventId = "153652";
 
+		String recacheTime = "";
 		Integer ridersTotalCollected = 0;
 		Integer crewTotalCollected = 0;
 		Integer ridersRegistered = 0;
 		Integer crewRegistered = 0;
 		try {
+			recacheTime = Bikerally_util.getRecacheTime();
 			ridersTotalCollected = Bikerally_util.getEventTotalCollected(ridersEventId);
 			crewTotalCollected = Bikerally_util.getEventTotalCollected(crewEventId);
 			ridersRegistered = Bikerally_util.getEventParticipantCount(ridersEventId);
@@ -52,6 +54,7 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 //		String riders2015 = Bikerally_util.getCountRegistrationByDate("148513", new GregorianCalendar());
 //		String crew2015 = Bikerally_util.getCountRegistrationByDate("153652", new GregorianCalendar());
 
+		resp.getWriter().println("document.getElementById('recacheTime').innerHTML='" + recacheTime + "';");
 		resp.getWriter().println("document.getElementById('totalRaised').innerHTML='$" + totalRaised + "';");
 		resp.getWriter().println("document.getElementById('ridersRaised').innerHTML='$" + ridersTotalCollected + "';");
 		resp.getWriter().println("document.getElementById('crewRaised').innerHTML='$" + crewTotalCollected + "';");

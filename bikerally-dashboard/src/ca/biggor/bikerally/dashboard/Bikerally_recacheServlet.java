@@ -19,7 +19,7 @@ public class Bikerally_recacheServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		
 		Bikerally_util.deleteEventTotalsMemcache("148513");
-		out.println("recached: 148513, 153652");
 		Bikerally_util.deleteEventTotalsMemcache("153652");
+		out.println("recached: 148513, 153652");
 	}
 }
