@@ -14,7 +14,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 @SuppressWarnings("serial")
-public class Bikerally_jsdataServlet extends HttpServlet {
+public class Bikerally_jsdataDollarChartServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -62,23 +62,8 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		resp.getWriter().println("document.getElementById('crewRegistered').innerHTML='" + crewRegistered + "';");
 		resp.getWriter().println("");
 
-		resp.getWriter().println("document.getElementById('byDate').innerHTML='" + monthDayFormat.format(new GregorianCalendar().getTime()) + "';");
-		resp.getWriter().println("document.getElementById('riders2010').innerHTML='" + riders2010 + "<span class=\"gray\">/300 (314)</span>';");
-		resp.getWriter().println("document.getElementById('crew2010').innerHTML='" + crew2010 + "<span class=\"gray\">/86 (63)</span>';");
-		resp.getWriter().println("document.getElementById('riders2011').innerHTML='" + riders2011 + "<span class=\"gray\">/*298 (355)</span>';");
-		resp.getWriter().println("document.getElementById('crew2011').innerHTML='" + crew2011 + "<span class=\"gray\">/*103 (73)</span>';");
-		resp.getWriter().println("document.getElementById('riders2012').innerHTML='" + riders2012 + "<span class=\"gray\">/283 (334)</span>';");
-		resp.getWriter().println("document.getElementById('crew2012').innerHTML='" + crew2012 + "<span class=\"gray\">/113 (110)</span>';");
-		resp.getWriter().println("document.getElementById('riders2013').innerHTML='" + riders2013 + "<span class=\"gray\">/302 (390)</span>';");
-		resp.getWriter().println("document.getElementById('crew2013').innerHTML='" + crew2013 + "<span class=\"gray\">/135 (102)</span>';");
-		resp.getWriter().println("document.getElementById('riders2014').innerHTML='" + riders2014 + "<span class=\"gray\">/*184 (254)</span>';");
-		resp.getWriter().println("document.getElementById('crew2014').innerHTML='" + crew2014 + "<span class=\"gray\">/*95 (95)</span>';");
-		resp.getWriter().println("document.getElementById('riders2015').innerHTML='" + ridersRegistered + "<span class=\"gray\"> (" + ridersRegistered + ")</span>';");
-		resp.getWriter().println("document.getElementById('crew2015').innerHTML='" + crewRegistered + "<span class=\"gray\"> (" + crewRegistered + ")</span>';");
-		resp.getWriter().println("");
-
 		resp.getWriter().println("Morris.Line({");
-		resp.getWriter().println("element: 'chart',");
+		resp.getWriter().println("element: 'dollar-chart',");
 		resp.getWriter().println("data: [");
 		resp.getWriter().println("{ month: '2014-07', 2010:   0, 2011:   4, 2012:   0, 2013:  11, 2014:   1, 2015: " + Bikerally_util.getCountRegistrationByDate("148513", new GregorianCalendar(2014, Calendar.AUGUST, 1, 0, 0, 0)) + " },");
 		resp.getWriter().println("{ month: '2014-08', 2010:   1, 2011:  26, 2012:  76, 2013:  63, 2014:  44, 2015: " + Bikerally_util.getCountRegistrationByDate("148513", new GregorianCalendar(2014, Calendar.SEPTEMBER, 1, 0, 0, 0)) + " },");
@@ -107,8 +92,6 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		resp.getWriter().println("resize: true,");
 		resp.getWriter().println("behaveLikeLine: true");
 		resp.getWriter().println("});");
-		resp.getWriter().println("");
-
 	}
 
 
