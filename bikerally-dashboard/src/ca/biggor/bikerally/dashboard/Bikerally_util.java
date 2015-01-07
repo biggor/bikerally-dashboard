@@ -5,6 +5,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -140,6 +141,7 @@ public class Bikerally_util {
 		SimpleDateFormat stringDateFormat = new SimpleDateFormat("MMM dd, yyyy - HH:mm:ss");
 		String recacheTime = (String) memcache.get("recacheTime");
 		if (recacheTime == null) {
+			stringDateFormat.setTimeZone(TimeZone.getTimeZone("EST"));
 			recacheTime = stringDateFormat.format(new GregorianCalendar().getTime());
 			memcache.put("recacheTime", recacheTime);
 		}
