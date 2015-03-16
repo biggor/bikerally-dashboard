@@ -44,6 +44,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>Bikerally_recacheServlet</servlet-name>
 		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_recacheServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Bikerally_jsonRouteDetailsServlet</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonRouteDetailsServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Bikerally_dashboard</servlet-name>
@@ -84,6 +88,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>Bikerally_recacheServlet</servlet-name>
 		<url-pattern>/bikerally_recache</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Bikerally_jsonRouteDetailsServlet</servlet-name>
+		<url-pattern>/bikerally_routedetails</url-pattern>
 	</servlet-mapping>
 
 

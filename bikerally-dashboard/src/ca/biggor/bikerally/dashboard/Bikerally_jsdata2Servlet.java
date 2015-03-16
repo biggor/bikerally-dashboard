@@ -1,9 +1,6 @@
 package ca.biggor.bikerally.dashboard;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,9 +15,6 @@ public class Bikerally_jsdata2Servlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		Calendar today = new GregorianCalendar();
-		SimpleDateFormat monthDayFormat = new SimpleDateFormat("MMM-dd");
 
 		String ridersEventId = "148513";
 		String crewEventId = "153652";

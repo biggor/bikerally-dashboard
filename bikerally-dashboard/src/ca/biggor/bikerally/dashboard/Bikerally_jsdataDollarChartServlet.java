@@ -1,7 +1,6 @@
 package ca.biggor.bikerally.dashboard;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -18,9 +17,6 @@ public class Bikerally_jsdataDollarChartServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-		Calendar today = new GregorianCalendar();
-		SimpleDateFormat monthDayFormat = new SimpleDateFormat("MMM-dd");
 
 		String ridersEventId = "148513";
 		String crewEventId = "153652";
@@ -40,19 +36,6 @@ public class Bikerally_jsdataDollarChartServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		Integer totalRaised = ridersTotalCollected + crewTotalCollected;
-
-		String riders2010 = Bikerally_util.getCountRegistrationByDate("39408", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String crew2010 = Bikerally_util.getCountRegistrationByDate("39410", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String riders2011 = Bikerally_util.getCountRegistrationByDate("52935", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String crew2011 = Bikerally_util.getCountRegistrationByDate("57207", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String riders2012 = Bikerally_util.getCountRegistrationByDate("71589", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String crew2012 = Bikerally_util.getCountRegistrationByDate("75996", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String riders2013 = Bikerally_util.getCountRegistrationByDate("96529", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String crew2013 = Bikerally_util.getCountRegistrationByDate("97260", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String riders2014 = Bikerally_util.getCountRegistrationByDate("124639", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String crew2014 = Bikerally_util.getCountRegistrationByDate("125616", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-//		String riders2015 = Bikerally_util.getCountRegistrationByDate("148513", new GregorianCalendar());
-//		String crew2015 = Bikerally_util.getCountRegistrationByDate("153652", new GregorianCalendar());
 
 		resp.getWriter().println("document.getElementById('recacheTime').innerHTML='" + recacheTime + "';");
 		resp.getWriter().println("document.getElementById('totalRaised').innerHTML='$" + totalRaised + "';");
