@@ -8,16 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
 @SuppressWarnings("serial")
 public class Bikerally_jsonRouteDetailsServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		String routeId = req.getParameter("routeid");
+
 		resp.setContentType("text/plain");
 		PrintWriter out = resp.getWriter();
 		
-		Route route = new Route("12345");
+		Route route = new Route(routeId);
 		out.print(route.toJson());
 	}
 }
