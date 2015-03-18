@@ -21,7 +21,7 @@ public class Bikerally_jsonRouteDetailsServlet extends HttpServlet {
 
 		String routeId = req.getParameter("routeid");
 		String recache = req.getParameter("recache");
-		if (routeId != null) {
+		if (routeId != null && !routeId.trim().isEmpty()) {
 			if (recache != null && recache.equals("true")) {
 				Bikerally_util.deleteJsonRoute(routeId);
 			}
