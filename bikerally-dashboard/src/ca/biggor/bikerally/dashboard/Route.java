@@ -3,11 +3,9 @@ package ca.biggor.bikerally.dashboard;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -88,6 +86,7 @@ public class Route {
 				index++;
 			}
 		}
+		reader.close();
 		// this.cuesheet.add(new CoursePoint("Start", "Start of route", "", 0,
 		// 0, 0, 0));
 		// this.cuesheet.add(new CoursePoint("End", "End of route", "", 0, 0, 0,

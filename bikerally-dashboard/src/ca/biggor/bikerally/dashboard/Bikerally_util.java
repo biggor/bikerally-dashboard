@@ -149,6 +149,20 @@ public class Bikerally_util {
 		return recacheTime;
 	}
 	
+	static String getJsonRoute(String routeId) throws IOException {
+		String jsonRoute = (String) memcache.get(routeId + "-jsonString");
+		if (jsonRoute == null) {
+			Route route = new Route(routeId);
+			jsonRoute = route.toJson();
+			memcache.put(routeId + "-jsonString", jsonRoute);
+		}
+		return jsonRoute;
+	}
+	
+	static void deleteJsonRoute(String routeId) {
+		memcache.delete(routeId + "-jsonString");
+	}
+	
 	static void deleteEventTotalsMemcache (String eventId) {
 		memcache.delete(eventId + "-participantCount");
 		memcache.delete(eventId + "-eventParticipantCount");
