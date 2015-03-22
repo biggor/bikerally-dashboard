@@ -27,12 +27,12 @@ public class Bikerally_util {
 
 	static MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
 
-	static String getParticipantCount(String eventId) {
-		String participantCount = (String) memcache.get(eventId + "-participantCount");
+	static Integer getParticipantCount(String eventId) {
+		Integer participantCount = (Integer) memcache.get(eventId + "-participantCount");
 		if (participantCount == null) {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			Query query = new Query(eventId).setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
-			participantCount = Integer.toString(datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults()));
+			participantCount = datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults());
 			memcache.put(eventId + "-participantCount", participantCount);
 		}
 

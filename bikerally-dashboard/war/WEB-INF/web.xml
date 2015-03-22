@@ -21,10 +21,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_updateDatabaseServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Bikerally_checkin</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_checkinServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>Bikerally_cuesheet</servlet-name>
 		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_cuesheetServlet</servlet-class>
 	</servlet>
@@ -64,10 +60,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>Bikerally_updateDatabase</servlet-name>
 		<url-pattern>/bikerally_updateDatabase</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Bikerally_checkin</servlet-name>
-		<url-pattern>/bikerally_checkin</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Bikerally_cuesheet</servlet-name>
