@@ -28,14 +28,18 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		String recacheTime = "";
 		Integer ridersTotalCollected = 0;
 		Integer crewTotalCollected = 0;
-		Integer ridersRegistered = 0;
-		Integer crewRegistered = 0;
+		Integer activeRiders = 0;
+		Integer activeCrew = 0;
+		Integer registeredRiders = 0;
+		Integer registeredCrew = 0;
 		try {
 			recacheTime = Bikerally_util.getRecacheTime();
 			ridersTotalCollected = Bikerally_util.getEventTotalCollected(ridersEventId);
 			crewTotalCollected = Bikerally_util.getEventTotalCollected(crewEventId);
-			ridersRegistered = Bikerally_util.getEventParticipantCount(ridersEventId);
-			crewRegistered = Bikerally_util.getEventParticipantCount(crewEventId);
+			activeRiders = Bikerally_util.getParticipantCount(ridersEventId);
+			activeCrew = Bikerally_util.getParticipantCount(crewEventId);
+			registeredRiders = Bikerally_util.getEventParticipantCount(ridersEventId);
+			registeredCrew = Bikerally_util.getEventParticipantCount(crewEventId);
 		} catch (ParserConfigurationException | SAXException e) {
 			e.printStackTrace();
 		}
@@ -58,8 +62,8 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		resp.getWriter().println("document.getElementById('totalRaised').innerHTML='$" + totalRaised + "';");
 		resp.getWriter().println("document.getElementById('ridersRaised').innerHTML='$" + ridersTotalCollected + "';");
 		resp.getWriter().println("document.getElementById('crewRaised').innerHTML='$" + crewTotalCollected + "';");
-		resp.getWriter().println("document.getElementById('ridersRegistered').innerHTML='" + ridersRegistered + "';");
-		resp.getWriter().println("document.getElementById('crewRegistered').innerHTML='" + crewRegistered + "';");
+		resp.getWriter().println("document.getElementById('ridersRegistered').innerHTML='" + activeRiders + "';");
+		resp.getWriter().println("document.getElementById('crewRegistered').innerHTML='" + activeCrew + "';");
 		resp.getWriter().println("");
 
 		resp.getWriter().println("document.getElementById('byDate').innerHTML='" + monthDayFormat.format(new GregorianCalendar().getTime()) + "';");
@@ -73,8 +77,8 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		resp.getWriter().println("document.getElementById('crew2013').innerHTML='" + crew2013 + "<span class=\"gray\">/135 (102)</span>';");
 		resp.getWriter().println("document.getElementById('riders2014').innerHTML='" + riders2014 + "<span class=\"gray\">/*184 (254)</span>';");
 		resp.getWriter().println("document.getElementById('crew2014').innerHTML='" + crew2014 + "<span class=\"gray\">/*95 (95)</span>';");
-		resp.getWriter().println("document.getElementById('riders2015').innerHTML='" + ridersRegistered + "<span class=\"gray\"> (" + ridersRegistered + ")</span>';");
-		resp.getWriter().println("document.getElementById('crew2015').innerHTML='" + crewRegistered + "<span class=\"gray\"> (" + crewRegistered + ")</span>';");
+		resp.getWriter().println("document.getElementById('riders2015').innerHTML='" + activeRiders + "<span class=\"gray\"> (" + registeredRiders + ")</span>';");
+		resp.getWriter().println("document.getElementById('crew2015').innerHTML='" + activeCrew + "<span class=\"gray\"> (" + registeredCrew + ")</span>';");
 		resp.getWriter().println("");
 
 		resp.getWriter().println("Morris.Line({");
