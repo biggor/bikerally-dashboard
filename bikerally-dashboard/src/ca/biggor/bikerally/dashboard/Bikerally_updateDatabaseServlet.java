@@ -36,12 +36,12 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 
 		String riderEventId = req.getParameter("riderEventId");
 		if (riderEventId == null) {
-//	 		riderEventId = "124639";
+			// riderEventId = "124639";
 			riderEventId = "148513";
 		}
 		String crewEventId = req.getParameter("crewEventId");
 		if (crewEventId == null) {
-//	 		crewEventId = "125616";
+			// crewEventId = "125616";
 			crewEventId = "153652";
 		}
 
@@ -73,19 +73,20 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 
 		resp.getWriter().println("Artez db (master): " + artezRiderList.size() + " riders, " + artezCrewList.size() + " crew");
 
-		// get the participant list from the local db		
+		// get the participant list from the local db
 		List<Entity> riderList = getParticipants(riderEventId);
 		List<Entity> crewList = getParticipants(crewEventId);
 
 		// debug
-//		DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
-//		ds.delete(riderList.get(0).getKey());
-//		riderList = getParticipants(riderEventId);
+		// DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
+		// ds.delete(riderList.get(0).getKey());
+		// riderList = getParticipants(riderEventId);
 		// end debug
 
 		resp.getWriter().println("Local db (slave): " + riderList.size() + " riders, " + crewList.size() + " crew");
 
-		// compare and sync (both ways in case participants drop - check how the artez api handles this)
+		// compare and sync (both ways in case participants drop - check how the
+		// artez api handles this)
 		resp.getWriter().println();
 		resp.getWriter().println("Rider updates");
 		syncDatabases(artezRiderList, riderList, riderEventId, req, resp);
@@ -95,41 +96,45 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		resp.getWriter().println("Crew updates");
 		syncDatabases(artezCrewList, crewList, crewEventId, req, resp);
 		Bikerally_util.deleteEventTotalsMemcache(crewEventId);
-		
+
 	}
 
 	private void syncDatabases(List<String> master, List<Entity> slave, String eventId, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		int x = 0;
 		int y = 0;
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		
+
 		while ((x < slave.size()) || (y < master.size())) {
-			// If the master list is exhausted, delete the current element from the slave list
+			// If the master list is exhausted, delete the current element from
+			// the slave list
 			if (y >= master.size()) {
-//				datastore.delete(slave.get(x).getKey());
+				// datastore.delete(slave.get(x).getKey());
 				Entity participant = slave.get(x);
 				participant.setProperty("status", "deleted");
 				datastore.put(participant);
 				resp.getWriter().println(slave.get(x).getProperty("id") + "-");
 				x += 1;
 
-				// otherwise, if the slave list is exhausted, insert the current element from the master list
+				// otherwise, if the slave list is exhausted, insert the current
+				// element from the master list
 			} else if (x >= slave.size()) {
 				Entity participant = addParticipant(master.get(y), eventId);
 				datastore.put(getParticipantDetails(participant));
 				resp.getWriter().println(master.get(y) + "+");
 				y += 1;
 
-				// otherwise, if the current slave element precedes the current master element, delete the current slave element.
+				// otherwise, if the current slave element precedes the current
+				// master element, delete the current slave element.
 			} else if (Integer.valueOf(slave.get(x).getProperty("id").toString()) < Integer.valueOf(master.get(y))) {
-//				datastore.delete(slave.get(x).getKey());
+				// datastore.delete(slave.get(x).getKey());
 				Entity participant = slave.get(x);
 				participant.setProperty("status", "deleted");
 				datastore.put(participant);
 				resp.getWriter().println(slave.get(x).getProperty("id") + "-");
 				x += 1;
 
-				// # otherwise, if the current slave element follows the current master element, insert the current master element.
+				// # otherwise, if the current slave element follows the current
+				// master element, insert the current master element.
 			} else if (Integer.valueOf(slave.get(x).getProperty("id").toString()) > Integer.valueOf(master.get(y))) {
 				Entity participant = addParticipant(master.get(y), eventId);
 				datastore.put(getParticipantDetails(participant));
@@ -140,11 +145,14 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 			} else {
 				Entity participant = slave.get(x);
 				if (req.getParameter("updateAll") != null) {
-					getParticipantDetails(slave.get(x));
-					resp.getWriter().println(slave.get(x).getProperty("id") + "*");
+					getParticipantDetails(participant);
+					resp.getWriter().println(participant.getProperty("id") + "*");
 				}
-				participant.setProperty("status", "active");
-				datastore.put(participant);
+				String status = participant.getProperty("status").toString();
+				if (status != null && !status.equals("virtual")) {
+					participant.setProperty("status", "active");
+					datastore.put(participant);
+				}
 				x += 1;
 				y += 1;
 			}
@@ -157,8 +165,8 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		PreparedQuery participants = datastore.prepare(q);
 		return participants.asList(FetchOptions.Builder.withDefaults());
 	}
-	
-	private Entity addParticipant(String id, String eventId){
+
+	private Entity addParticipant(String id, String eventId) {
 		Entity p = new Entity(eventId);
 		p.setProperty("id", id);
 		// custom properties
@@ -166,8 +174,8 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		p.setProperty("status", "active");
 		return p;
 	}
-	
-	private Entity getParticipantDetails(Entity p){
+
+	private Entity getParticipantDetails(Entity p) {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		try {
 			URL url = new URL("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID=" + p.getProperty("id") + "&Source=&uniqueID=");
@@ -192,9 +200,9 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 			p.setProperty("displayOptin", doc.getElementsByTagName("displayOptin").item(0).getTextContent());
 			p.setProperty("emailOptin", doc.getElementsByTagName("emailOptin").item(0).getTextContent());
 			// custom properties
-//			p.setProperty("riderNumber", "");
-//			p.setProperty("status", "active");
-			
+			// p.setProperty("riderNumber", "");
+			// p.setProperty("status", "active");
+
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
@@ -204,9 +212,8 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return p;
 	}
 
 }
-
