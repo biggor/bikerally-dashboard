@@ -16,7 +16,9 @@ import org.xml.sax.SAXException;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
+import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
@@ -26,6 +28,25 @@ import com.google.appengine.api.memcache.MemcacheServiceFactory;
 public class Bikerally_util {
 
 	static MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
+
+	static Integer getFamilyCount(String eventId) {
+		Integer familyCount = (Integer) memcache.get(eventId + "-familyCount");
+		if (familyCount == null) {
+			familyCount = 0;
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			Query query = new Query(eventId).setFilter(new FilterPredicate("status", FilterOperator.EQUAL , "active"));
+			PreparedQuery pq = datastore.prepare(query);
+			for(Entity result : pq.asIterable()){
+				String lastName = (String) result.getProperty("lastName");
+				if (lastName.contains("and ")) {
+					familyCount++;
+				}
+			}
+			memcache.put(eventId + "-familyCount", familyCount);
+		}
+
+		return familyCount;
+	}
 
 	static Integer getParticipantCount(String eventId) {
 		Integer participantCount = (Integer) memcache.get(eventId + "-participantCount");
@@ -164,6 +185,7 @@ public class Bikerally_util {
 	}
 	
 	static void deleteEventTotalsMemcache (String eventId) {
+		memcache.delete(eventId + "-familyCount");
 		memcache.delete(eventId + "-participantCount");
 		memcache.delete(eventId + "-eventParticipantCount");
 		memcache.delete(eventId + "-eventTotalCollected");
