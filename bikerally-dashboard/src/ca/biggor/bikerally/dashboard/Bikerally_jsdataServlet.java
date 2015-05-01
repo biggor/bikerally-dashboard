@@ -28,6 +28,7 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		String recacheTime = "";
 		Integer ridersTotalCollected = 0;
 		Integer crewTotalCollected = 0;
+		Integer familyRiders = 0;
 		Integer activeRiders = 0;
 		Integer activeCrew = 0;
 		Integer registeredRiders = 0;
@@ -36,7 +37,8 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 			recacheTime = Bikerally_util.getRecacheTime();
 			ridersTotalCollected = Bikerally_util.getEventTotalCollected(ridersEventId);
 			crewTotalCollected = Bikerally_util.getEventTotalCollected(crewEventId);
-			activeRiders = Bikerally_util.getParticipantCount(ridersEventId);
+			familyRiders = Bikerally_util.getFamilyCount(ridersEventId);
+			activeRiders = Bikerally_util.getParticipantCount(ridersEventId) + familyRiders;
 			activeCrew = Bikerally_util.getParticipantCount(crewEventId);
 			registeredRiders = Bikerally_util.getEventParticipantCount(ridersEventId);
 			registeredCrew = Bikerally_util.getEventParticipantCount(crewEventId);
