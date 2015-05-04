@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,6 +15,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -200,7 +204,23 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 			p.setProperty("displayOptin", doc.getElementsByTagName("displayOptin").item(0).getTextContent());
 			p.setProperty("emailOptin", doc.getElementsByTagName("emailOptin").item(0).getTextContent());
 			// custom properties
-			// p.setProperty("riderNumber", "");
+			org.jsoup.nodes.Document participantPage = Jsoup.connect(p.getProperty("participantLink").toString()).timeout(10000).get();
+			Elements udfanswers = participantPage.select("div.udfanswerRow");
+			for (Element udfanswer : udfanswers) {
+				if (udfanswer.previousElementSibling() != null && udfanswer.previousElementSibling().text().trim().equals("Rider Years")) {
+					p.setProperty("riderYears", udfanswer.text());
+				}
+				if (udfanswer.previousElementSibling() != null && udfanswer.previousElementSibling().text().trim().equals("Rider Number")) {
+					p.setProperty("riderNumber", udfanswer.text());
+				}
+			}
+			Elements teamInfo = participantPage.select("a#ctl00_ctl00_mainContent_bodyContentPlaceHolder_hyperLinkViewTeamPage");
+			if (teamInfo.size() > 0) {
+				p.setProperty("teamPageURL", teamInfo.get(0).attributes().get("href"));
+				p.setProperty("teamId", teamInfo.get(0).attributes().get("href").split("=")[1]);
+			}
+			System.out.println(p.getProperty("teamId"));
+
 			// p.setProperty("status", "active");
 
 		} catch (ParserConfigurationException e) {
