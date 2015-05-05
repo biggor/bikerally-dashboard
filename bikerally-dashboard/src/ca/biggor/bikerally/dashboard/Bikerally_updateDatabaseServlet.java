@@ -100,6 +100,8 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		resp.getWriter().println("Crew updates");
 		syncDatabases(artezCrewList, crewList, crewEventId, req, resp);
 		Bikerally_util.deleteEventTotalsMemcache(crewEventId);
+		
+		Bikerally_util.deleteJsonParticipants(riderEventId, crewEventId);
 
 	}
 
@@ -219,7 +221,6 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 				p.setProperty("teamPageURL", teamInfo.get(0).attributes().get("href"));
 				p.setProperty("teamId", teamInfo.get(0).attributes().get("href").split("=")[1]);
 			}
-			System.out.println(p.getProperty("teamId"));
 
 			// p.setProperty("status", "active");
 

@@ -34,9 +34,9 @@ public class Bikerally_util {
 		if (familyCount == null) {
 			familyCount = 0;
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			Query query = new Query(eventId).setFilter(new FilterPredicate("status", FilterOperator.EQUAL , "active"));
+			Query query = new Query(eventId).setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
 			PreparedQuery pq = datastore.prepare(query);
-			for(Entity result : pq.asIterable()){
+			for (Entity result : pq.asIterable()) {
 				String lastName = (String) result.getProperty("lastName");
 				if (lastName.contains("and ")) {
 					familyCount++;
@@ -136,7 +136,7 @@ public class Bikerally_util {
 		}
 
 		String byDateString = artezDateFormat.format(byDate.getTime());
-		
+
 		String countRegistrationByDate = "0";
 		if (byDate.compareTo(new GregorianCalendar()) >= 0) {
 			try {
@@ -156,9 +156,9 @@ public class Bikerally_util {
 
 		return countRegistrationByDate;
 	}
-	
+
 	static String getRecacheTime() {
-		
+
 		SimpleDateFormat stringDateFormat = new SimpleDateFormat("MMM dd, yyyy - HH:mm:ss");
 		String recacheTime = (String) memcache.get("recacheTime");
 		if (recacheTime == null) {
@@ -166,10 +166,10 @@ public class Bikerally_util {
 			recacheTime = stringDateFormat.format(new GregorianCalendar().getTime());
 			memcache.put("recacheTime", recacheTime);
 		}
-		
+
 		return recacheTime;
 	}
-	
+
 	static String getJsonRoute(String routeId) throws IOException {
 		String jsonRoute = (String) memcache.get(routeId + "-jsonString");
 		if (jsonRoute == null) {
@@ -179,12 +179,26 @@ public class Bikerally_util {
 		}
 		return jsonRoute;
 	}
-	
+
 	static void deleteJsonRoute(String routeId) {
 		memcache.delete(routeId + "-jsonString");
 	}
-	
-	static void deleteEventTotalsMemcache (String eventId) {
+
+	static String getJsonParticipants(String riderEventId, String crewEventId) {
+		String jsonParticipants = (String) memcache.get(riderEventId + "-" + crewEventId + "-jsonString");
+		if (jsonParticipants == null) {
+			Participants participants = new Participants(riderEventId, crewEventId);
+			jsonParticipants = participants.toJson();
+			memcache.put(riderEventId + "-" + crewEventId + "-jsonString", jsonParticipants);
+		}
+		return jsonParticipants;
+	}
+
+	static void deleteJsonParticipants(String riderEventId, String crewEventId) {
+		memcache.delete(riderEventId + "-" + crewEventId + "-jsonString" + "-jsonString");
+	}
+
+	static void deleteEventTotalsMemcache(String eventId) {
 		memcache.delete(eventId + "-familyCount");
 		memcache.delete(eventId + "-participantCount");
 		memcache.delete(eventId + "-eventParticipantCount");
