@@ -110,6 +110,10 @@ class CoursePoint {
 	private float elevation;
 	private float latitude;
 	private float longitude;
+	private String rs;
+	private String rm;
+	private String note;
+	
 
 	public CoursePoint(int index, String metric, String type, String notes, String description, String distance, String elevation, String latitude, String longitude) {
 		this.index = 0;
@@ -120,6 +124,9 @@ class CoursePoint {
 		this.elevation = 0;
 		this.latitude = 0;
 		this.longitude = 0;
+		this.rs = "";
+		this.rm = "";
+		this.note = "";
 
 		this.index = index;
 		if (type != null && !type.trim().isEmpty()) {
@@ -129,7 +136,24 @@ class CoursePoint {
 			this.notes = notes;
 		}
 		if (description != null && !description.trim().isEmpty()) {
-			this.description = description;
+			this.description = description.replaceAll("[\n\r]", "").replaceAll("\\{.*", "");
+			String jsonText = description.replaceAll(this.description, "");
+			System.out.println(jsonText);
+			JsonObject jsonObject = new Gson().fromJson(jsonText, JsonObject.class);
+			if (jsonObject != null) {
+				JsonObject rs = jsonObject.getAsJsonObject("rs");
+				if (rs != null) {
+					if (rs.get("hotspot") != null) {
+						this.rs = rs.get("hotspot").getAsString();
+					}
+					if (rs.get("rm") != null) {
+						this.rm = rs.get("rm").getAsString();
+					}
+					if (rs.get("note") != null) {
+						this.note = rs.get("note").getAsString();
+					}
+				}
+			}
 		}
 		if (distance != null && !distance.trim().isEmpty()) {
 			this.distance = Float.parseFloat(distance);
