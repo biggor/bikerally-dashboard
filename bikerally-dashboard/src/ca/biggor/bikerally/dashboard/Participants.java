@@ -1,9 +1,13 @@
 package ca.biggor.bikerally.dashboard;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.datanucleus.sco.simple.Map;
+import org.xml.sax.SAXException;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -12,22 +16,40 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
+import com.google.appengine.labs.repackaged.com.google.common.collect.Maps;
 import com.google.gson.Gson;
 
 public class Participants {
 
 	private String riderEventId;
 	private String crewEventId;
+	private HashMap<String, String> teams;
 	private ArrayList<Participant> participants;
 
 	public Participants(String riderEventId, String crewEventId) {
 		this.riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId : "148513";
 		this.crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId : "153652";
 		this.participants = new ArrayList<>();
+		this.teams = new HashMap<String, String>();
+		
+		String jsonRiderTeams = Bikerally_util.getJsonTeams(this.riderEventId);
+		addTeams(jsonRiderTeams);
+		String jsonCrewTeams = Bikerally_util.getJsonTeams(this.crewEventId);
+		addTeams(jsonCrewTeams);
+		
 		PreparedQuery riders = getParticipants(this.riderEventId);
 		addParticipants(riders);
 		PreparedQuery crew = getParticipants(this.crewEventId);
 		addParticipants(crew);
+	}
+	
+	private void addTeams(String josnTeams) {
+		Gson gson = new Gson();
+		Teams teams = gson.fromJson(josnTeams, Teams.class);
+	
+		for (String key : teams.teams.keySet()) {
+			this.teams.put(key, teams.teams.get(key));
+		}
 	}
 
 	private PreparedQuery getParticipants(String eventId) {
@@ -43,36 +65,11 @@ public class Participants {
 			String lastName = (String) p.getProperty("lastName");
 			String riderNumber = (String) p.getProperty("riderNumber");
 			String teamId = (String) p.getProperty("teamId");
-			System.out.println(id + " " + firstName + " " + lastName + " " + riderNumber + " " + teamId + " " + getTeamName(teamId));
+			Boolean teamLead = (Boolean) p.getProperty("teamLead");
+			Boolean trainingRideLeader = (Boolean) p.getProperty("trainingRideLeader");
 
-			this.participants.add(new Participant(id, firstName, lastName, riderNumber, getTeamName(teamId)));
+			this.participants.add(new Participant(id, firstName, lastName, riderNumber, this.teams.get(teamId), teamLead, trainingRideLeader));
 		}
-	}
-
-	private String getTeamName(String teamId) {
-		// TODO - Team objects, memcache, etc...
-
-		HashMap<String, String> teams = new HashMap<String, String>();
-
-		teams.put("582041", "EDELRIDERS");
-		teams.put("582044", "Electrolytes");
-		teams.put("582038", "Kicking Asphalt");
-		teams.put("582040", "Moustache Riders");
-		teams.put("582043", "Road Snakes");
-		teams.put("582032", "Team A- Andrew Braithwaite/David Morris");
-		teams.put("582037", "Team E Matthew Hague/Matt Lamb");
-		teams.put("582039", "Team G- Rob Veinott/Wil Zoller");
-		teams.put("582042", "Team J- Carey Heeney/Kai Riecken");
-		teams.put("582036", "That's all Spokes!");
-		teams.put("582034", "The Cressendos");
-		teams.put("582033", "VELOCIPOSSE");
-		teams.put("580814", "Road Support");
-		teams.put("580815", "Wellness Crew");
-		teams.put("580817", "Rubbermaid Rustlers");
-		teams.put("580816", "Food Crew");
-		teams.put("580786", "PWA Staff Team");
-
-		return "" + teams.get(teamId);
 	}
 
 	public String toJson() {

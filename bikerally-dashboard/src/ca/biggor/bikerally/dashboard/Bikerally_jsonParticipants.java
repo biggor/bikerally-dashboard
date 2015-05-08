@@ -16,8 +16,8 @@ public class Bikerally_jsonParticipants extends HttpServlet {
 
 		String riderEventId = req.getParameter("riderEventId");
 		String crewEventId = req.getParameter("crewEventId");
-		riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId: "";
-		crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId: "";
+		riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId: "148513";
+		crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId: "153652";
 	
 		String jsonParticipants = Bikerally_util.getJsonParticipants(riderEventId, crewEventId);
 

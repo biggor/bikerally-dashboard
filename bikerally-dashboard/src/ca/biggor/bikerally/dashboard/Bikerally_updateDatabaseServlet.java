@@ -100,7 +100,6 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		resp.getWriter().println("Crew updates");
 		syncDatabases(artezCrewList, crewList, crewEventId, req, resp);
 		Bikerally_util.deleteEventTotalsMemcache(crewEventId);
-		
 		Bikerally_util.deleteJsonParticipants(riderEventId, crewEventId);
 
 	}

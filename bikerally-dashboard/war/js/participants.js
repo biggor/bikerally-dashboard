@@ -2,7 +2,10 @@ $(document).ready(function() {
 
 	$.getJSON('bikerally_participants?riderEventId=' + getParameterByName('ridereventid') + '&crewEventId=' + getParameterByName('creweventid'), function(jsonData) {
 	for (var i=0; i<jsonData.participants.length; i++) {
-		$('#participants').append('<li class="list-group-item"><span class="badge">' + jsonData.participants[i].riderNumber + '</span><h4 class="list-group-item-heading">' + jsonData.participants[i].firstName + ' ' + jsonData.participants[i].lastName + '</h4><p class="list-group-item-text">' + jsonData.participants[i].teamName + '</p></li>')
+		var badge = '' + (jsonData.participants[i].riderNumber ? ' ' + jsonData.participants[i].riderNumber + ' ' : '');
+		var tl = '' + (jsonData.participants[i].teamLead ? ' TL ' : '');
+		var trc = '' + (jsonData.participants[i].trainingRideCoach ? ' TRC ' : '');
+		$('#participants').append('<li class="list-group-item"><span class="badge">' + badge + '</span><span class="badge alert-success">' + tl + '</span><span class="badge alert-danger">' + trc + '</span><h4 class="list-group-item-heading">' + jsonData.participants[i].firstName + ' ' + jsonData.participants[i].lastName + '</h4><p class="list-group-item-text">' + jsonData.participants[i].teamName + '</p></li>')
 	}
 
 	});

@@ -171,38 +171,53 @@ public class Bikerally_util {
 	}
 
 	static String getJsonRoute(String routeId) throws IOException {
-		String jsonRoute = (String) memcache.get(routeId + "-jsonString");
+		String jsonRoute = (String) memcache.get(routeId + "-jsonRoute");
 		if (jsonRoute == null) {
 			Route route = new Route(routeId);
 			jsonRoute = route.toJson();
-			memcache.put(routeId + "-jsonString", jsonRoute);
+			memcache.put(routeId + "-jsonRoute", jsonRoute);
 		}
 		return jsonRoute;
 	}
 
 	static void deleteJsonRoute(String routeId) {
-		memcache.delete(routeId + "-jsonString");
+		memcache.delete(routeId + "-jsonRoute");
 	}
 
 	static String getJsonParticipants(String riderEventId, String crewEventId) {
-		String jsonParticipants = (String) memcache.get(riderEventId + "-" + crewEventId + "-jsonString");
+		String jsonParticipants = (String) memcache.get(riderEventId + "-" + crewEventId + "-jsonParticipants");
 		if (jsonParticipants == null) {
 			Participants participants = new Participants(riderEventId, crewEventId);
 			jsonParticipants = participants.toJson();
-			memcache.put(riderEventId + "-" + crewEventId + "-jsonString", jsonParticipants);
+			memcache.put(riderEventId + "-" + crewEventId + "-jsonParticipants", jsonParticipants);
 		}
 		return jsonParticipants;
 	}
 
 	static void deleteJsonParticipants(String riderEventId, String crewEventId) {
-		memcache.delete(riderEventId + "-" + crewEventId + "-jsonString" + "-jsonString");
+		memcache.delete(riderEventId + "-" + crewEventId + "-jsonParticipants");
 	}
 
+	static String getJsonTeams(String eventId) {
+		String jsonTeams = (String) memcache.get(eventId + "-jsonTeams");
+		if (jsonTeams == null) {
+			Teams teams = new Teams(eventId);
+			jsonTeams = teams.toJson();
+			memcache.put(eventId + "-jsonTeams", jsonTeams);
+		}
+		return jsonTeams;
+	}
+	
+	static void deleteJsonTeams(String eventId) {
+		memcache.delete(eventId + "-jsonTeams"); 
+	}
+	
 	static void deleteEventTotalsMemcache(String eventId) {
 		memcache.delete(eventId + "-familyCount");
 		memcache.delete(eventId + "-participantCount");
 		memcache.delete(eventId + "-eventParticipantCount");
 		memcache.delete(eventId + "-eventTotalCollected");
+		memcache.delete(eventId + "-jsonTeams");
 		memcache.delete("recacheTime");
 	}
 }
