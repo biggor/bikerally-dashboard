@@ -173,7 +173,7 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 
 	private Entity addParticipant(String id, String eventId) {
 		Entity p = new Entity(eventId);
-		p.setProperty("id", id);
+		p.setProperty("id", id.trim());
 		// custom properties
 		p.setProperty("riderNumber", "");
 		p.setProperty("status", "active");
@@ -186,39 +186,39 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 			URL url = new URL("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID=" + p.getProperty("id") + "&Source=&uniqueID=");
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(url.openStream());
-			p.setProperty("firstName", doc.getElementsByTagName("firstName").item(0).getTextContent());
-			p.setProperty("lastName", doc.getElementsByTagName("lastName").item(0).getTextContent());
-			p.setProperty("participantLink", doc.getElementsByTagName("participantLink").item(0).getTextContent());
-			p.setProperty("registrationDate", doc.getElementsByTagName("RegistrationDate").item(0).getTextContent());
-			p.setProperty("address1", doc.getElementsByTagName("address1").item(0).getTextContent());
-			p.setProperty("address2", doc.getElementsByTagName("address2").item(0).getTextContent());
-			p.setProperty("address3", doc.getElementsByTagName("address3").item(0).getTextContent());
-			p.setProperty("address4", doc.getElementsByTagName("address4").item(0).getTextContent());
-			p.setProperty("city", doc.getElementsByTagName("city").item(0).getTextContent());
-			p.setProperty("stateProvince", doc.getElementsByTagName("stateProvince").item(0).getTextContent());
-			p.setProperty("postal", doc.getElementsByTagName("postal").item(0).getTextContent());
-			p.setProperty("country", doc.getElementsByTagName("country").item(0).getTextContent());
-			p.setProperty("email", doc.getElementsByTagName("email").item(0).getTextContent());
-			p.setProperty("totalRaised", doc.getElementsByTagName("totalRaised").item(0).getTextContent());
-			p.setProperty("totalSponsors", doc.getElementsByTagName("totalSponsors").item(0).getTextContent());
-			p.setProperty("fundraisingGoal", doc.getElementsByTagName("fundraisingGoal").item(0).getTextContent());
-			p.setProperty("displayOptin", doc.getElementsByTagName("displayOptin").item(0).getTextContent());
-			p.setProperty("emailOptin", doc.getElementsByTagName("emailOptin").item(0).getTextContent());
+			p.setProperty("firstName", doc.getElementsByTagName("firstName").item(0).getTextContent().trim());
+			p.setProperty("lastName", doc.getElementsByTagName("lastName").item(0).getTextContent().trim());
+			p.setProperty("participantLink", doc.getElementsByTagName("participantLink").item(0).getTextContent().trim());
+			p.setProperty("registrationDate", doc.getElementsByTagName("RegistrationDate").item(0).getTextContent().trim());
+			p.setProperty("address1", doc.getElementsByTagName("address1").item(0).getTextContent().trim());
+			p.setProperty("address2", doc.getElementsByTagName("address2").item(0).getTextContent().trim());
+			p.setProperty("address3", doc.getElementsByTagName("address3").item(0).getTextContent().trim());
+			p.setProperty("address4", doc.getElementsByTagName("address4").item(0).getTextContent().trim());
+			p.setProperty("city", doc.getElementsByTagName("city").item(0).getTextContent().trim());
+			p.setProperty("stateProvince", doc.getElementsByTagName("stateProvince").item(0).getTextContent().trim());
+			p.setProperty("postal", doc.getElementsByTagName("postal").item(0).getTextContent().trim());
+			p.setProperty("country", doc.getElementsByTagName("country").item(0).getTextContent().trim());
+			p.setProperty("email", doc.getElementsByTagName("email").item(0).getTextContent().trim());
+			p.setProperty("totalRaised", doc.getElementsByTagName("totalRaised").item(0).getTextContent().trim());
+			p.setProperty("totalSponsors", doc.getElementsByTagName("totalSponsors").item(0).getTextContent().trim());
+			p.setProperty("fundraisingGoal", doc.getElementsByTagName("fundraisingGoal").item(0).getTextContent().trim());
+			p.setProperty("displayOptin", doc.getElementsByTagName("displayOptin").item(0).getTextContent().trim());
+			p.setProperty("emailOptin", doc.getElementsByTagName("emailOptin").item(0).getTextContent().trim());
 			// custom properties
 			org.jsoup.nodes.Document participantPage = Jsoup.connect(p.getProperty("participantLink").toString()).timeout(10000).get();
 			Elements udfanswers = participantPage.select("div.udfanswerRow");
 			for (Element udfanswer : udfanswers) {
 				if (udfanswer.previousElementSibling() != null && udfanswer.previousElementSibling().text().trim().equals("Rider Years")) {
-					p.setProperty("riderYears", udfanswer.text());
+					p.setProperty("riderYears", udfanswer.text().trim());
 				}
 				if (udfanswer.previousElementSibling() != null && udfanswer.previousElementSibling().text().trim().equals("Rider Number")) {
-					p.setProperty("riderNumber", udfanswer.text());
+					p.setProperty("riderNumber", udfanswer.text().trim());
 				}
 			}
 			Elements teamInfo = participantPage.select("a#ctl00_ctl00_mainContent_bodyContentPlaceHolder_hyperLinkViewTeamPage");
 			if (teamInfo.size() > 0) {
-				p.setProperty("teamPageURL", teamInfo.get(0).attributes().get("href"));
-				p.setProperty("teamId", teamInfo.get(0).attributes().get("href").split("=")[1]);
+				p.setProperty("teamPageURL", teamInfo.get(0).attributes().get("href").trim());
+				p.setProperty("teamId", teamInfo.get(0).attributes().get("href").split("=")[1].trim());
 			}
 
 			// p.setProperty("status", "active");
