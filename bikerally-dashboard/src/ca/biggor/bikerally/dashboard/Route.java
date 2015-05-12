@@ -49,7 +49,7 @@ public class Route {
 		Element descriptionField = doc.select("div.raw_asset_description").first();
 		if (descriptionField != null) {
 			this.routeDescription = descriptionField.text().replaceAll("\\{.*", "");
-			String jsonText = descriptionField.text().replaceAll(this.routeDescription, "");
+			String jsonText = descriptionField.text().replace(this.routeDescription, "");
 			JsonObject jsonObject = new Gson().fromJson(jsonText, JsonObject.class);
 			if (jsonObject != null) {
 				if (jsonObject.get("startTime") != null) {
@@ -137,8 +137,7 @@ class CoursePoint {
 		}
 		if (description != null && !description.trim().isEmpty()) {
 			this.description = description.replaceAll("[\n\r]", "").replaceAll("\\{.*", "");
-			String jsonText = description.replaceAll(this.description, "");
-			System.out.println(jsonText);
+			String jsonText = description.replace(this.description, "");
 			JsonObject jsonObject = new Gson().fromJson(jsonText, JsonObject.class);
 			if (jsonObject != null) {
 				JsonObject rs = jsonObject.getAsJsonObject("rs");
