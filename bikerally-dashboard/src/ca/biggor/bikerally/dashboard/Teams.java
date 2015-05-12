@@ -33,6 +33,7 @@ public class Teams {
 			for (int i = 0; i < nodes.getLength(); i++) {
 				teams.put(nodes.item(i).getChildNodes().item(5).getTextContent(), nodes.item(i).getChildNodes().item(1).getTextContent());
 			}
+			teams.put("580786", "PWA Staff Team");
 		} catch (SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
