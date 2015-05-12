@@ -9,9 +9,9 @@ public class Participant {
 	private String teamName;
 	private Boolean steeringCommittee;
 	private Boolean teamLead;
-	private Boolean trainingRideLeader;
+	private Boolean trainingRideCoach;
 
-	public Participant(String id, String firstName, String lastName, String riderNumber, String teamName, Boolean steeringCommittee, Boolean teamLead, Boolean trainingRideLeader) {
+	public Participant(String id, String firstName, String lastName, String riderNumber, String teamName, Boolean steeringCommittee, Boolean teamLead, Boolean trainingRideCoach) {
 		this.id = (id != null && !id.trim().isEmpty()) ? id: "";
 		this.firstName = (firstName != null && !firstName.trim().isEmpty()) ? firstName: "";
 		this.lastName = (lastName != null && !lastName.trim().isEmpty()) ? lastName: "";
@@ -19,7 +19,7 @@ public class Participant {
 		this.teamName = (teamName != null && !teamName.trim().isEmpty()) ? teamName: "";
 		this.steeringCommittee = steeringCommittee;
 		this.teamLead = teamLead;
-		this.trainingRideLeader = trainingRideLeader;
+		this.trainingRideCoach = trainingRideCoach;
 	}
 
 }

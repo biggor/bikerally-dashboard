@@ -67,9 +67,9 @@ public class Participants {
 			String teamId = (String) p.getProperty("teamId");
 			Boolean steeringCommittee = (Boolean) p.getProperty("steeringCommittee");
 			Boolean teamLead = (Boolean) p.getProperty("teamLead");
-			Boolean trainingRideLeader = (Boolean) p.getProperty("trainingRideLeader");
+			Boolean trainingRideCoach = (Boolean) p.getProperty("trainingRideCoach");
 
-			this.participants.add(new Participant(id, firstName, lastName, riderNumber, this.teams.get(teamId), steeringCommittee, teamLead, trainingRideLeader));
+			this.participants.add(new Participant(id, firstName, lastName, riderNumber, this.teams.get(teamId), steeringCommittee, teamLead, trainingRideCoach));
 		}
 	}
 
