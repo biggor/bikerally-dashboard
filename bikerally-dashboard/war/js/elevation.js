@@ -30,10 +30,12 @@ function drawChart() {
 			if (i == 1) {
 				annotation = 'S';
 				annotationText = jsonData.cuesheet[i - 1].notes;
+				ticks.push(Math.round(parseFloat(distance)));
 			}
-			if (i == jsonData.cuesheet.length - 1) {
+			if (jsonData.cuesheet[i].type == 'End') {
 				annotation = 'E';
 				annotationText = jsonData.cuesheet[i].notes;
+				ticks.push(Math.round(parseFloat(distance)));
 			}
 			if (jsonData.cuesheet[i].notes.split(' ')[0] == 'Lunch') {
 				annotation = 'L';
