@@ -10,64 +10,107 @@ function drawChart() {
 		var data = new google.visualization.DataTable();
 		data.addColumn('number', 'Km');
 		data.addColumn('number', 'Elevation');
-		data.addColumn({
-			type : 'string',
-			role : 'annotation'
-		});
-		data.addColumn({
-			type : 'string',
-			role : 'annotationText'
-		});
+		data.addColumn({type : 'string', role : 'annotation'});
+		data.addColumn({type : 'string', role : 'annotationText'});
+		data.addColumn({type:'boolean',role:'certainty'});
 
 		var ticks = [];
 		var maxElevation = 0;
+		var breakCount = 0;
+		var showRS = getParameterByName('showrs');
+		var showStretch = getParameterByName('showstretch');
+		
+		var minutes = 2.5 * 60;
+		var slowSpeed = 13;
+		var fastSpeed = 30;
+		var slowDistance = minutes * slowSpeed / 60;
+		var fastDistance = minutes * fastSpeed / 60;
+		var inStretch = false;
+		var certainty = true;
+		
 		for (var i = 1; i < jsonData.cuesheet.length; i++) {
-			var distance = '' + (jsonData.cuesheet[i].distance ? ' ' + jsonData.cuesheet[i].distance + ' ' : 0);
-			var elevation = '' + (jsonData.cuesheet[i].elevation ? ' ' + jsonData.cuesheet[i].elevation + ' ' : 0);
+			var distance = (Math.round(parseFloat('' + (jsonData.cuesheet[i].distance ? ' ' + jsonData.cuesheet[i].distance + ' ' : 0))));
+			var elevation = Math.round(parseFloat('' + (jsonData.cuesheet[i].elevation ? ' ' + jsonData.cuesheet[i].elevation + ' ' : 0)));
 
 			var annotation = null;
 			var annotationText = null;
+			if (showStretch.toLowerCase() == 'yes' || showStretch.toLowerCase() == 'true') {
+				if (distance >= slowDistance && distance <= fastDistance) {
+					certainty = true;
+					if (!inStretch) {
+						ticks.push(distance);
+					}
+					inStretch = true;
+				} else {
+					if (!inStretch) { // to get the continuous line to the tick
+						certainty = false;
+					}
+					if (inStretch) {
+						ticks.push(distance);
+						inStretch = false;
+					}
+				}
+				console.log("" + distance + " " + slowDistance + " " + fastDistance + " " + inStretch + " " + certainty);
+			}
+
+			
 			if (i == 1) {
-				annotation = 'S';
+				annotation = '';
 				annotationText = jsonData.cuesheet[i - 1].notes;
-				ticks.push(Math.round(parseFloat(distance)));
+				ticks.push(distance);
 			}
 			if (jsonData.cuesheet[i].type == 'End') {
-				annotation = 'E';
+				annotation = '';
 				annotationText = jsonData.cuesheet[i].notes;
-				ticks.push(Math.round(parseFloat(distance)));
+				ticks.push(distance);
 			}
 			if (jsonData.cuesheet[i].notes.split(' ')[0] == 'Lunch') {
 				annotation = 'L';
 				annotationText = jsonData.cuesheet[i].notes;
-				ticks.push(Math.round(parseFloat(distance)));
+				ticks.push(distance);
 			}
 			if (jsonData.cuesheet[i].notes.split(' ')[0] == 'Break') {
-				annotation = 'B';
+				annotation = '' + ++breakCount;
 				annotationText = jsonData.cuesheet[i].notes;
-				ticks.push(Math.round(parseFloat(distance)));
+				ticks.push(distance);
 			}
-			if (jsonData.cuesheet[i].rs == '1') {
-				annotation = 'rs';
+			if (jsonData.cuesheet[i].rs == '1' && (showRS.toLowerCase() == 'yes' || showRS.toLowerCase() == 'true')) {
+				annotation = '';
 				annotationText = jsonData.cuesheet[i].notes;
-				ticks.push(Math.round(parseFloat(distance)));
+				ticks.push(distance);
 			}
 
-			data.addRow([ Math.round(parseFloat(distance)), Math.round(parseFloat(elevation)), annotation, annotationText ]);
-			if (Math.round(parseFloat(elevation)) > maxElevation) {
-				maxElevation = Math.round(parseFloat(elevation));
+			data.addRow([ distance, elevation, annotation, annotationText, certainty ]);
+			if (elevation > maxElevation) {
+				maxElevation = elevation;
 			}
 		}
 //		data.addRow([ 130, 0, null, null ]);
 
 		var options = {
 			annotations : {
+//			    boxStyle: {
+//			        stroke: 'blue',           // Color of the box outline.
+//			        strokeWidth: 1,           // Thickness of the box outline.
+//			        rx: 5,                   // x-radius of the corner curvature.
+//			        ry: 5,                   // y-radius of the corner curvature.
+//			        gradient: {               // Attributes for linear gradient fill.
+//			          color1: '#fbf6a7',      // Start color for gradient.
+//			          color2: '#33b679',      // Finish color for gradient.
+//			          x1: '0%', y1: '0%',     // Where on the boundary to start and end the
+//			          x2: '100%', y2: '100%', // color1/color2 gradient, relative to the
+//			                                  // upper left corner of the boundary.
+//			          useObjectBoundingBoxUnits: true // If true, the boundary for x1, y1,
+//			                                          // x2, and y2 is the box. If false,
+//			                                          // it's the entire chart.
+//			        }
+//			      },
 				textStyle : {
 //					fontName : 'Times-Roman',
 //					fontSize : 18,
 					bold : true,
 //					italic : true,
-//					color : '#871b47', // The color of the text.
+//					color : 'white', // The color of the text.
 //					auraColor : '#d799ae', // The color of the text
 					// outline.
 //					opacity : 0.8
@@ -87,7 +130,7 @@ function drawChart() {
 			height : 200
 		};
 
-		var chart = new google.visualization.LineChart(document.getElementById('elevation_chart'));
+		var chart = new google.visualization.AreaChart(document.getElementById('elevation_chart'));
 
 		chart.draw(data, options);
 
