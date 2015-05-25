@@ -1,6 +1,7 @@
 google.load('visualization', '1', {
 	packages : [ 'corechart' ]
 });
+
 google.setOnLoadCallback(drawChart);
 
 function drawChart() {
@@ -13,6 +14,7 @@ function drawChart() {
 		data.addColumn({type : 'string', role : 'annotation'});
 		data.addColumn({type : 'string', role : 'annotationText'});
 		data.addColumn({type:'boolean',role:'certainty'});
+		data.addColumn('number', 'Elevation');
 
 		var ticks = [];
 		var maxElevation = 0;
@@ -20,7 +22,7 @@ function drawChart() {
 		var showRS = getParameterByName('showrs');
 		var showStretch = getParameterByName('showstretch');
 		
-		var minutes = 2.5 * 60;
+		var minutes = 2 * 60;
 		var slowSpeed = 13;
 		var fastSpeed = 30;
 		var slowDistance = minutes * slowSpeed / 60;
@@ -28,29 +30,28 @@ function drawChart() {
 		var inStretch = false;
 		var certainty = true;
 		
-		for (var i = 1; i < jsonData.cuesheet.length; i++) {
+		for (var i = 0; i < jsonData.cuesheet.length; i++) {
 			var distance = (Math.round(parseFloat('' + (jsonData.cuesheet[i].distance ? ' ' + jsonData.cuesheet[i].distance + ' ' : 0))));
 			var elevation = Math.round(parseFloat('' + (jsonData.cuesheet[i].elevation ? ' ' + jsonData.cuesheet[i].elevation + ' ' : 0)));
+			var elevation2 = null;
 
 			var annotation = null;
 			var annotationText = null;
 			if (showStretch.toLowerCase() == 'yes' || showStretch.toLowerCase() == 'true') {
 				if (distance >= slowDistance && distance <= fastDistance) {
-					certainty = true;
+					elevation2 = elevation;
 					if (!inStretch) {
 						ticks.push(distance);
 					}
 					inStretch = true;
 				} else {
-					if (!inStretch) { // to get the continuous line to the tick
-						certainty = false;
-					}
 					if (inStretch) {
 						ticks.push(distance);
+						elevation2 = elevation;
 						inStretch = false;
 					}
 				}
-				console.log("" + distance + " " + slowDistance + " " + fastDistance + " " + inStretch + " " + certainty);
+				console.log("" + distance + " " + slowDistance + " " + fastDistance + " " + inStretch + " " + elevation2);
 			}
 
 			
@@ -75,12 +76,12 @@ function drawChart() {
 				ticks.push(distance);
 			}
 			if (jsonData.cuesheet[i].rs == '1' && (showRS.toLowerCase() == 'yes' || showRS.toLowerCase() == 'true')) {
-				annotation = '';
+				annotation = '*';
 				annotationText = jsonData.cuesheet[i].notes;
 				ticks.push(distance);
 			}
 
-			data.addRow([ distance, elevation, annotation, annotationText, certainty ]);
+			data.addRow([ distance, elevation, annotation, annotationText, certainty, elevation2 ]);
 			if (elevation > maxElevation) {
 				maxElevation = elevation;
 			}

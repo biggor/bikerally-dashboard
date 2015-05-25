@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<title>Simulation</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+							<ul class="nav navbar-nav navbar-left">
+								<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Day <span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Day 1</a></li>
+										<li><a href="#">Day 2</a></li>
+										<li><a href="#">Day 3</a></li>
+										<li><a href="#">Day 4</a></li>
+										<li><a href="#">Day 5</a></li>
+										<li><a href="#">Day 6</a></li>
+									</ul></li>
+							</ul>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li><a href="#">Link</a></li>
+							</ul>
+
+							<form class="navbar-form navbar-right">
+								<div class="form-group input-group input-group-sm">
+									<span class="input-group-addon" id="currentValue">0</span><input type="range" class="form-control" id="slider" aria-describedby="currentValue" min="0" max="480" step="1" value="0">
+									<span class="input-group-addon" id="sizing-addon1">km</span><span  class="form-control" aria-describedby="sizing-addon1" id="totalDistance">0</span>
+									<span class="input-group-addon" id="sizing-addon2">slow</span><span class="form-control" aria-describedby="sizing-addon2" id="slowSpeed">0</span>
+									<span class="input-group-addon" id="sizing-addon3">fast</span><input type="number" class="form-control" placeholder="0" aria-describedby="sizing-addon3" id="fastSpeed" min="0" value="30">
+								</div>
+							</form>
+						</div>
+						<!-- /.navbar-collapse -->
+					</div>
+					<!-- /.container-fluid -->
+				</nav>
+				<div id="chart_div"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script src="js/util.js"></script>
+	<script src="js/simulation.js"></script>
+</body>
+</html>

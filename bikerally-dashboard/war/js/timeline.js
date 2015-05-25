@@ -30,7 +30,7 @@ function drawChart() {
 		var colors = [];
 		
 		var minSpeed = routeDistance/duration;
-		var maxSpeed = 30;
+		var maxSpeed = 21;
 		for (var i = 0; i < jsonData.cuesheet.length; i++) {
 			var fast = new Date(0,0,0,initialHour, initialMinute, 0);
 			var slow = new Date(0,0,0,initialHour, initialMinute, 0);

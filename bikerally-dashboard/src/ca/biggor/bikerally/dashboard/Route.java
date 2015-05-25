@@ -64,6 +64,7 @@ public class Route {
 					this.date = new GregorianCalendar(Integer.parseInt(rideDate[0]), Integer.parseInt(rideDate[1]), Integer.parseInt(rideDate[2]), Integer.parseInt(startTimeHourMinute[0]), Integer.parseInt(startTimeHourMinute[1]));
 				}
 			}
+			this.routeDescription = descriptionField.text().replaceAll("\n", " ");
 		}
 		Element distanceField = doc.select("tr.hide_unless_distance td.data").first();
 		if (distanceField != null) {
