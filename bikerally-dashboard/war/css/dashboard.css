@@ -21,3 +21,7 @@ body {
 .pwa_purple {
 	color: #872d91;
 }
+
+.label-as-badge {
+	border-radius: 1em;
+}

@@ -48,6 +48,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>Bikerally_jsonParticipants</servlet-name>
 		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonParticipants</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Bikerally_jsonLevels</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonLevels</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Bikerally_dashboard</servlet-name>
@@ -92,6 +96,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsonParticipants</servlet-name>
 		<url-pattern>/bikerally_participants</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Bikerally_jsonLevels</servlet-name>
+		<url-pattern>/bikerally_levels</url-pattern>
 	</servlet-mapping>
 
 
