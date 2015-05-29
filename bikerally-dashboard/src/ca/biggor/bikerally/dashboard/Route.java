@@ -3,13 +3,21 @@ package ca.biggor.bikerally.dashboard;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -25,8 +33,9 @@ public class Route {
 	private String startTime;
 	private String endTime;
 	private ArrayList<CoursePoint> cuesheet;
+	private ArrayList<Trackpoint> track;
 
-	public Route(String routeId) throws IOException {
+	public Route(String routeId) throws IOException, ParserConfigurationException, SAXException {
 		this.routeId = "";
 		this.routeName = "";
 		this.routeDescription = "";
@@ -39,10 +48,12 @@ public class Route {
 		if (routeId != null) {
 			this.routeId = routeId;
 			getRouteDetails(routeId);
-			getRouteCoursePoints(routeId, metric);
+			getGpsTrackAndCoursePoints(routeId, metric);
+			getCsvCoursePoints(routeId, metric);
 		}
 	}
 
+	
 	private void getRouteDetails(String routeId) throws IOException {
 		Document doc = Jsoup.connect("http://ridewithgps.com/routes/" + routeId).get();
 		this.routeName = doc.select("h2.asset_name").text();
@@ -73,9 +84,66 @@ public class Route {
 		}
 	}
 
-	private void getRouteCoursePoints(String routeId, String metric) throws IOException {
-
+	private void getGpsTrackAndCoursePoints(String routeId, String metric) {
+		this.track = new ArrayList<>();
 		this.cuesheet = new ArrayList<>();
+		try {
+			URL tcxUrl = new URL("http://ridewithgps.com/routes/" + routeId + ".tcx");
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			org.w3c.dom.Document doc = db.parse(tcxUrl.openStream());
+
+			NodeList trackPoints = doc.getElementsByTagName("Trackpoint");
+			NodeList coursePoints = doc.getElementsByTagName("CoursePoint");
+			
+			for (int t = 0; t < trackPoints.getLength(); t++) {
+				String distance = trackPoints.item(t).getChildNodes().item(7).getTextContent();
+				String elevation = trackPoints.item(t).getChildNodes().item(5).getTextContent();
+				String latitude = trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(1).getTextContent();
+				String longitude = trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(3).getTextContent();
+				this.track.add(new Trackpoint(metric, distance, elevation, latitude, longitude, null));
+			}
+
+			for (int j = 0; j < coursePoints.getLength(); j++) {
+				int index = j;
+				String type = coursePoints.item(j).getChildNodes().item(7).getTextContent();
+				String notes = coursePoints.item(j).getChildNodes().item(9).getTextContent();
+				String description = "";
+				String distance = "0";
+				String elevation = "0";
+				String latitude = "0";
+				String longitude = "0";
+				for (int i = 0; i < trackPoints.getLength(); i++) {
+					Position trackPoint = new Position(new BigDecimal(trackPoints.item(i).getChildNodes().item(3).getChildNodes().item(1).getTextContent()), new BigDecimal(trackPoints.item(i).getChildNodes().item(3).getChildNodes().item(3).getTextContent()));
+					Position coursePoint = new Position(new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(1).getTextContent()), new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(3).getTextContent()));
+					if (trackPoint.equals(coursePoint)) {
+						distance = trackPoints.item(i).getChildNodes().item(7).getTextContent();
+						elevation = trackPoints.item(i).getChildNodes().item(5).getTextContent();
+						latitude = trackPoints.item(i).getChildNodes().item(3).getChildNodes().item(1).getTextContent();
+						longitude = trackPoints.item(i).getChildNodes().item(3).getChildNodes().item(3).getTextContent();
+						track.get(i).setCoursePointIndex(j);
+					}
+				}
+				this.cuesheet.add(new CoursePoint(index, metric, type, notes, description, distance, elevation, latitude, longitude));
+			}
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private void getCsvCoursePoints(String routeId, String metric) throws IOException {
+
+//		this.cuesheet = new ArrayList<>();
 		URL csvUrl = new URL("http://ridewithgps.com/routes/" + routeId + ".csv");
 		BufferedReader in = new BufferedReader(new InputStreamReader(csvUrl.openStream()));
 		CSVReader reader = new CSVReader(in);
@@ -83,7 +151,8 @@ public class Route {
 		int index = 0;
 		while ((nextLine = reader.readNext()) != null) {
 			if (!nextLine[0].equals("Type")) {
-				this.cuesheet.add(new CoursePoint(index, metric, nextLine[0], nextLine[1], nextLine[4], nextLine[2], nextLine[3], "0", "0"));
+//				this.cuesheet.add(new CoursePoint(index, metric, nextLine[0], nextLine[1], nextLine[4], nextLine[2], nextLine[3], "0", "0"));
+				this.cuesheet.get(index).setDescription(nextLine[4]);
 				index++;
 			}
 		}
@@ -136,6 +205,28 @@ class CoursePoint {
 		if (notes != null && !notes.trim().isEmpty()) {
 			this.notes = notes;
 		}
+		setDescription(description);
+		if (distance != null && !distance.trim().isEmpty()) {
+			this.distance = Float.parseFloat(distance) / 1000f;
+			if (metric.equals("mi")) {
+				this.distance = this.distance / 1.609344f;
+			}
+		}
+		if (elevation != null && !elevation.trim().isEmpty()) {
+			this.elevation = Float.parseFloat(elevation);
+			if (metric.equals("mi")) {
+				this.elevation = this.elevation / 0.3048f;
+			}
+		}
+		if (latitude != null && !latitude.trim().isEmpty()) {
+			this.latitude = Float.parseFloat(latitude);
+		}
+		if (longitude != null && !longitude.trim().isEmpty()) {
+			this.longitude = Float.parseFloat(longitude);
+		}
+	}
+
+	public void setDescription(String description) {
 		if (description != null && !description.trim().isEmpty()) {
 			this.description = description.replaceAll("[\n\r]", "").replaceAll("\\{.*", "");
 			String jsonText = description.replace(this.description, "");
@@ -155,14 +246,29 @@ class CoursePoint {
 				}
 			}
 		}
+	}
+
+}
+
+class Trackpoint {	
+	private float distance;
+	private float elevation;
+	private float latitude;
+	private float longitude;
+	private int coursePointIndex;
+	
+	public Trackpoint(String metric, String distance, String elevation, String latitude, String longitude, String coursePointIndex) {
 		if (distance != null && !distance.trim().isEmpty()) {
-			this.distance = Float.parseFloat(distance);
-			if (metric.equals("km")) {
-				this.distance = this.distance * Float.parseFloat("1.60934");
+			this.distance = Float.parseFloat(distance) / 1000f;
+			if (metric.equals("mi")) {
+				this.distance = this.distance / 1.609344f;
 			}
 		}
 		if (elevation != null && !elevation.trim().isEmpty()) {
 			this.elevation = Float.parseFloat(elevation);
+			if (metric.equals("mi")) {
+				this.elevation = this.elevation / 0.3048f;
+			}
 		}
 		if (latitude != null && !latitude.trim().isEmpty()) {
 			this.latitude = Float.parseFloat(latitude);
@@ -170,5 +276,12 @@ class CoursePoint {
 		if (longitude != null && !longitude.trim().isEmpty()) {
 			this.longitude = Float.parseFloat(longitude);
 		}
+		if (coursePointIndex != null && !coursePointIndex.trim().isEmpty()) {
+			this.coursePointIndex = Integer.parseInt(coursePointIndex);
+		}
+	}
+
+	public void setCoursePointIndex(int coursePointIndex) {
+		this.coursePointIndex = coursePointIndex;
 	}
 }

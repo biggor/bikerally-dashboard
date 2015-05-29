@@ -7,6 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.MemcacheServiceFactory;
@@ -25,11 +28,20 @@ public class Bikerally_jsonRouteDetailsServlet extends HttpServlet {
 			if (recache != null && recache.equals("true")) {
 				Bikerally_util.deleteJsonRoute(routeId);
 			}
-			String jsonRoute = Bikerally_util.getJsonRoute(routeId);
+			String jsonRoute;
+			try {
+				jsonRoute = Bikerally_util.getJsonRoute(routeId);
+				resp.setContentType("text/plain");
+				PrintWriter out = resp.getWriter();
+				out.print(jsonRoute);
+			} catch (ParserConfigurationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SAXException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
-			resp.setContentType("text/plain");
-			PrintWriter out = resp.getWriter();
-			out.print(jsonRoute);
 		}
 	}
 }

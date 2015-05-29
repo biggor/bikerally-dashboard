@@ -170,7 +170,7 @@ public class Bikerally_util {
 		return recacheTime;
 	}
 
-	static String getJsonRoute(String routeId) throws IOException {
+	static String getJsonRoute(String routeId) throws IOException, ParserConfigurationException, SAXException {
 		String jsonRoute = (String) memcache.get(routeId + "-jsonRoute");
 		if (jsonRoute == null) {
 			Route route = new Route(routeId);

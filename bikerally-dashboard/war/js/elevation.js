@@ -17,6 +17,7 @@ function drawChart() {
 		data.addColumn('number', 'Elevation');
 
 		var ticks = [];
+		var minElevation = 9999999999999;
 		var maxElevation = 0;
 		var breakCount = 0;
 		var showRS = getParameterByName('showrs');
@@ -30,10 +31,11 @@ function drawChart() {
 		var inStretch = false;
 		var certainty = true;
 		
-		for (var i = 0; i < jsonData.cuesheet.length; i++) {
-			var distance = (Math.round(parseFloat('' + (jsonData.cuesheet[i].distance ? ' ' + jsonData.cuesheet[i].distance + ' ' : 0))));
-			var elevation = Math.round(parseFloat('' + (jsonData.cuesheet[i].elevation ? ' ' + jsonData.cuesheet[i].elevation + ' ' : 0)));
+		for (var i = 0; i < jsonData.track.length; i++) {
+			var distance = parseFloat('' + (jsonData.track[i].distance ? ' ' + jsonData.track[i].distance + ' ' : 0));
+			var elevation = Math.round(parseFloat('' + (jsonData.track[i].elevation ? ' ' + jsonData.track[i].elevation + ' ' : 0)));
 			var elevation2 = null;
+			var coursePointIndex = parseInt('' + (jsonData.track[i].coursePointIndex ? ' ' + jsonData.track[i].coursePointIndex + ' ' : 0));
 
 			var annotation = null;
 			var annotationText = null;
@@ -41,50 +43,54 @@ function drawChart() {
 				if (distance >= slowDistance && distance <= fastDistance) {
 					elevation2 = elevation;
 					if (!inStretch) {
-						ticks.push(distance);
+						ticks.push(Math.round(distance));
 					}
 					inStretch = true;
 				} else {
 					if (inStretch) {
-						ticks.push(distance);
+						ticks.push(Math.round(distance));
 						elevation2 = elevation;
 						inStretch = false;
 					}
 				}
-				console.log("" + distance + " " + slowDistance + " " + fastDistance + " " + inStretch + " " + elevation2);
+//				console.log("" + distance + " " + slowDistance + " " + fastDistance + " " + inStretch + " " + elevation2);
 			}
 
 			
-			if (i == 1) {
-				annotation = '';
-				annotationText = jsonData.cuesheet[i - 1].notes;
-				ticks.push(distance);
+			if (i == 0) {
+				annotation = 'S';
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
-			if (jsonData.cuesheet[i].type == 'End') {
-				annotation = '';
-				annotationText = jsonData.cuesheet[i].notes;
-				ticks.push(distance);
+			if (jsonData.cuesheet[coursePointIndex].notes == 'End of route') {
+				annotation = 'E';
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
-			if (jsonData.cuesheet[i].notes.split(' ')[0] == 'Lunch') {
+			if (jsonData.cuesheet[coursePointIndex].notes.split(' ')[0] == 'Lunch') {
 				annotation = 'L';
-				annotationText = jsonData.cuesheet[i].notes;
-				ticks.push(distance);
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
-			if (jsonData.cuesheet[i].notes.split(' ')[0] == 'Break') {
+			if (jsonData.cuesheet[coursePointIndex].notes.split(' ')[0] == 'Break') {
 				annotation = '' + ++breakCount;
-				annotationText = jsonData.cuesheet[i].notes;
-				ticks.push(distance);
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
-			if (jsonData.cuesheet[i].rs == '1' && (showRS.toLowerCase() == 'yes' || showRS.toLowerCase() == 'true')) {
+			if (jsonData.cuesheet[coursePointIndex].rs == '1' && (showRS.toLowerCase() == 'yes' || showRS.toLowerCase() == 'true')) {
 				annotation = '*';
-				annotationText = jsonData.cuesheet[i].notes;
-				ticks.push(distance);
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
 
 			data.addRow([ distance, elevation, annotation, annotationText, certainty, elevation2 ]);
+			if (elevation < minElevation) {
+				minElevation = elevation;
+			}
 			if (elevation > maxElevation) {
 				maxElevation = elevation;
 			}
+//			console.log('' + minElevation);
 		}
 //		data.addRow([ 130, 0, null, null ]);
 
@@ -123,11 +129,12 @@ function drawChart() {
 			},
 			vAxis : {
 				viewWindow : {
-					max: ((maxElevation * 3 + 99) / 100) * 100
+					max: ((maxElevation * 1 + 99) / 100) * 100,
+					min: minElevation - 5
 				}
 			},
 			legend : 'none',
-			curveType : 'function',
+			curveType: 'function',
 			height : 200
 		};
 
