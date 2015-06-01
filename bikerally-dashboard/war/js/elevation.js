@@ -11,9 +11,18 @@ function drawChart() {
 		var data = new google.visualization.DataTable();
 		data.addColumn('number', 'Km');
 		data.addColumn('number', 'Elevation');
-		data.addColumn({type : 'string', role : 'annotation'});
-		data.addColumn({type : 'string', role : 'annotationText'});
-		data.addColumn({type:'boolean',role:'certainty'});
+		data.addColumn({
+			type : 'string',
+			role : 'annotation'
+		});
+		data.addColumn({
+			type : 'string',
+			role : 'annotationText'
+		});
+		data.addColumn({
+			type : 'boolean',
+			role : 'certainty'
+		});
 		data.addColumn('number', 'Elevation');
 
 		var ticks = [];
@@ -22,7 +31,7 @@ function drawChart() {
 		var breakCount = 0;
 		var showRS = getParameterByName('showrs');
 		var showStretch = getParameterByName('showstretch');
-		
+
 		var minutes = 2 * 60;
 		var slowSpeed = 13;
 		var fastSpeed = 30;
@@ -30,7 +39,7 @@ function drawChart() {
 		var fastDistance = minutes * fastSpeed / 60;
 		var inStretch = false;
 		var certainty = true;
-		
+
 		for (var i = 0; i < jsonData.track.length; i++) {
 			var distance = parseFloat('' + (jsonData.track[i].distance ? ' ' + jsonData.track[i].distance + ' ' : 0));
 			var elevation = Math.round(parseFloat('' + (jsonData.track[i].elevation ? ' ' + jsonData.track[i].elevation + ' ' : 0)));
@@ -53,10 +62,10 @@ function drawChart() {
 						inStretch = false;
 					}
 				}
-//				console.log("" + distance + " " + slowDistance + " " + fastDistance + " " + inStretch + " " + elevation2);
+				// console.log("" + distance + " " + slowDistance + " " +
+				// fastDistance + " " + inStretch + " " + elevation2);
 			}
 
-			
 			if (i == 0) {
 				annotation = 'S';
 				annotationText = jsonData.cuesheet[coursePointIndex].notes;
@@ -90,37 +99,40 @@ function drawChart() {
 			if (elevation > maxElevation) {
 				maxElevation = elevation;
 			}
-//			console.log('' + minElevation);
+			// console.log('' + minElevation);
 		}
-//		data.addRow([ 130, 0, null, null ]);
+		// data.addRow([ 130, 0, null, null ]);
 
 		var options = {
 			annotations : {
-//			    boxStyle: {
-//			        stroke: 'blue',           // Color of the box outline.
-//			        strokeWidth: 1,           // Thickness of the box outline.
-//			        rx: 5,                   // x-radius of the corner curvature.
-//			        ry: 5,                   // y-radius of the corner curvature.
-//			        gradient: {               // Attributes for linear gradient fill.
-//			          color1: '#fbf6a7',      // Start color for gradient.
-//			          color2: '#33b679',      // Finish color for gradient.
-//			          x1: '0%', y1: '0%',     // Where on the boundary to start and end the
-//			          x2: '100%', y2: '100%', // color1/color2 gradient, relative to the
-//			                                  // upper left corner of the boundary.
-//			          useObjectBoundingBoxUnits: true // If true, the boundary for x1, y1,
-//			                                          // x2, and y2 is the box. If false,
-//			                                          // it's the entire chart.
-//			        }
-//			      },
+				// boxStyle: {
+				// stroke: 'blue', // Color of the box outline.
+				// strokeWidth: 1, // Thickness of the box outline.
+				// rx: 5, // x-radius of the corner curvature.
+				// ry: 5, // y-radius of the corner curvature.
+				// gradient: { // Attributes for linear gradient fill.
+				// color1: '#fbf6a7', // Start color for gradient.
+				// color2: '#33b679', // Finish color for gradient.
+				// x1: '0%', y1: '0%', // Where on the boundary to start and end
+				// the
+				// x2: '100%', y2: '100%', // color1/color2 gradient, relative
+				// to the
+				// // upper left corner of the boundary.
+				// useObjectBoundingBoxUnits: true // If true, the boundary for
+				// x1, y1,
+				// // x2, and y2 is the box. If false,
+				// // it's the entire chart.
+				// }
+				// },
 				textStyle : {
-//					fontName : 'Times-Roman',
-//					fontSize : 18,
+					// fontName : 'Times-Roman',
+					// fontSize : 18,
 					bold : true,
-//					italic : true,
-//					color : 'white', // The color of the text.
-//					auraColor : '#d799ae', // The color of the text
-					// outline.
-//					opacity : 0.8
+				// italic : true,
+				// color : 'white', // The color of the text.
+				// auraColor : '#d799ae', // The color of the text
+				// outline.
+				// opacity : 0.8
 				// The transparency of the text.
 				}
 			},
@@ -129,12 +141,12 @@ function drawChart() {
 			},
 			vAxis : {
 				viewWindow : {
-					max: ((maxElevation * 1 + 99) / 100) * 100,
-					min: minElevation - 5
+					max : ((maxElevation * 1 + 99) / 100) * 100,
+					min : minElevation - 5
 				}
 			},
 			legend : 'none',
-			curveType: 'function',
+			curveType : 'function',
 			height : 200
 		};
 

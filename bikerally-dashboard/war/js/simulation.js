@@ -29,99 +29,98 @@ function drawDashboard() {
 		$('#totalDistance').html(Math.round(parseFloat('' + (jsonData.distance ? ' ' + jsonData.distance + ' ' : 0))));
 		var totalDistance = $('#totalDistance').html();
 		var ticks = [];
+		var minElevation = 9999999999999;
 		var maxElevation = 0;
 		var breakCount = 0;
 		var minutes = $('#currentValue').html();
+		var showRS = getParameterByName('showrs');
+		var showStretch = getParameterByName('showstretch');
 		var predictedSlowSpeed = $('#slowSpeed').html();
 		var predictedFastSpeed = $('#fastSpeed').val();
 		var predictedSlowDistance = minutes * predictedSlowSpeed / 60;
 		var predictedFastDistance = minutes * predictedFastSpeed / 60;
 		var inPredictedStretch = false;
-		var actualSlowDistance = predictedSlowDistance;
-		var actualFastDistance = predictedFastDistance;
+		var actualSlowDistance = predictedSlowDistance + 20;
+		var actualFastDistance = predictedFastDistance + 20;
 		var inActualStretch = false;
 		var certainty = true;
 		var j = 0;
 		var newj = true;
 
-		for (var i = 1; i <= totalDistance; i++) {
-			var distance = i;
-			var d = (Math.ceil (parseFloat('' + (jsonData.cuesheet[j].distance ? ' ' + jsonData.cuesheet[j].distance + ' ' : 0))));
-			if (distance > d) {
-				j++;
-				annotation = '.';
-				newj = true;
-			}
-			var elevation = Math.round(parseFloat('' + (jsonData.cuesheet[j].elevation ? ' ' + jsonData.cuesheet[j].elevation + ' ' : 0)));
+		for (var i = 0; i < jsonData.track.length; i++) {
+			var distance = parseFloat('' + (jsonData.track[i].distance ? ' ' + jsonData.track[i].distance + ' ' : 0));
+			var elevation = Math.round(parseFloat('' + (jsonData.track[i].elevation ? ' ' + jsonData.track[i].elevation + ' ' : 0)));
 			var elevation2 = null;
 			var elevation3 = null;
+			var coursePointIndex = parseInt('' + (jsonData.track[i].coursePointIndex ? ' ' + jsonData.track[i].coursePointIndex + ' ' : 0));
+
 			var annotation = null;
 			var annotationText = null;
 
 			if (distance >= predictedSlowDistance && distance <= predictedFastDistance) {
-				elevation2 = 1500;
+				elevation2 = 200;
 				if (!inPredictedStretch) {
-					ticks.push(distance);
+					ticks.push(Math.round(distance));
 				}
 				inPredictedStretch = true;
 			} else {
 				if (inPredictedStretch) {
-					ticks.push(distance);
-					elevation2 = 1500;
+					ticks.push(Math.round(distance));
+					elevation2 = 200;
 					inPredictedStretch = false;
 				}
 			}
 
 			if (distance >= actualSlowDistance && distance <= actualFastDistance) {
-				elevation3 = 2000;
+				elevation3 = 250;
 				if (!inActualStretch) {
-					ticks.push(distance);
+					ticks.push(Math.round(distance));
 				}
 				inActualStretch = true;
 			} else {
 				if (inActualStretch) {
-					ticks.push(distance);
-					elevation3 = 2000;
+					ticks.push(Math.round(distance));
+					elevation3 = 250;
 					inActualStretch = false;
 				}
 			}
 
-
-			if (i == 1) {
+			if (i == 0) {
 				annotation = 'S';
-				annotationText = jsonData.cuesheet[j - 1].notes;
-				ticks.push(distance);
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
-			if (i == totalDistance) {
+			if (jsonData.cuesheet[coursePointIndex].notes == 'End of route') {
 				annotation = 'E';
-				annotationText = jsonData.cuesheet[j].notes;
-				ticks.push(distance);
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
-			if (jsonData.cuesheet[j].notes.split(' ')[0] == 'Lunch' && newj) {
+			if (jsonData.cuesheet[coursePointIndex].notes.split(' ')[0] == 'Lunch') {
 				annotation = 'L';
-				annotationText = jsonData.cuesheet[j].notes;
-				ticks.push(distance);
-				newj = false;
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
-			if (jsonData.cuesheet[j].notes.replace('\n', ' ').split(' ')[0] == 'Break' && newj) {
+			if (jsonData.cuesheet[coursePointIndex].notes.split(' ')[0] == 'Break') {
 				annotation = '' + ++breakCount;
-				annotationText = jsonData.cuesheet[j].notes;
-				ticks.push(distance);
-				newj = false;
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
-			if (jsonData.cuesheet[j].rs == '1' && newj) {
+			if (jsonData.cuesheet[coursePointIndex].rs == '1' && (showRS.toLowerCase() == 'yes' || showRS.toLowerCase() == 'true')) {
 				annotation = '*';
-				annotationText = jsonData.cuesheet[j].notes;
-				ticks.push(distance);
-				newj = false;
+				annotationText = jsonData.cuesheet[coursePointIndex].notes;
+				ticks.push(Math.round(distance));
 			}
 
-			data.addRow([ distance, elevation, annotation, annotationText, certainty, elevation2, elevation3 ]);
-
+//			if (coursePointIndex != 0) {
+				data.addRow([ distance, elevation, annotation, annotationText, certainty, elevation2, elevation3 ]);
+//			}
+			if (elevation < minElevation) {
+				minElevation = elevation;
+			}
 			if (elevation > maxElevation) {
 				maxElevation = elevation;
 			}
-			
+
 		}
 
 		var options = {
@@ -134,10 +133,14 @@ function drawDashboard() {
 				ticks : ticks
 			},
 			vAxis : {
-				minValue : 0,
-				maxValue : 1500
+				viewWindow : {
+					max : ((maxElevation * 1 + 99) / 100) * 100,
+					min : minElevation - 5
+				}
 			},
-			legend : 'none'
+			legend : 'none',
+			curveType : 'function',
+			height : 200
 		};
 
 		var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
