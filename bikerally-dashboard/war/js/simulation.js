@@ -8,7 +8,7 @@ function drawDashboard() {
 
 	$.getJSON('bikerally_routedetails?routeid=' + getParameterByName('routeid'), function(jsonData) {
 
-		var data = new google.visualization.DataTable();
+		data = new google.visualization.DataTable();
 		data.addColumn('number', 'Km');
 		data.addColumn('number', 'Elevation');
 		data.addColumn({
@@ -28,7 +28,7 @@ function drawDashboard() {
 
 		$('#totalDistance').html(Math.round(parseFloat('' + (jsonData.distance ? ' ' + jsonData.distance + ' ' : 0))));
 		var totalDistance = $('#totalDistance').html();
-		var ticks = [];
+		ticks = [];
 		var minElevation = 9999999999999;
 		var maxElevation = 0;
 		var breakCount = 0;
@@ -123,7 +123,7 @@ function drawDashboard() {
 
 		}
 
-		var options = {
+		options = {
 			annotations : {
 				textStyle : {
 					bold : true,
@@ -143,11 +143,16 @@ function drawDashboard() {
 			height : 200
 		};
 
-		var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+		chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
 
 		chart.draw(data, options);
 
 	});
+}
+
+function drawSpread() {
+	
+	chart.draw(data, options);
 }
 
 $(function() {
@@ -159,13 +164,13 @@ $(function() {
 	$('#slider').change(function() {
 		currentValue.html(this.value);
 		slowSpeedValue.html(totalDistanceValue.html() / 8);
-		drawDashboard();
+		drawSpread();
 	});
 
 	$('#slider').mousemove(function() {
 		currentValue.html(this.value);
 		slowSpeedValue.html(totalDistanceValue.html() / 8);
-		drawDashboard();
+		drawSpread();
 	});
 
 	$('#fastSpeed').change(function() {

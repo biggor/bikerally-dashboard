@@ -4,6 +4,10 @@ google.load('visualization', '1', {
 
 google.setOnLoadCallback(drawChart);
 
+function drawElevation() {
+	
+}
+
 function drawChart() {
 
 	$.getJSON('bikerally_routedetails?routeid=' + getParameterByName('routeid'), function(jsonData) {
