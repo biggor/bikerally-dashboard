@@ -26,6 +26,7 @@ import com.opencsv.CSVReader;
 public class Route {
 	private String routeId;
 	private String routeName;
+	private String routeTitle;
 	private String routeDescription;
 	private float distance;
 	private String metric;
@@ -38,6 +39,7 @@ public class Route {
 	public Route(String routeId) throws IOException, ParserConfigurationException, SAXException {
 		this.routeId = "";
 		this.routeName = "";
+		this.routeTitle = "";
 		this.routeDescription = "";
 		this.distance = (float) 0.0;
 		this.date = new GregorianCalendar();
@@ -63,6 +65,9 @@ public class Route {
 			String jsonText = descriptionField.text().replace(this.routeDescription, "");
 			JsonObject jsonObject = new Gson().fromJson(jsonText, JsonObject.class);
 			if (jsonObject != null) {
+				if (jsonObject.get("routeTitle") != null) {
+					this.routeTitle = jsonObject.get("routeTitle").getAsString();
+				}
 				if (jsonObject.get("startTime") != null) {
 					this.startTime = jsonObject.get("startTime").getAsString();
 				}
@@ -105,7 +110,7 @@ public class Route {
 			}
 
 			for (int j = 0; j < coursePoints.getLength(); j++) {
-				int index = j;
+				int index = j+1;
 				String type = coursePoints.item(j).getChildNodes().item(7).getTextContent();
 				String notes = coursePoints.item(j).getChildNodes().item(9).getTextContent();
 				String description = "";
