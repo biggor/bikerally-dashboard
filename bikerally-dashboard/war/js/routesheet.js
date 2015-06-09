@@ -3,17 +3,17 @@ jqxhr = $.getJSON("/bikerally_routedetails?routeid=" + getParameterByName('route
 });
 
 jqxhr.complete(function() {
-	document.getElementById('route_title').innerHTML = jsonData.routeTitle;
+	document.getElementById('route_title').innerHTML = jsonData.routeTitle ? jsonData.routeTitle : jsonData.routeName;
 	document.getElementById('route_distance').innerHTML = jsonData.distance;
 	document.getElementById('route_metric').innerHTML = jsonData.metric;
 
 	var breaksize = 2000;
 	var d = 0;
 	for (var i = 0; i < jsonData.cuesheet.length; i++) {
-		var td_index = "<td class='col-xs-1 text-right'><button class='btn btn-xs btn-info'>" + (i + 1) + "</button></td>";
+		var td_index = "<td class='col-xs-1 text-right'><button class='btn btn-xs btn-primary'>" + (i + 1) + "</button></td>";
 		var distance = Math.round(jsonData.cuesheet[i].distance * 10) / 10;
 		var btn_color = " btn-default";
-		if ((distance - d) <= 0.1) {
+		if (i != 0 && (distance - d) <= 0.1) {
 			btn_color = " btn-warning";
 		}
 		var td_distance = "<td class='col-xs-1 text-right'><button class='btn btn-xs" + btn_color + "'>" + distance + "</button></td>";
