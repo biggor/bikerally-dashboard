@@ -68,6 +68,7 @@ public class Levels {
 		}
 		
 		this.registeredRiders = Bikerally_util.getParticipantCount(eventId) + Bikerally_util.getFamilyCount(eventId);
+		this.estimatedRiders = 182;
 	}
 
 	public String toJson() {

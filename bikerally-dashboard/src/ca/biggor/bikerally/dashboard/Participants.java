@@ -38,9 +38,9 @@ public class Participants {
 		addTeams(jsonCrewTeams);
 		
 		PreparedQuery riders = getParticipants(this.riderEventId);
-		addParticipants(riders);
+		addParticipants(riders, true);
 		PreparedQuery crew = getParticipants(this.crewEventId);
-		addParticipants(crew);
+		addParticipants(crew, false);
 	}
 	
 	private void addTeams(String josnTeams) {
@@ -58,7 +58,7 @@ public class Participants {
 		return datastore.prepare(q);
 	}
 
-	private void addParticipants(PreparedQuery ps) {
+	private void addParticipants(PreparedQuery ps, boolean isRider) {
 		for (Entity p : ps.asIterable()) {
 			String id = (String) p.getProperty("id");
 			String firstName = (String) p.getProperty("firstName");
@@ -68,8 +68,30 @@ public class Participants {
 			Boolean steeringCommittee = (Boolean) p.getProperty("steeringCommittee");
 			Boolean teamLead = (Boolean) p.getProperty("teamLead");
 			Boolean trainingRideCoach = (Boolean) p.getProperty("trainingRideCoach");
+			String fundraisingLevel = "";
+			if (isRider) {
+				float totalRaised = Float.parseFloat((String) p.getProperty("totalRaised"));
+				if (totalRaised >= 2500) {
+					fundraisingLevel = "l2500 ";
+				}
+				if (totalRaised >= 1500 && totalRaised < 2500) {
+					fundraisingLevel = "l1500 ";
+				}
+				if (totalRaised >= 1000 && totalRaised < 1500) {
+					fundraisingLevel = "l1000 ";
+				}
+				if (totalRaised >= 500 && totalRaised < 1000) {
+					fundraisingLevel = "l500 ";
+				}
+				if (totalRaised > 0 && totalRaised < 500) {
+					fundraisingLevel = "l1 ";
+				}
+				if (totalRaised == 0) {
+					fundraisingLevel = "l0 ";
+				}
+			}
 
-			this.participants.add(new Participant(id, firstName, lastName, riderNumber, this.teams.get(teamId), steeringCommittee, teamLead, trainingRideCoach));
+			this.participants.add(new Participant(id, firstName, lastName, riderNumber, this.teams.get(teamId), steeringCommittee, teamLead, trainingRideCoach, fundraisingLevel));
 		}
 	}
 

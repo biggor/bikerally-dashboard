@@ -61,8 +61,9 @@ public class Bikerally_dashboardServlet extends HttpServlet {
 			String firstName = (String) participant.getProperty("firstName");
 			String lastName = (String) participant.getProperty("lastName");
 			String riderNumber = (String) participant.getProperty("riderNumber");
+			String teamId = (String) participant.getProperty("teamId");
 			String registrationDate = (String) participant.getProperty("registrationDate");
-			resp.getWriter().println(String.format("%3s", index += 1) + ": " + id + " " + String.format("%3s", riderNumber) + " " + firstName + " " + lastName + " (" + registrationDate + ")");
+			resp.getWriter().println(String.format("%3s", index += 1) + ": " + String.format("%6s", id) + " " + String.format("%6s", (teamId != null) ? teamId : "") + " " + String.format("%3s", riderNumber) + " " + firstName + " " + lastName + " (" + registrationDate + ")");
 		}
 	}
 
