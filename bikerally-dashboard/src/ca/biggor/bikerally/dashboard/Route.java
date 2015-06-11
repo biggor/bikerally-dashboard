@@ -55,7 +55,6 @@ public class Route {
 		}
 	}
 
-	
 	private void getRouteDetails(String routeId) throws IOException {
 		Document doc = Jsoup.connect("http://ridewithgps.com/routes/" + routeId).get();
 		this.routeName = doc.select("h2.asset_name").text();
@@ -92,6 +91,7 @@ public class Route {
 	private void getGpsTrackAndCoursePoints(String routeId, String metric) {
 		this.track = new ArrayList<>();
 		this.cuesheet = new ArrayList<>();
+		ArrayList<Trackpoint> fullTrack = new ArrayList<>();
 		try {
 			URL tcxUrl = new URL("http://ridewithgps.com/routes/" + routeId + ".tcx");
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -100,17 +100,22 @@ public class Route {
 
 			NodeList trackPoints = doc.getElementsByTagName("Trackpoint");
 			NodeList coursePoints = doc.getElementsByTagName("CoursePoint");
-			
-			for (int t = 0; t < trackPoints.getLength(); t++) {
-				String distance = trackPoints.item(t).getChildNodes().item(7).getTextContent();
-				String elevation = trackPoints.item(t).getChildNodes().item(5).getTextContent();
-				String latitude = trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(1).getTextContent();
-				String longitude = trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(3).getTextContent();
-				this.track.add(new Trackpoint(metric, distance, elevation, latitude, longitude, null));
-			}
+
+			// for (int f = 0; f < trackPoints.getLength(); f++) {
+			// String distance =
+			// trackPoints.item(f).getChildNodes().item(7).getTextContent();
+			// String elevation =
+			// trackPoints.item(f).getChildNodes().item(5).getTextContent();
+			// String latitude =
+			// trackPoints.item(f).getChildNodes().item(3).getChildNodes().item(1).getTextContent();
+			// String longitude =
+			// trackPoints.item(f).getChildNodes().item(3).getChildNodes().item(3).getTextContent();
+			// fullTrack.add(new Trackpoint(metric, distance, elevation,
+			// latitude, longitude, null));
+			// }
 
 			for (int j = 0; j < coursePoints.getLength(); j++) {
-				int index = j+1;
+				int index = j + 1;
 				String type = coursePoints.item(j).getChildNodes().item(7).getTextContent();
 				String notes = coursePoints.item(j).getChildNodes().item(9).getTextContent();
 				String description = "";
@@ -118,19 +123,48 @@ public class Route {
 				String elevation = "0";
 				String latitude = "0";
 				String longitude = "0";
+				Position coursePoint = new Position(new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(1).getTextContent()), new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(3).getTextContent()));
 				for (int i = 0; i < trackPoints.getLength(); i++) {
 					Position trackPoint = new Position(new BigDecimal(trackPoints.item(i).getChildNodes().item(3).getChildNodes().item(1).getTextContent()), new BigDecimal(trackPoints.item(i).getChildNodes().item(3).getChildNodes().item(3).getTextContent()));
-					Position coursePoint = new Position(new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(1).getTextContent()), new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(3).getTextContent()));
 					if (trackPoint.equals(coursePoint)) {
 						distance = trackPoints.item(i).getChildNodes().item(7).getTextContent();
 						elevation = trackPoints.item(i).getChildNodes().item(5).getTextContent();
 						latitude = trackPoints.item(i).getChildNodes().item(3).getChildNodes().item(1).getTextContent();
 						longitude = trackPoints.item(i).getChildNodes().item(3).getChildNodes().item(3).getTextContent();
-						track.get(i).setCoursePointIndex(j);
 					}
 				}
 				this.cuesheet.add(new CoursePoint(index, metric, type, notes, description, distance, elevation, latitude, longitude));
 			}
+
+			float previousDistance = 0f;
+			float averageAltitude = 0f;
+			int index = 0;
+			for (int t = 0; t < trackPoints.getLength(); t++) {
+				String distance = trackPoints.item(t).getChildNodes().item(7).getTextContent();
+				String elevation = trackPoints.item(t).getChildNodes().item(5).getTextContent();
+				String latitude = trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(1).getTextContent();
+				String longitude = trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(3).getTextContent();
+
+				float currentDistance = Float.parseFloat(distance);
+				float currentAltitude = Float.parseFloat(elevation);
+				averageAltitude = (averageAltitude + currentAltitude) / 2;
+				Position trackPoint = new Position(new BigDecimal(trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(1).getTextContent()), new BigDecimal(trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(3).getTextContent()));
+				for (int j = 0; j < coursePoints.getLength(); j++) {
+					Position coursePoint = new Position(new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(1).getTextContent()), new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(3).getTextContent()));
+					if (trackPoint.equals(coursePoint)) {
+						index = j+1;
+						this.track.add(new Trackpoint(metric, distance, Float.toString(averageAltitude), latitude, longitude, Integer.toString(index)));
+						previousDistance = currentDistance;
+						index = 0;
+					}
+				}
+				if (currentDistance - previousDistance > 1000) {
+					this.track.add(new Trackpoint(metric, distance, Float.toString(averageAltitude), latitude, longitude, Integer.toString(index)));
+					previousDistance = currentDistance;
+					index = 0;
+				}
+			}
+
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,10 +179,10 @@ public class Route {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void getCsvCoursePoints(String routeId, String metric) throws IOException {
 
-//		this.cuesheet = new ArrayList<>();
+		// this.cuesheet = new ArrayList<>();
 		URL csvUrl = new URL("http://ridewithgps.com/routes/" + routeId + ".csv");
 		BufferedReader in = new BufferedReader(new InputStreamReader(csvUrl.openStream()));
 		CSVReader reader = new CSVReader(in);
@@ -156,7 +190,9 @@ public class Route {
 		int index = 0;
 		while ((nextLine = reader.readNext()) != null) {
 			if (!nextLine[0].equals("Type")) {
-//				this.cuesheet.add(new CoursePoint(index, metric, nextLine[0], nextLine[1], nextLine[4], nextLine[2], nextLine[3], "0", "0"));
+				// this.cuesheet.add(new CoursePoint(index, metric, nextLine[0],
+				// nextLine[1], nextLine[4], nextLine[2], nextLine[3], "0",
+				// "0"));
 				this.cuesheet.get(index).setDescription(nextLine[4]);
 				index++;
 			}
@@ -188,7 +224,6 @@ class CoursePoint {
 	private String rs;
 	private String rm;
 	private String note;
-	
 
 	public CoursePoint(int index, String metric, String type, String notes, String description, String distance, String elevation, String latitude, String longitude) {
 		this.index = 0;
@@ -255,13 +290,13 @@ class CoursePoint {
 
 }
 
-class Trackpoint {	
+class Trackpoint {
 	private float distance;
 	private float elevation;
 	private float latitude;
 	private float longitude;
 	private int coursePointIndex;
-	
+
 	public Trackpoint(String metric, String distance, String elevation, String latitude, String longitude, String coursePointIndex) {
 		if (distance != null && !distance.trim().isEmpty()) {
 			this.distance = Float.parseFloat(distance) / 1000f;
@@ -289,4 +324,13 @@ class Trackpoint {
 	public void setCoursePointIndex(int coursePointIndex) {
 		this.coursePointIndex = coursePointIndex;
 	}
+
+	public float getLatitude() {
+		return latitude;
+	}
+
+	public float getLongitude() {
+		return longitude;
+	}
+
 }

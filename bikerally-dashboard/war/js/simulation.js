@@ -52,7 +52,7 @@ function drawDashboard() {
 			var elevation = Math.round(parseFloat('' + (jsonData.track[i].elevation ? ' ' + jsonData.track[i].elevation + ' ' : 0)));
 			var elevation2 = null;
 			var elevation3 = null;
-			var coursePointIndex = parseInt('' + (jsonData.track[i].coursePointIndex ? ' ' + jsonData.track[i].coursePointIndex + ' ' : 0));
+			var coursePointIndex = parseInt(jsonData.track[i].coursePointIndex != 0 ? jsonData.track[i].coursePointIndex - 1: 0);
 
 			var annotation = null;
 			var annotationText = null;
@@ -138,6 +138,9 @@ function drawDashboard() {
 					min : minElevation - 5
 				}
 			},
+			chartArea : {
+				width : '90%'
+			},
 			legend : 'none',
 			curveType : 'function',
 			height : 200
@@ -164,13 +167,13 @@ $(function() {
 	$('#slider').change(function() {
 		currentValue.html(this.value);
 		slowSpeedValue.html(totalDistanceValue.html() / 8);
-		drawSpread();
+		drawDashboard();
 	});
 
 	$('#slider').mousemove(function() {
 		currentValue.html(this.value);
 		slowSpeedValue.html(totalDistanceValue.html() / 8);
-		drawSpread();
+		drawDashboard();
 	});
 
 	$('#fastSpeed').change(function() {

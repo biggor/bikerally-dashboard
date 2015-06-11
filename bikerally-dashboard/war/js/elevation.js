@@ -29,6 +29,7 @@ function drawChart() {
 		});
 		data.addColumn('number', 'Elevation');
 
+		var chartWidth = document.getElementById('elevation_chart').clientWidth;
 		var ticks = [];
 		var minElevation = 9999999999999;
 		var maxElevation = 0;
@@ -48,7 +49,10 @@ function drawChart() {
 			var distance = parseFloat('' + (jsonData.track[i].distance ? ' ' + jsonData.track[i].distance + ' ' : 0));
 			var elevation = Math.round(parseFloat('' + (jsonData.track[i].elevation ? ' ' + jsonData.track[i].elevation + ' ' : 0)));
 			var elevation2 = null;
-			var coursePointIndex = parseInt('' + (jsonData.track[i].coursePointIndex ? ' ' + jsonData.track[i].coursePointIndex + ' ' : 0));
+			var coursePointIndex = parseInt(jsonData.track[i].coursePointIndex != 0 ? jsonData.track[i].coursePointIndex - 1: 0);
+//			if (coursePointIndex != 0) {
+//				coursePointIndex = coursePointIndex - 1;
+//			}
 
 			var annotation = null;
 			var annotationText = null;
@@ -148,6 +152,9 @@ function drawChart() {
 					max : ((maxElevation * 1 + 99) / 100) * 100,
 					min : minElevation - 5
 				}
+			},
+			chartArea : {
+				width : '90%'
 			},
 			legend : 'none',
 			curveType : 'function',
