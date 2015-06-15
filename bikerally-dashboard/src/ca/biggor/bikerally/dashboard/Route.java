@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -22,6 +23,7 @@ import org.xml.sax.SAXException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.opencsv.CSVReader;
+import com.sun.jmx.snmp.Timestamp;
 
 public class Route {
 	private String routeId;
@@ -101,19 +103,6 @@ public class Route {
 			NodeList trackPoints = doc.getElementsByTagName("Trackpoint");
 			NodeList coursePoints = doc.getElementsByTagName("CoursePoint");
 
-			// for (int f = 0; f < trackPoints.getLength(); f++) {
-			// String distance =
-			// trackPoints.item(f).getChildNodes().item(7).getTextContent();
-			// String elevation =
-			// trackPoints.item(f).getChildNodes().item(5).getTextContent();
-			// String latitude =
-			// trackPoints.item(f).getChildNodes().item(3).getChildNodes().item(1).getTextContent();
-			// String longitude =
-			// trackPoints.item(f).getChildNodes().item(3).getChildNodes().item(3).getTextContent();
-			// fullTrack.add(new Trackpoint(metric, distance, elevation,
-			// latitude, longitude, null));
-			// }
-
 			for (int j = 0; j < coursePoints.getLength(); j++) {
 				int index = j + 1;
 				String type = coursePoints.item(j).getChildNodes().item(7).getTextContent();
@@ -139,6 +128,8 @@ public class Route {
 			float previousDistance = 0f;
 			float averageAltitude = 0f;
 			int index = 0;
+			int cpi = 0;
+			Position coursePoint = new Position(new BigDecimal(coursePoints.item(cpi).getChildNodes().item(5).getChildNodes().item(1).getTextContent()), new BigDecimal(coursePoints.item(cpi).getChildNodes().item(5).getChildNodes().item(3).getTextContent()));
 			for (int t = 0; t < trackPoints.getLength(); t++) {
 				String distance = trackPoints.item(t).getChildNodes().item(7).getTextContent();
 				String elevation = trackPoints.item(t).getChildNodes().item(5).getTextContent();
@@ -149,19 +140,20 @@ public class Route {
 				float currentAltitude = Float.parseFloat(elevation);
 				averageAltitude = (averageAltitude + currentAltitude) / 2;
 				Position trackPoint = new Position(new BigDecimal(trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(1).getTextContent()), new BigDecimal(trackPoints.item(t).getChildNodes().item(3).getChildNodes().item(3).getTextContent()));
-				for (int j = 0; j < coursePoints.getLength(); j++) {
-					Position coursePoint = new Position(new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(1).getTextContent()), new BigDecimal(coursePoints.item(j).getChildNodes().item(5).getChildNodes().item(3).getTextContent()));
-					if (trackPoint.equals(coursePoint)) {
-						index = j+1;
-						this.track.add(new Trackpoint(metric, distance, Float.toString(averageAltitude), latitude, longitude, Integer.toString(index)));
-						previousDistance = currentDistance;
-						index = 0;
-					}
-				}
-				if (currentDistance - previousDistance > 1000) {
+
+				if (trackPoint.equals(coursePoint)) {
+					index = cpi + 1;
 					this.track.add(new Trackpoint(metric, distance, Float.toString(averageAltitude), latitude, longitude, Integer.toString(index)));
-					previousDistance = currentDistance;
-					index = 0;
+					cpi++;
+					if (cpi < coursePoints.getLength()) {
+						coursePoint = new Position(new BigDecimal(coursePoints.item(cpi).getChildNodes().item(5).getChildNodes().item(1).getTextContent()), new BigDecimal(coursePoints.item(cpi).getChildNodes().item(5).getChildNodes().item(3).getTextContent()));
+						previousDistance = currentDistance;
+					}
+				} else {
+					if (currentDistance - previousDistance > 500) {
+						this.track.add(new Trackpoint(metric, distance, Float.toString(averageAltitude), latitude, longitude, Integer.toString(0)));
+						previousDistance = currentDistance;
+					}
 				}
 			}
 
@@ -178,6 +170,7 @@ public class Route {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	private void getCsvCoursePoints(String routeId, String metric) throws IOException {

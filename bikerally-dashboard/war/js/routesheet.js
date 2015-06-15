@@ -19,18 +19,29 @@ jqxhr.complete(function() {
 		var td_distance = "<td class='col-xs-1 text-right'><button class='btn btn-xs" + btn_color + "'>" + distance + "</button></td>";
 		var td_direction = "<td class='col-xs-1'>" + typeToTurn(jsonData.cuesheet[i].type) + "</td>";
 		var td_note = "<td class='col-xs-9'>" + shortNotes(jsonData.cuesheet[i].notes) + "</td>";
+		var trclass = "";
+		var  tr2 = "";
+		if (i & 1) {
+			trclass = "  class='active'";
+		}
+		if (jsonData.cuesheet[i].type == "Generic") {
+			trclass = "  class='info'";
+			if (i == 50) {
+				tr2 =  "<tr" + trclass + "><td></td><td></td><td></td><td>aaa<br>bbb</td></tr>";
+			}
+		}
 		if ($("#cuesheet1").height() < breaksize) {
-			$("#tb1").append("<tr>" + td_index + td_distance + td_direction + td_note + "</tr>");
+			$("#tb1").append("<tr" + trclass + ">" + td_index + td_distance + td_direction + td_note + "</tr>" + tr2);
 		} else if ($("#cuesheet2").height() < breaksize) {
-			$("#tb2").append("<tr>" + td_index + td_distance + td_direction + td_note + "</tr>");
+			$("#tb2").append("<tr" + trclass + ">" + td_index + td_distance + td_direction + td_note + "</tr>" + tr2);
 		} else if ($("#cuesheet3").height() < breaksize) {
-			$("#tb3").append("<tr>" + td_index + td_distance + td_direction + td_note + "</tr>");
+			$("#tb3").append("<tr" + trclass + ">" + td_index + td_distance + td_direction + td_note + "</tr>" + tr2);
 		} else if ($("#cuesheet4").height() < breaksize) {
-			$("#tb4").append("<tr>" + td_index + td_distance + td_direction + td_note + "</tr>");
+			$("#tb4").append("<tr" + trclass + ">" + td_index + td_distance + td_direction + td_note + "</tr>" + tr2);
 		} else if ($("#cuesheet5").height() < breaksize) {
-			$("#tb5").append("<tr>" + td_index + td_distance + td_direction + td_note + "</tr>");
+			$("#tb5").append("<tr" + trclass + ">" + td_index + td_distance + td_direction + td_note + "</tr>" + tr2);
 		} else {
-			$("#tb6").append("<tr>" + td_index + td_distance + td_direction + td_note + "</tr>");
+			$("#tb6").append("<tr" + trclass + ">" + td_index + td_distance + td_direction + td_note + "</tr>" + tr2);
 		}
 		d = distance;
 	}
