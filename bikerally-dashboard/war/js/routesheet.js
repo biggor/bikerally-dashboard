@@ -16,9 +16,9 @@ jqxhr.complete(function() {
 		if (i != 0 && (distance - d) <= 0.1) {
 			btn_color = " btn-warning";
 		}
-		var td_distance = "<td class='col-xs-1 text-right'><button class='btn btn-xs" + btn_color + "'>" + distance + "</button></td>";
+		var td_distance = "<td class='col-xs-1 text-right'><button class='btn btn-xs" + btn_color + "'><b>" + distance + "</></button></td>";
 		var td_direction = "<td class='col-xs-1'>" + typeToTurn(jsonData.cuesheet[i].type) + "</td>";
-		var td_note = "<td class='col-xs-9'>" + shortNotes(jsonData.cuesheet[i].notes) + "</td>";
+		var td_note = "<td class='col-xs-9'><b>" + shortNotes(jsonData.cuesheet[i].notes) + "</b></td>";
 		var trclass = "";
 		var  tr2 = "";
 		if (i & 1) {
@@ -26,9 +26,12 @@ jqxhr.complete(function() {
 		}
 		if (jsonData.cuesheet[i].type == "Generic") {
 			trclass = "  class='info'";
-			if (i == 50) {
-				tr2 =  "<tr" + trclass + "><td></td><td></td><td></td><td>aaa<br>bbb</td></tr>";
-			}
+//			if (i == 50) {
+//				tr2 =  "<tr" + trclass + "><td></td><td></td><td></td><td>aaa<br>bbb</td></tr>";
+//			}
+		}
+		if (jsonData.cuesheet[i].type == "Danger") {
+			trclass = "  class='text-danger'";
 		}
 		if ($("#cuesheet1").height() < breaksize) {
 			$("#tb1").append("<tr" + trclass + ">" + td_index + td_distance + td_direction + td_note + "</tr>" + tr2);
