@@ -7,7 +7,7 @@ jqxhr.complete(function() {
 	document.getElementById('route_distance').innerHTML = jsonData.distance;
 	document.getElementById('route_metric').innerHTML = jsonData.metric;
 
-	var breaksize = 2000;
+	var breaksize = 1100;
 	var d = 0;
 	for (var i = 0; i < jsonData.cuesheet.length; i++) {
 		var td_index = "<td class='col-xs-1 text-right'><button class='btn btn-xs btn-primary'>" + (i + 1) + "</button></td>";
