@@ -10,7 +10,8 @@ jqxhr.complete(function() {
 	var breaksize = 1100;
 	var d = 0;
 	for (var i = 0; i < jsonData.cuesheet.length; i++) {
-		var td_index = "<td class='col-xs-1 text-right'><button class='btn btn-xs btn-primary'>" + (i + 1) + "</button></td>";
+//		var td_index = "<td class='col-xs-1 text-right'><button class='btn btn-xs btn-primary'>" + (i + 1) + "</button></td>";
+		var td_index = "<td class='col-xs-1 text-right'><span class='badge'>" + (i + 1) + "</span></td>";
 		var distance = Math.round(jsonData.cuesheet[i].distance * 10) / 10;
 		var btn_color = " btn-default";
 		if (i != 0 && (distance - d) <= 0.1) {
