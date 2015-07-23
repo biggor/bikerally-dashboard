@@ -52,23 +52,24 @@ function drawChart() {
 			
 			console.log("" + formatTime(fast) + " - " + formatTime(slow) + " : " + formatTime(fastTime) + " - " + formatTime(slowTime));
 
-			if (jsonData.cuesheet[i].type == 'Start') {
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), "check-out", new Date(0,0,0,initialHour, initialMinute + 0, 0), new Date(0,0,0,initialHour, initialMinute + 30, 0) ]);
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), "rs", new Date(0,0,0,initialHour + 1, initialMinute + 0, 0), new Date(0,0,0,initialHour + 1, initialMinute + 1, 0) ]);
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), "rs*", new Date(0,0,0,initialHour + 1, initialMinute + 1, 0), new Date(0,0,0,initialHour + 1, initialMinute + 2, 0) ]);
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), "Break", new Date(0,0,0,initialHour + 1, initialMinute + 2, 0), new Date(0,0,0,initialHour + 1, initialMinute + 3, 0) ]);
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), "Break", new Date(0,0,0,initialHour + 1, initialMinute + 3, 0), new Date(0,0,0,initialHour + 1, initialMinute + 4, 0) ]);
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), "Break", new Date(0,0,0,initialHour + 1, initialMinute + 4, 0), new Date(0,0,0,initialHour + 1, initialMinute + 5, 0) ]);
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), "Lunch", new Date(0,0,0,initialHour + 1, initialMinute + 5, 0), new Date(0,0,0,initialHour + 1, initialMinute + 6, 0) ]);
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), "check-in", new Date(0,0,0,initialHour + 1, initialMinute + 6, 0), new Date(0,0,0,initialHour + 1, initialMinute + 7, 0) ]);
+			if (jsonData.cuesheet[i].index == '1') {
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "check-out", new Date(0,0,0,initialHour, initialMinute + 0, 0), new Date(0,0,0,initialHour, initialMinute + 30, 0) ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "rs", new Date(0,0,0,initialHour + 1, initialMinute + 0, 0), new Date(0,0,0,initialHour + 1, initialMinute + 1, 0) ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "rs*", new Date(0,0,0,initialHour + 1, initialMinute + 1, 0), new Date(0,0,0,initialHour + 1, initialMinute + 2, 0) ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "Break", new Date(0,0,0,initialHour + 1, initialMinute + 2, 0), new Date(0,0,0,initialHour + 1, initialMinute + 3, 0) ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "Break", new Date(0,0,0,initialHour + 1, initialMinute + 3, 0), new Date(0,0,0,initialHour + 1, initialMinute + 4, 0) ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "Break", new Date(0,0,0,initialHour + 1, initialMinute + 4, 0), new Date(0,0,0,initialHour + 1, initialMinute + 5, 0) ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "Lunch", new Date(0,0,0,initialHour + 1, initialMinute + 5, 0), new Date(0,0,0,initialHour + 1, initialMinute + 6, 0) ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "check-in", new Date(0,0,0,initialHour + 1, initialMinute + 6, 0), new Date(0,0,0,initialHour + 1, initialMinute + 7, 0) ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), "rs", new Date(0,0,0,17,0,0), new Date(0,0,0,18,0,0) ]);
 			}
 			if (jsonData.cuesheet[i].notes.split(' ')[0] == 'Lunch') {
 				label = "Lunch";
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), label, fastTime, slowTime ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), label, fastTime, slowTime ]);
 			}
 			if (jsonData.cuesheet[i].notes.split(' ')[0] == 'Break') {
 				label = "Break";
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), label, fastTime, slowTime ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), label, fastTime, slowTime ]);
 			}
 			if (jsonData.cuesheet[i].rs == '1') {
 				label = 'rs';
@@ -77,17 +78,17 @@ function drawChart() {
 					var midTime = new Date(0,0,0,initialHour, initialMinute, 0);
 					midTime.setMinutes(midTime.getMinutes() + Math.round((fastMinutes + minutes / 2 ) / 15) * 15);
 					label = 'rs';
-					dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), label, fastTime, midTime ]);
+					dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), label, fastTime, midTime ]);
 					label = 'rs*';
-					dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), label, midTime, slowTime ]);
+					dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), label, midTime, slowTime ]);
 				} else {
 					label = 'rs';
-					dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), label, fastTime, slowTime ]);
+					dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), label, fastTime, slowTime ]);
 				}
 			}
 			if (jsonData.cuesheet[i].type == 'End') {
 				label = 'check-in';
-				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance), label, fastTime, endTime ]);
+				dataTable.addRow(["" + formatIndex(index) + " " + formatDistance(distance) + " | " + formatTimeInterval(fastTime, slowTime), label, fastTime, endTime ]);
 			}
 			
 		}
@@ -108,7 +109,8 @@ function formatIndex(index) {
 }
 
 function formatTime(date) {
-	var hours = (date.getHours() < 10) ? " " + date.getHours() : date.getHours();
+	var hours = (date.getHours() > 12) ? date.getHours()-12 : date.getHours();
+	hours = (hours < 10) ? "." + hours : hours;
 	var minutes = (date.getMinutes() < 10) ? "0" + date.getMinutes() : date.getMinutes();
 	return "" + hours + ":" + minutes;
 }
@@ -125,4 +127,6 @@ function formatDistance(distance) {
 	return "" + leadingSpace + km + " km";
 }
 
-
+function formatTimeInterval(fastTime, slowTime) {
+		return "" + formatTime(fastTime) + "-" + formatTime(slowTime) + "";
+}
