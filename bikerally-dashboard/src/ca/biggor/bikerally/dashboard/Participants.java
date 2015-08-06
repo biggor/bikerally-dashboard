@@ -12,6 +12,7 @@ import org.xml.sax.SAXException;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
@@ -23,6 +24,8 @@ public class Participants {
 
 	private String riderEventId;
 	private String crewEventId;
+	private String riderCount;
+	private String crewCount;
 	private HashMap<String, String> teams;
 	private ArrayList<Participant> participants;
 
@@ -38,8 +41,10 @@ public class Participants {
 		addTeams(jsonCrewTeams);
 		
 		PreparedQuery riders = getParticipants(this.riderEventId);
+		this.riderCount = Integer.toString(riders.countEntities(FetchOptions.Builder.withDefaults()));
 		addParticipants(riders, true);
 		PreparedQuery crew = getParticipants(this.crewEventId);
+		this.crewCount = Integer.toString(crew.countEntities(FetchOptions.Builder.withDefaults()));
 		addParticipants(crew, false);
 	}
 	
