@@ -49,7 +49,7 @@ public class Dashboard {
 		SimpleDateFormat monthDayFormat = new SimpleDateFormat("MMM-dd");
 
 		this.riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId : "148513";
-		if (riderEventId == "177536" || riderEventId == "179193") {
+		if (riderEventId.equals("177536") || riderEventId.equals("179193")) {
 			this.riderEventId = "177536";
 			this.riderEventId1d = "179193";
 		} else {
