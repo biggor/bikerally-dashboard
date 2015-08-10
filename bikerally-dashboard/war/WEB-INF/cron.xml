@@ -3,7 +3,7 @@
 	<cron>
 		<url>/bikerally_recache</url>
 		<description>recache event totals at 6 am</description>
-		<schedule>every day 11:00</schedule>
+		<schedule>every day 11:30</schedule>
 	</cron>
 	<cron>
 		<url>/bikerally_recache</url>
@@ -12,6 +12,16 @@
 	</cron>
 	<cron>
 		<url><![CDATA[/bikerally_updateDatabase?updateAll=true]]></url>
+		<description>full sync current year with Artez database once a day</description>
+		<schedule>every day 11:00</schedule>
+	</cron>
+	<cron>
+		<url><![CDATA[/bikerally_updateDatabase?riderEventId=177536&crewEventId=0&updateAll=true]]></url>
+		<description>full sync current year with Artez database once a day</description>
+		<schedule>every day 11:00</schedule>
+	</cron>
+	<cron>
+		<url><![CDATA[/bikerally_updateDatabase?riderEventId=179193&crewEventId=0&updateAll=true]]></url>
 		<description>full sync current year with Artez database once a day</description>
 		<schedule>every day 11:00</schedule>
 	</cron>
