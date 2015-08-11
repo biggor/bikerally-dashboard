@@ -58,17 +58,17 @@ public class Dashboard {
 		this.crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId : "153652";
 		
 		this.recacheTime = Bikerally_util.getRecacheTime();
-		this.familyRiders = Bikerally_util.getFamilyCount(riderEventId);
-		this.familyRiders1d = Bikerally_util.getFamilyCount(riderEventId1d);
-		this.activeRiders = Bikerally_util.getParticipantCount(riderEventId) + familyRiders;
-		this.activeRiders1d = Bikerally_util.getParticipantCount(riderEventId1d) + familyRiders1d;
-		this.activeCrew = Bikerally_util.getParticipantCount(crewEventId);
+		this.familyRiders = Bikerally_util.getFamilyCount(this.riderEventId);
+		this.familyRiders1d = Bikerally_util.getFamilyCount(this.riderEventId1d);
+		this.activeRiders = Bikerally_util.getParticipantCount(this.riderEventId) + this.familyRiders;
+		this.activeRiders1d = Bikerally_util.getParticipantCount(this.riderEventId1d) + this.familyRiders1d;
+		this.activeCrew = Bikerally_util.getParticipantCount(this.crewEventId);
 		try {
-			this.ridersTotalCollected = Bikerally_util.getEventTotalCollected(riderEventId);
-			this.ridersTotalCollected1d = Bikerally_util.getEventTotalCollected(riderEventId1d);
-			this.crewTotalCollected = Bikerally_util.getEventTotalCollected(crewEventId);
-			this.registeredRiders = Bikerally_util.getEventParticipantCount(riderEventId);
-			this.registeredCrew = Bikerally_util.getEventParticipantCount(crewEventId);
+			this.ridersTotalCollected = Bikerally_util.getEventTotalCollected(this.riderEventId);
+			this.ridersTotalCollected1d = Bikerally_util.getEventTotalCollected(this.riderEventId1d);
+			this.crewTotalCollected = Bikerally_util.getEventTotalCollected(this.crewEventId);
+			this.registeredRiders = Bikerally_util.getEventParticipantCount(this.riderEventId);
+			this.registeredCrew = Bikerally_util.getEventParticipantCount(this.crewEventId);
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,7 +80,7 @@ public class Dashboard {
 			e.printStackTrace();
 		}
 		
-		this.totalRaised = ridersTotalCollected + ridersTotalCollected1d + crewTotalCollected;
+		this.totalRaised = this.ridersTotalCollected + this.ridersTotalCollected1d + this.crewTotalCollected;
 		
 		this.riders2010 = Bikerally_util.getCountRegistrationByDate("39408", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 		this.crew2010 = Bikerally_util.getCountRegistrationByDate("39410", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
