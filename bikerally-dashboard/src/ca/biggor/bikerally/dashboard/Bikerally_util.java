@@ -226,11 +226,24 @@ public class Bikerally_util {
 		memcache.delete(riderEventId + "-jsonLevels");
 	}
 
+	static String getJsonDashboard(String riderEventId, String crewEventId) {
+		String jsonDashboard = (String) memcache.get(riderEventId + "-" + crewEventId + "-jsonDashboard");
+		if (jsonDashboard == null) {
+			Dashboard dashboard = new Dashboard(riderEventId, crewEventId);
+			jsonDashboard = dashboard.toJson();
+			memcache.put(riderEventId + "-" + crewEventId + "-jsonDashboard", jsonDashboard);
+		}
+		return jsonDashboard;
+	}
+
+	static void deleteJsonDashboard(String riderEventId, String crewEventId) {
+		memcache.delete(riderEventId + "-" + crewEventId + "-jsonDashboard");
+	}
+
 	static void deleteEventTotalsMemcache(String eventId) {
 		memcache.delete(eventId + "-familyCount");
 		memcache.delete(eventId + "-participantCount");
 		memcache.delete(eventId + "-eventParticipantCount");
-		memcache.delete(eventId + "-eventTotalCollected");
 		memcache.delete(eventId + "-jsonTeams");
 		memcache.delete(eventId + "-jsonLevels");
 		memcache.delete("recacheTime");
