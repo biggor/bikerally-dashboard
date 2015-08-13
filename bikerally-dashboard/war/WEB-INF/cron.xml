@@ -1,9 +1,8 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <cronentries>
 	<cron>
 		<url>/bikerally_recache</url>
-		<description>recache event totals at 6 am</description>
+		<description>recache event totals at 7 am</description>
 		<schedule>every day 11:59</schedule>
 	</cron>
 	<cron>

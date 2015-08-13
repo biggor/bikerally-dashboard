@@ -13,8 +13,10 @@ public class Bikerally_jsonLevels extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String riderEventId = req.getParameter("eventId");
-		riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId: "148513";
+		String riderEventId = req.getParameter("riderEventId");
+		if (riderEventId == null) {
+			riderEventId = Bikerally_util.DEFAULT_RIDER_EVENT_ID;
+		}
 	
 		String jsonLevels = Bikerally_util.getJsonLevels(riderEventId);
 

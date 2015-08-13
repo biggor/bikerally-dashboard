@@ -46,16 +46,16 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Year <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="dashboard2.html?ridereventid=177536&amp;creweventid=0">2016</a></li>
+							<li><a href="dashboard.html?ridereventid=177536&amp;creweventid=0">2016</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="dashboard.html?ridereventid=148513&amp;creweventid=153652">2015</a></li>
-							<li><a href="dashboard2.html?ridereventid=124639&amp;creweventid=125616">2014</a></li>
-							<li><a href="dashboard2.html?ridereventid=96529&amp;creweventid=97260">2013</a></li>
-							<li><a href="dashboard2.html?ridereventid=71589&amp;creweventid=75996">2012</a></li>
-							<li><a href="dashboard2.html?ridereventid=52935&amp;creweventid=57207">2011</a></li>
-							<li><a href="dashboard2.html?ridereventid=39408&amp;creweventid=39410">2010</a></li>
+							<li><a href="dashboard.html?ridereventid=124639&amp;creweventid=125616">2014</a></li>
+							<li><a href="dashboard.html?ridereventid=96529&amp;creweventid=97260">2013</a></li>
+							<li><a href="dashboard.html?ridereventid=71589&amp;creweventid=75996">2012</a></li>
+							<li><a href="dashboard.html?ridereventid=52935&amp;creweventid=57207">2011</a></li>
+							<li><a href="dashboard.html?ridereventid=39408&amp;creweventid=39410">2010</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="dashboard2.html?ridereventid=2846&amp;creweventid=0">2005</a></li>
+							<li><a href="dashboard.html?ridereventid=2846&amp;creweventid=0">2005</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -67,8 +67,8 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">
-						Current status<i><span id="recacheTime" class="text-muted pull-right"></span></i>
+					<div class="panel-heading"><span id="eventYear">Current status</span>
+						<i><span id="recacheTime" class="text-muted pull-right"></span></i>
 					</div>
 					<!-- /.panel-heading -->
 					<div class="panel-body text-center">
@@ -76,7 +76,7 @@
 							<strong id="totalRaised" class="pwa_purple">$0</strong>
 						</h1>
 
-						<div class="col-xs-6">
+						<div class="col-xs-4">
 							<i class="fa fa-bicycle fa-2x"></i>
 
 							<h2>
@@ -85,7 +85,16 @@
 
 							<p id="ridersRaised" class="bikerally_red">$0</p>
 						</div>
-						<div class="col-xs-6">
+						<div class="col-xs-4">
+							<i class="fa fa-bicycle fa-2x"></i>
+
+							<h2>
+								<strong id="ridersRegistered1d">0</strong>
+							</h2>
+
+							<p id="ridersRaised1d" class="bikerally_red">$0</p>
+						</div>
+						<div class="col-xs-4">
 							<i class="fa fa-user fa-2x"></i>
 
 							<h2>
@@ -114,38 +123,51 @@
 									<tr>
 										<th id="byDate" class="pwa_purple">-</th>
 										<th class="gray">Rider</th>
+										<th class="gray">1 Day</th>
 										<th class="gray">Crew</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>2015</td>
+										<td>2016</td>
+										<td id="riders2016">0</td>
+										<td id="riders20161d">0</td>
+										<td id="crew2016">0</td>
+									</tr>
+									<tr>
+										<td class="gray">2015</td>
 										<td id="riders2015">0</td>
+										<td class="gray">n/a</td>
 										<td id="crew2015">0</td>
 									</tr>
 									<tr>
 										<td class="gray">2014</td>
 										<td id="riders2014">0</td>
+										<td class="gray">n/a</td>
 										<td id="crew2014">0</td>
 									</tr>
 									<tr>
 										<td class="gray">2013</td>
 										<td id="riders2013">0</td>
+										<td class="gray">n/a</td>
 										<td id="crew2013">0</td>
 									</tr>
 									<tr>
 										<td class="gray">2012</td>
 										<td id="riders2012">0</td>
+										<td class="gray">n/a</td>
 										<td id="crew2012">0</td>
 									</tr>
 									<tr>
 										<td class="gray">2011</td>
 										<td id="riders2011">0</td>
+										<td class="gray">n/a</td>
 										<td id="crew2011">0</td>
 									</tr>
 									<tr>
 										<td class="gray">2010</td>
 										<td id="riders2010">0</td>
+										<td class="gray">n/a</td>
 										<td id="crew2010">0</td>
 									</tr>
 								</tbody>
@@ -181,6 +203,7 @@
 
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js" type="text/javascript"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js" type="text/javascript"></script>
-	<script src="/bikerally_jsdata" type="text/javascript"></script>
+	<script src="js/util.js" type="text/javascript"></script>
+	<script src="js/dashboard.js" type="text/javascript"></script>
 </body>
 </html>

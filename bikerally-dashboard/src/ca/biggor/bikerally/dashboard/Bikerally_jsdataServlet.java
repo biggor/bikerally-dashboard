@@ -22,25 +22,29 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		Calendar today = new GregorianCalendar();
 		SimpleDateFormat monthDayFormat = new SimpleDateFormat("MMM-dd");
 
-		String ridersEventId = "148513";
-		String crewEventId = "153652";
+		String riderEventId = req.getParameter("riderEventId");
+		if (riderEventId == null) {
+			riderEventId = Bikerally_util.DEFAULT_RIDER_EVENT_ID;
+		}
+		String crewEventId = req.getParameter("crewEventId");
+		if (crewEventId == null) {
+			riderEventId = Bikerally_util.DEFAULT_CREW_EVENT_ID;
+		}
 
 		String recacheTime = "";
 		Integer ridersTotalCollected = 0;
 		Integer crewTotalCollected = 0;
-		Integer familyRiders = 0;
 		Integer activeRiders = 0;
 		Integer activeCrew = 0;
 		Integer registeredRiders = 0;
 		Integer registeredCrew = 0;
 		try {
 			recacheTime = Bikerally_util.getRecacheTime();
-			ridersTotalCollected = Bikerally_util.getEventTotalCollected(ridersEventId);
+			ridersTotalCollected = Bikerally_util.getEventTotalCollected(riderEventId);
 			crewTotalCollected = Bikerally_util.getEventTotalCollected(crewEventId);
-			familyRiders = Bikerally_util.getFamilyCount(ridersEventId);
-			activeRiders = Bikerally_util.getParticipantCount(ridersEventId) + familyRiders;
+			activeRiders = Bikerally_util.getParticipantCount(riderEventId);
 			activeCrew = Bikerally_util.getParticipantCount(crewEventId);
-			registeredRiders = Bikerally_util.getEventParticipantCount(ridersEventId);
+			registeredRiders = Bikerally_util.getEventParticipantCount(riderEventId);
 			registeredCrew = Bikerally_util.getEventParticipantCount(crewEventId);
 		} catch (ParserConfigurationException | SAXException e) {
 			e.printStackTrace();
@@ -57,8 +61,11 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		String crew2013 = Bikerally_util.getCountRegistrationByDate("97260", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 		String riders2014 = Bikerally_util.getCountRegistrationByDate("124639", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 		String crew2014 = Bikerally_util.getCountRegistrationByDate("125616", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-//		String riders2015 = Bikerally_util.getCountRegistrationByDate("148513", new GregorianCalendar());
-//		String crew2015 = Bikerally_util.getCountRegistrationByDate("153652", new GregorianCalendar());
+		String riders2015 = Bikerally_util.getCountRegistrationByDate("148513", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		String crew2015 = Bikerally_util.getCountRegistrationByDate("153652", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		String riders2016 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		String riders20161d = Bikerally_util.getCountRegistrationByDate("179193", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		String crew2016 = Bikerally_util.getCountRegistrationByDate("0", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 
 		resp.getWriter().println("document.getElementById('recacheTime').innerHTML='" + recacheTime + "';");
 		resp.getWriter().println("document.getElementById('totalRaised').innerHTML='$" + totalRaised + "';");
@@ -79,8 +86,10 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		resp.getWriter().println("document.getElementById('crew2013').innerHTML='" + crew2013 + "<span class=\"gray\">/135 (102)</span>';");
 		resp.getWriter().println("document.getElementById('riders2014').innerHTML='" + riders2014 + "<span class=\"gray\">/*184 (254)</span>';");
 		resp.getWriter().println("document.getElementById('crew2014').innerHTML='" + crew2014 + "<span class=\"gray\">/*95 (95)</span>';");
-		resp.getWriter().println("document.getElementById('riders2015').innerHTML='" + activeRiders + "<span class=\"gray\"> (" + registeredRiders + ")</span>';");
-		resp.getWriter().println("document.getElementById('crew2015').innerHTML='" + activeCrew + "<span class=\"gray\"> (" + registeredCrew + ")</span>';");
+		resp.getWriter().println("document.getElementById('riders2015').innerHTML='" + riders2015 + "<span class=\"gray\">/201 (272)</span>';");
+		resp.getWriter().println("document.getElementById('crew2015').innerHTML='" + crew2015 + "<span class=\"gray\">/100 (100)</span>';");
+		resp.getWriter().println("document.getElementById('riders2016').innerHTML='" + riders2016 + "<span class=\"gray\"> (" + riders2016 + ")</span>';");
+		resp.getWriter().println("document.getElementById('crew2016').innerHTML='" + crew2016 + "<span class=\"gray\"> (" + riders2016 + ")</span>';");
 		resp.getWriter().println("");
 
 		resp.getWriter().println("Morris.Line({");

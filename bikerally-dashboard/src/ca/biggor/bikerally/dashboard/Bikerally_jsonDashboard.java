@@ -14,9 +14,13 @@ public class Bikerally_jsonDashboard extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String riderEventId = req.getParameter("riderEventId");
+		if (riderEventId == null) {
+			riderEventId = Bikerally_util.DEFAULT_RIDER_EVENT_ID;
+		}
 		String crewEventId = req.getParameter("crewEventId");
-		riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId: "148513";
-		crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId: "153652";
+		if (crewEventId == null) {
+			riderEventId = Bikerally_util.DEFAULT_CREW_EVENT_ID;
+		}
 	
 		String jsonDashboard = Bikerally_util.getJsonDashboard(riderEventId, crewEventId);
 

@@ -26,23 +26,41 @@ import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.MemcacheServiceFactory;
 
 public class Bikerally_util {
+	
+	public static final String RIDER_EVENT_ID_2016 = "177536";
+	public static final String RIDER_EVENT_ID_ONE_DAY_2016 = "179193";
+	public static final String CREW_EVENT_ID_2016  = "0";
+	public static final String RIDER_EVENT_ID_2015 = "148513";
+	public static final String CREW_EVENT_ID_2015  = "153652";
+	public static final String RIDER_EVENT_ID_2014 = "124639";
+	public static final String CREW_EVENT_ID_2014  = "125616";
+	public static final String RIDER_EVENT_ID_2013 = "96529";
+	public static final String CREW_EVENT_ID_2013  = "97260";
+	public static final String RIDER_EVENT_ID_2012 = "71589";
+	public static final String CREW_EVENT_ID_2012  = "75996";
+	public static final String RIDER_EVENT_ID_2011 = "52935";
+	public static final String CREW_EVENT_ID_2011  = "57207";
+	public static final String RIDER_EVENT_ID_2010 = "39408";
+	public static final String CREW_EVENT_ID_2010  = "39410";
+	public static final String RIDER_EVENT_ID_2005 = "2846";
+	public static final String CREW_EVENT_ID_2005  = "0";
+	
+	public static final String DEFAULT_RIDER_EVENT_ID = RIDER_EVENT_ID_2016;
+	public static final String DEFAULT_RIDER_ONE_DAY_EVENT_ID = RIDER_EVENT_ID_ONE_DAY_2016;
+	public static final String DEFAULT_CREW_EVENT_ID = CREW_EVENT_ID_2016;
+	
 
 	static MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
 
-	static Integer getFamilyCount(String eventId) {
-		Integer familyCount = (Integer) memcache.get(eventId + "-familyCount");
-		if (familyCount == null) {
-			familyCount = 0;
-			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-			Query query = new Query(eventId).setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
-			PreparedQuery pq = datastore.prepare(query);
-			for (Entity result : pq.asIterable()) {
-				String lastName = (String) result.getProperty("lastName");
-				if (lastName.contains("and ")) {
-					familyCount++;
-				}
+	static Integer getFamilyCount(Query query) {
+		Integer familyCount = 0;
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		PreparedQuery pq = datastore.prepare(query);
+		for (Entity result : pq.asIterable()) {
+			String lastName = (String) result.getProperty("lastName");
+			if (lastName.contains("and ")) {
+				familyCount++;
 			}
-			memcache.put(eventId + "-familyCount", familyCount);
 		}
 
 		return familyCount;
@@ -53,7 +71,7 @@ public class Bikerally_util {
 		if (participantCount == null) {
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 			Query query = new Query(eventId).setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
-			participantCount = datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults());
+			participantCount = datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults()) + getFamilyCount(query);
 			memcache.put(eventId + "-participantCount", participantCount);
 		}
 
@@ -95,40 +113,52 @@ public class Bikerally_util {
 		SimpleDateFormat artezDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
 		switch (eventId) {
+		// 2016
+		case "177536":
+		case "179193":
+		case "0":
+			byDate.add(Calendar.YEAR, 0);
+			break;
+
 		// 2015
 		case "148513":
 		case "153652":
-			byDate.add(Calendar.YEAR, 0);
+			byDate.add(Calendar.YEAR, -1);
 			break;
 
 		// 2014
 		case "124639":
 		case "125616":
-			byDate.add(Calendar.YEAR, -1);
+			byDate.add(Calendar.YEAR, -2);
 			break;
 
 		// 2013
 		case "96529":
 		case "97260":
-			byDate.add(Calendar.YEAR, -2);
+			byDate.add(Calendar.YEAR, -3);
 			break;
 
 		// 2012
 		case "71589":
 		case "75996":
-			byDate.add(Calendar.YEAR, -3);
+			byDate.add(Calendar.YEAR, -4);
 			break;
 
 		// 2011
 		case "52935":
 		case "57207":
-			byDate.add(Calendar.YEAR, -4);
+			byDate.add(Calendar.YEAR, -5);
 			break;
 
 		// 2010
 		case "39408":
 		case "39410":
-			byDate.add(Calendar.YEAR, -5);
+			byDate.add(Calendar.YEAR, -6);
+			break;
+
+		// 2005
+		case "2846":
+			byDate.add(Calendar.YEAR, -11);
 			break;
 
 		default:
@@ -137,21 +167,12 @@ public class Bikerally_util {
 
 		String byDateString = artezDateFormat.format(byDate.getTime());
 
-		String countRegistrationByDate = "0";
-		if (byDate.compareTo(new GregorianCalendar()) >= 0) {
-			try {
-				countRegistrationByDate = Integer.toString(getEventParticipantCount(eventId));
-			} catch (ParserConfigurationException | SAXException | IOException e) {
-				e.printStackTrace();
-			}
-		} else {
-			countRegistrationByDate = (String) memcache.get(eventId + "-" + byDateString);
-			if (countRegistrationByDate == null) {
-				DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-				Query query = new Query(eventId).setFilter(new FilterPredicate("registrationDate", FilterOperator.LESS_THAN, byDateString));
-				countRegistrationByDate = Integer.toString(datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults()));
-				memcache.put(eventId + "-" + byDateString, countRegistrationByDate);
-			}
+		String countRegistrationByDate = (String) memcache.get(eventId + "-" + byDateString);
+		if (countRegistrationByDate == null) {
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			Query query = new Query(eventId).setFilter(new FilterPredicate("registrationDate", FilterOperator.LESS_THAN, byDateString));
+			countRegistrationByDate = Integer.toString(datastore.prepare(query).countEntities(FetchOptions.Builder.withDefaults()) + getFamilyCount(query));
+			memcache.put(eventId + "-" + byDateString, countRegistrationByDate);
 		}
 
 		return countRegistrationByDate;
@@ -207,11 +228,11 @@ public class Bikerally_util {
 		}
 		return jsonTeams;
 	}
-	
+
 	static void deleteJsonTeams(String eventId) {
-		memcache.delete(eventId + "-jsonTeams"); 
+		memcache.delete(eventId + "-jsonTeams");
 	}
-	
+
 	static String getJsonLevels(String riderEventId) {
 		String jsonLevels = (String) memcache.get(riderEventId + "-jsonLevels");
 		if (jsonLevels == null) {
@@ -241,7 +262,6 @@ public class Bikerally_util {
 	}
 
 	static void deleteEventTotalsMemcache(String eventId) {
-		memcache.delete(eventId + "-familyCount");
 		memcache.delete(eventId + "-participantCount");
 		memcache.delete(eventId + "-eventParticipantCount");
 		memcache.delete(eventId + "-jsonTeams");

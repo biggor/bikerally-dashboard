@@ -56,6 +56,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>Bikerally_jsonDashboard</servlet-name>
 		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonDashboard</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Bikerally_updateIds</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_updateIds</servlet-class>
+	</servlet>
+	
 
 	<servlet-mapping>
 		<servlet-name>Bikerally_dashboard</servlet-name>
@@ -77,10 +82,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>Bikerally_cuesheet</servlet-name>
 		<url-pattern>/bikerally_cuesheet</url-pattern>
 	</servlet-mapping>
-<!-- 	<servlet-mapping> -->
-<!-- 		<servlet-name>Bikerally_registrationsByMonth</servlet-name> -->
-<!-- 		<url-pattern>bikerally_registrationsbymonth</url-pattern> -->
-<!-- 	</servlet-mapping> -->
+	<servlet-mapping>
+		<servlet-name>Bikerally_registrationsByMonth</servlet-name>
+		<url-pattern>bikerally_registrationsbymonth</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsdata</servlet-name>
 		<url-pattern>/bikerally_jsdata</url-pattern>
@@ -108,6 +113,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsonDashboard</servlet-name>
 		<url-pattern>/bikerally_dashboard</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Bikerally_updateIds</servlet-name>
+		<url-pattern>/bikerally_updateids</url-pattern>
 	</servlet-mapping>
 
 

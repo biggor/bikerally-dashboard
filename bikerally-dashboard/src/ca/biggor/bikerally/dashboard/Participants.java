@@ -30,28 +30,29 @@ public class Participants {
 	private ArrayList<Participant> participants;
 
 	public Participants(String riderEventId, String crewEventId) {
-		this.riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId : "148513";
-		this.crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId : "153652";
+		this.riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId : Bikerally_util.DEFAULT_RIDER_EVENT_ID;
+		this.crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId : Bikerally_util.DEFAULT_CREW_EVENT_ID;
 		this.participants = new ArrayList<>();
 		this.teams = new HashMap<String, String>();
-		
+
 		String jsonRiderTeams = Bikerally_util.getJsonTeams(this.riderEventId);
 		addTeams(jsonRiderTeams);
 		String jsonCrewTeams = Bikerally_util.getJsonTeams(this.crewEventId);
 		addTeams(jsonCrewTeams);
-		
+
+		this.riderCount = Integer.toString(Bikerally_util.getParticipantCount(this.riderEventId));
 		PreparedQuery riders = getParticipants(this.riderEventId);
-		this.riderCount = Integer.toString(riders.countEntities(FetchOptions.Builder.withDefaults()));
 		addParticipants(riders, true);
+
+		this.crewCount = Integer.toString(Bikerally_util.getParticipantCount(this.crewEventId));
 		PreparedQuery crew = getParticipants(this.crewEventId);
-		this.crewCount = Integer.toString(crew.countEntities(FetchOptions.Builder.withDefaults()));
 		addParticipants(crew, false);
 	}
-	
+
 	private void addTeams(String josnTeams) {
 		Gson gson = new Gson();
 		Teams teams = gson.fromJson(josnTeams, Teams.class);
-	
+
 		for (String key : teams.teams.keySet()) {
 			this.teams.put(key, teams.teams.get(key));
 		}

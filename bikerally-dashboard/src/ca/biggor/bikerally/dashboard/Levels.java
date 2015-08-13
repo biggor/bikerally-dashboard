@@ -11,8 +11,9 @@ import com.google.gson.Gson;
 
 public class Levels {
 
-	private int registeredRiders = 0;
-	private int estimatedRiders = 0;
+	private String riderEventId;
+	private int activeRiders = 0;
+	private int estimatedActiveRiders = 0;
 	private int level2500 = 0;
 	private int level1500 = 0;
 	private int level1000 = 0;
@@ -20,9 +21,10 @@ public class Levels {
 	private int level1 = 0;
 	private int level0 = 0;
 
-	public Levels(String eventId) {
+	public Levels(String riderEventId) {
+		this.riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId : Bikerally_util.DEFAULT_RIDER_EVENT_ID;
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		Query q = new Query(eventId).addSort("id").setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
+		Query q = new Query(this.riderEventId).addSort("id").setFilter(new FilterPredicate("status", FilterOperator.EQUAL, "active"));
 		PreparedQuery riders = datastore.prepare(q);
 		for (Entity rider : riders.asIterable()) {
 			float totalRaised = Float.parseFloat((String) rider.getProperty("totalRaised"));
@@ -67,8 +69,8 @@ public class Levels {
 			}
 		}
 		
-		this.registeredRiders = Bikerally_util.getParticipantCount(eventId) + Bikerally_util.getFamilyCount(eventId);
-		this.estimatedRiders = 182;
+		this.activeRiders = Bikerally_util.getParticipantCount(this.riderEventId);
+		this.estimatedActiveRiders = 0; // TODO - some smart routine to determine the estimated number of riders that will actuall ride
 	}
 
 	public String toJson() {

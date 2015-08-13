@@ -21,13 +21,11 @@ public class Bikerally_dashboardArtezServlet extends HttpServlet {
 
 		String riderEventId = req.getParameter("riderEventId");
 		if (riderEventId == null) {
-			// riderEventId = "124639";
-			riderEventId = "148513";
+			riderEventId = Bikerally_util.DEFAULT_RIDER_EVENT_ID;
 		}
 		String crewEventId = req.getParameter("crewEventId");
 		if (crewEventId == null) {
-			// crewEventId = "125616";
-			crewEventId = "153652";
+			riderEventId = Bikerally_util.DEFAULT_CREW_EVENT_ID;
 		}
 
 		try {

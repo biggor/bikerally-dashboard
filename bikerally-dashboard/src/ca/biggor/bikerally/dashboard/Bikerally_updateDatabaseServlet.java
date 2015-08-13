@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -28,6 +27,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 
 @SuppressWarnings("serial")
 public class Bikerally_updateDatabaseServlet extends HttpServlet {
@@ -40,18 +40,18 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 
 		String riderEventId = req.getParameter("riderEventId");
 		if (riderEventId == null) {
-			// riderEventId = "124639";
-			riderEventId = "148513";
+			riderEventId = Bikerally_util.DEFAULT_RIDER_EVENT_ID;
 		}
 		String crewEventId = req.getParameter("crewEventId");
 		if (crewEventId == null) {
-			// crewEventId = "125616";
-			crewEventId = "153652";
+			riderEventId = Bikerally_util.DEFAULT_CREW_EVENT_ID;
 		}
 
 		// get the participant list from artez
 		List<String> artezRiderList = new ArrayList<String>();
 		List<String> artezCrewList = new ArrayList<String>();
+
+		System.out.println(artezRiderList);
 
 		URL ridersUrl = new URL("http://my.e2rm.com/webgetservice/get.asmx/getAllRegIDs?eventID=" + riderEventId + "&Source=");
 		URL crewUrl = new URL("http://my.e2rm.com/webgetservice/get.asmx/getAllRegIDs?eventID=" + crewEventId + "&Source=");
@@ -80,6 +80,8 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		// get the participant list from the local db
 		List<Entity> riderList = getParticipants(riderEventId);
 		List<Entity> crewList = getParticipants(crewEventId);
+
+		System.out.println(riderList);
 
 		// debug
 		// DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
@@ -114,12 +116,16 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 		while ((x < slave.size()) || (y < master.size())) {
 			// If the master list is exhausted, delete the current element from
 			// the slave list
+			String updateSymbol = "";
+			System.out.println((x < slave.size() ? slave.get(x).getProperty("id") : "") + ":" + (y < master.size() ? master.get(y) : ""));
+
 			if (y >= master.size()) {
 				// datastore.delete(slave.get(x).getKey());
 				Entity participant = slave.get(x);
 				participant.setProperty("status", "deleted");
 				datastore.put(participant);
-				resp.getWriter().println(slave.get(x).getProperty("id") + "-");
+				updateSymbol = "-a ";
+				resp.getWriter().println(slave.get(x).getProperty("id") + updateSymbol);
 				x += 1;
 
 				// otherwise, if the slave list is exhausted, insert the current
@@ -127,25 +133,28 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 			} else if (x >= slave.size()) {
 				Entity participant = addParticipant(master.get(y), eventId);
 				datastore.put(getParticipantDetails(participant));
-				resp.getWriter().println(master.get(y) + "+");
+				updateSymbol = "+b ";
+				resp.getWriter().println(master.get(y) + updateSymbol);
 				y += 1;
 
 				// otherwise, if the current slave element precedes the current
 				// master element, delete the current slave element.
-			} else if (Integer.valueOf(slave.get(x).getProperty("id").toString()) < Integer.valueOf(master.get(y))) {
+			} else if (Integer.valueOf(slave.get(x).getProperty("id").toString().trim()) < Integer.valueOf(master.get(y))) {
 				// datastore.delete(slave.get(x).getKey());
 				Entity participant = slave.get(x);
 				participant.setProperty("status", "deleted");
 				datastore.put(participant);
-				resp.getWriter().println(slave.get(x).getProperty("id") + "-");
+				updateSymbol = "-c ";
+				resp.getWriter().println(slave.get(x).getProperty("id") + updateSymbol);
 				x += 1;
 
 				// # otherwise, if the current slave element follows the current
 				// master element, insert the current master element.
-			} else if (Integer.valueOf(slave.get(x).getProperty("id").toString()) > Integer.valueOf(master.get(y))) {
+			} else if (Integer.valueOf(slave.get(x).getProperty("id").toString().trim()) > Integer.valueOf(master.get(y))) {
 				Entity participant = addParticipant(master.get(y), eventId);
 				datastore.put(getParticipantDetails(participant));
-				resp.getWriter().println(master.get(y) + "+");
+				updateSymbol = "+d ";
+				resp.getWriter().println(master.get(y) + updateSymbol);
 				y += 1;
 
 				// otherwise the current elements match; consider the next pair
@@ -153,29 +162,62 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 				Entity participant = slave.get(x);
 				if (req.getParameter("updateAll") != null) {
 					getParticipantDetails(participant);
-					resp.getWriter().println(participant.getProperty("id") + "*");
+					updateSymbol = "*";
 				}
 				String status = participant.getProperty("status").toString();
 				if (status != null && !status.equals("virtual")) {
 					participant.setProperty("status", "active");
 					datastore.put(participant);
+					updateSymbol = updateSymbol + ".";
 				}
+				resp.getWriter().println(participant.getProperty("id") + updateSymbol);
 				x += 1;
 				y += 1;
 			}
+			System.out.println(updateSymbol + ": " + x + ":" + y);
 		}
 	}
 
 	private List<Entity> getParticipants(String eventId) {
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		Query q = new Query(eventId).addSort("id");
+		// Query q = new Query(eventId);
 		PreparedQuery participants = datastore.prepare(q);
 		return participants.asList(FetchOptions.Builder.withDefaults());
 	}
 
 	private Entity addParticipant(String id, String eventId) {
+		switch (id.trim().length()) {
+		case 1:
+			id = "      " + id.trim();
+			break;
+
+		case 2:
+			id = "     " + id.trim();
+			break;
+
+		case 3:
+			id = "    " + id.trim();
+			break;
+
+		case 4:
+			id = "   " + id.trim();
+			break;
+
+		case 5:
+			id = "  " + id.trim();
+			break;
+
+		case 6:
+			id = " " + id.trim();
+			break;
+
+		default:
+			break;
+			
+		}
 		Entity p = new Entity(eventId);
-		p.setProperty("id", id.trim());
+		p.setProperty("id", id);
 		// custom properties
 		p.setProperty("riderNumber", "");
 		p.setProperty("status", "active");
@@ -185,7 +227,7 @@ public class Bikerally_updateDatabaseServlet extends HttpServlet {
 	private Entity getParticipantDetails(Entity p) {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		try {
-			URL url = new URL("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID=" + p.getProperty("id") + "&Source=&uniqueID=");
+			URL url = new URL("http://my.e2rm.com/webgetservice/get.asmx/getRegistrant?registrantID=" + p.getProperty("id").toString().trim() + "&Source=&uniqueID=");
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(url.openStream());
 			p.setProperty("firstName", doc.getElementsByTagName("firstName").item(0).getTextContent().trim());

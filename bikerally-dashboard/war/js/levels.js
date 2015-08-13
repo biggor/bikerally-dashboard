@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-	$.getJSON('bikerally_levels?riderEventId=' + getParameterByName('eventId'), function(jsonData) {
-		$('#registeredRiders').html('' + jsonData.registeredRiders ? jsonData.registeredRiders : 0);
-		$('#estimatedRiders').html('' + jsonData.estimatedRiders ? jsonData.estimatedRiders : 0);
+	$.getJSON('bikerally_levels?riderEventId=' + getParameterByName('ridereventid'), function(jsonData) {
+		$('#activeRiders').html('' + jsonData.activeRiders ? jsonData.activeRiders : 0);
+		$('#estimatedActiveRiders').html('' + jsonData.estimatedActiveRiders ? jsonData.estimatedActiveRiders : 0);
 		$('#level2500').html('' + jsonData.level2500 ? jsonData.level2500 : 0);
 		$('#level1500').html('' + jsonData.level1500 ? jsonData.level1500 : 0);
 		$('#level1000').html('' + jsonData.level1000 ? jsonData.level1000 : 0);

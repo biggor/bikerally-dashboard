@@ -18,8 +18,14 @@ public class Bikerally_jsdataDollarChartServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String ridersEventId = "148513";
-		String crewEventId = "153652";
+		String riderEventId = req.getParameter("riderEventId");
+		if (riderEventId == null) {
+			riderEventId = Bikerally_util.DEFAULT_RIDER_EVENT_ID;
+		}
+		String crewEventId = req.getParameter("crewEventId");
+		if (crewEventId == null) {
+			riderEventId = Bikerally_util.DEFAULT_CREW_EVENT_ID;
+		}
 
 		String recacheTime = "";
 		Integer ridersTotalCollected = 0;
@@ -28,9 +34,9 @@ public class Bikerally_jsdataDollarChartServlet extends HttpServlet {
 		Integer crewRegistered = 0;
 		try {
 			recacheTime = Bikerally_util.getRecacheTime();
-			ridersTotalCollected = Bikerally_util.getEventTotalCollected(ridersEventId);
+			ridersTotalCollected = Bikerally_util.getEventTotalCollected(riderEventId);
 			crewTotalCollected = Bikerally_util.getEventTotalCollected(crewEventId);
-			ridersRegistered = Bikerally_util.getEventParticipantCount(ridersEventId);
+			ridersRegistered = Bikerally_util.getEventParticipantCount(riderEventId);
 			crewRegistered = Bikerally_util.getEventParticipantCount(crewEventId);
 		} catch (ParserConfigurationException | SAXException e) {
 			e.printStackTrace();
