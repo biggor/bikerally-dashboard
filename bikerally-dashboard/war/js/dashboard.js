@@ -1,45 +1,63 @@
 $(document).ready(function() {
 
 	$.getJSON('bikerally_dashboard?riderEventId=' + getParameterByName('ridereventid') + '&crewEventId=' + getParameterByName('creweventid'), function(jsonData) {
-		var eventYear = "#F4LBR18 - 2016";
-		switch(getParameterByName('ridereventid')) {
-	    case "177536":
-	    case "179193":
-	    	eventYear = "#F4LBR18 - 2016";
-	        break;
-	    case "148513":
-	    	eventYear = "#F4LBR17 - 2015";
-	        break;
-
-	    case "124639":
-	    	eventYear = "#F4LBR16 - 2014";
-	        break;
-
-	    case "96529":
-	    	eventYear = "#F4LBR15 - 2013";
-	        break;
-
-	    case "71589":
-	    	eventYear = "#F4LBR14 - 2012";
-	        break;
-
-	    case "52935":
-	    	eventYear = "#F4LBR13 - 2011";
-	        break;
-
-	    case "39408":
-	    	eventYear = "#F4LBR12 - 2010";
-	        break;
-
-	    case "2846":
-	    	eventYear = "#F4LBR7 - 2005";
-	        break;
-
-	    default:
-	        break;
-	}
 		
-		$('#eventYear').html(eventYear);
+		switch (getParameterByName('ridereventid')) {
+		case "177536":
+		case "179193":
+			eventYear = "#F4LBR18 - 2016";
+			break;
+		case "148513":
+			eventYear = "#F4LBR17 - 2015";
+			$("#1day").addClass('hidden');
+			$("#riderGauge").addClass('col-xs-offset-2');
+			break;
+
+		case "124639":
+			eventYear = "#F4LBR16 - 2014";
+			$("#1day").addClass('hidden');
+			$("#riderGauge").addClass('col-xs-offset-2');
+			break;
+
+		case "96529":
+			eventYear = "#F4LBR15 - 2013";
+			$("#1day").addClass('hidden');
+			$("#riderGauge").addClass('col-xs-offset-2');
+			break;
+
+		case "71589":
+			eventYear = "#F4LBR14 - 2012";
+			$("#1day").addClass('hidden');
+			$("#riderGauge").addClass('col-xs-offset-2');
+			break;
+
+		case "52935":
+			eventYear = "#F4LBR13 - 2011";
+			$("#1day").addClass('hidden');
+			$("#riderGauge").addClass('col-xs-offset-2');
+			break;
+
+		case "39408":
+			eventYear = "#F4LBR12 - 2010";
+			$("#1day").addClass('hidden');
+			$("#riderGauge").addClass('col-xs-offset-2');
+			break;
+
+		case "2846":
+			eventYear = "#F4LBR7 - 2005";
+			$("#1day").addClass('hidden');
+			$("#riderGauge").addClass('col-xs-offset-2');
+			break;
+
+		default:
+			var eventYear = "#F4LBR18 - 2016";
+			$("#1day").removeClass('hidden');
+			$("#riderGauge").removeClass('col-xs-offset-2');
+			break;
+		}
+		
+
+				$('#eventYear').html(eventYear);
 		$('#recacheTime').html((jsonData.recacheTime ? jsonData.recacheTime : ''));
 		$('#totalRaised').html((jsonData.totalRaised ? jsonData.totalRaised : 0));
 		$('#ridersRegistered').html((jsonData.activeRiders ? jsonData.activeRiders : 0));
@@ -60,12 +78,12 @@ $(document).ready(function() {
 		$('#riders2013').html((jsonData.riders2013 ? jsonData.riders2013 + "<span class=\"gray\">/302 (390)</span>" : 0));
 		$('#crew2013').html((jsonData.crew2013 ? jsonData.crew2013 + "<span class=\"gray\">/135 (102)</span>" : 0));
 		$('#riders2014').html((jsonData.riders2014 ? jsonData.riders2014 + "<span class=\"gray\">/*184 (254)</span>" : 0));
-		$('#crew2014').html((jsonData.crew2010 ? jsonData.crew2010 + "<span class=\"gray\">/*95 (95)</span>" : 0));
+		$('#crew2014').html((jsonData.crew2010 ? jsonData.crew2014 + "<span class=\"gray\">/*95 (95)</span>" : 0));
 		$('#riders2015').html((jsonData.riders2015 ? jsonData.riders2015 + "<span class=\"gray\">/201 (272)</span>" : 0));
 		$('#crew2015').html((jsonData.crew2015 ? jsonData.crew2015 + "<span class=\"gray\">/100 (100)</span>" : 0));
 		$('#riders2016').html((jsonData.riders2016 ? jsonData.riders2016 + "<span class=\"gray\"> (" + jsonData.riders2016 + ")</span>" : 0));
 		$('#riders20161d').html((jsonData.riders20161d ? jsonData.riders20161d + "<span class=\"gray\"> (" + jsonData.riders20161d + ")</span>" : 0));
-		$('#crew2016').html((jsonData.crew2016 ? jsonData.crew2016 + "<span class=\"gray\"> (" + jsonData.riders2016 + ")</span>" : 0));
+		$('#crew2016').html((jsonData.crew2016 ? jsonData.crew2016 + "<span class=\"gray\"> (" + jsonData.crew2016 + ")</span>" : 0));
 
 		Morris.Line({
 			element: 'chart',

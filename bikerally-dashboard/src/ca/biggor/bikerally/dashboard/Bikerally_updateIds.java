@@ -49,36 +49,7 @@ public class Bikerally_updateIds extends HttpServlet {
 		PreparedQuery pq = datastore.prepare(query);
 		for (Entity result : pq.asIterable()) {
 			String id = (String) result.getProperty("id");
-			switch (id.trim().length()) {
-			case 1:
-				id = "      " + id.trim();
-				break;
-
-			case 2:
-				id = "     " + id.trim();
-				break;
-
-			case 3:
-				id = "    " + id.trim();
-				break;
-
-			case 4:
-				id = "   " + id.trim();
-				break;
-
-			case 5:
-				id = "  " + id.trim();
-				break;
-
-			case 6:
-				id = " " + id.trim();
-				break;
-
-			default:
-				break;
-				
-			}
-			result.setProperty("id", id);
+			result.setProperty("id", String.format("%7s", id.trim()));
 			datastore.put(result);
 
 			System.out.println(id);
