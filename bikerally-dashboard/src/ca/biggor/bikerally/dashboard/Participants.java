@@ -1,23 +1,15 @@
 package ca.biggor.bikerally.dashboard;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.datanucleus.sco.simple.Map;
-import org.xml.sax.SAXException;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
-import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
-import com.google.appengine.labs.repackaged.com.google.common.collect.Maps;
 import com.google.gson.Gson;
 
 public class Participants {

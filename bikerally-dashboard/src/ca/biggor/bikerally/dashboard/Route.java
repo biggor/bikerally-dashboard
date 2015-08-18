@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -23,7 +22,6 @@ import org.xml.sax.SAXException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.opencsv.CSVReader;
-import com.sun.jmx.snmp.Timestamp;
 
 public class Route {
 	private String routeId;
