@@ -1,0 +1,2458 @@
+0: 
+1: 2: 2003 Bell Walk For Kids
+
+30: 3: WWF Corporate Challenge
+31: 3: WWF Public Climb
+33: 5: CUSO Employee Campaign
+38: 7: John Manley eCampaign
+
+
+341: 9: OLD Body 'n Soul Walk/Run
+342: 10: Artezian Foundation
+343: 
+344: 
+345: 2: Angus Glen Golf Club
+346: 
+347: 
+348: 5: OLD - The Daniel Igali School Project 
+349: 1: Artez Master Event
+350: 
+351: 
+352: 
+353: 
+354: 11: Karen's event
+355: 
+356: 
+357: 
+358: 
+359: 
+360: 
+361: 2: Kids Help Phone Corporate Bowlathon
+362: 
+363: 12: 03 Student - Enbridge CN Tower Stair Climb 
+364: 
+365: 
+366: 
+367: 
+368: 13: Ride For Karen
+369: 
+370: 
+371: 2: Fall 2003 Leadership Giving Campaign
+372: 
+373: 11: CUSO  pounds event
+374: 
+375: 
+376: 5: OLD Cooperant E-Fundraising Project
+377: 
+378: 12: 03 Public - Enbridge CN Tower Stair Climb
+379: 
+380: 10: Golf Demo Site
+381: 
+382: 12: 03 Team - Enbridge CN Tower Stair Climb
+383: 
+384: 
+385: 
+386: 5: OLD - CLOSED No good - do not use
+387: 
+388: 
+389: 1: Pseudo event to allow content admin on admin
+390: 10: Leadership Campaign
+391: 
+392: 10: Deb' Parade for the Cure
+393: 
+394: 
+395: 5: OLD - CLOSED Pounds for People
+396: 
+397: 
+398: 10: Artez Delivers - Again!
+399: 
+400: 10: H&S Demo Event
+401: 
+402: 10: Thanksgiving for a Cause
+403: 
+404: 
+405: 
+406: 
+407: 
+408: 
+409: 
+410: 
+411: 2: Kids Help Phone Bowlathon - Calgary
+412: 
+413: 10: Sept 23 Event
+414: 
+415: 
+416: 11: Run for Huey
+417: 
+418: 
+419: 2: Kids Help Phone Boolathon - Edmonton
+420: 
+421: 10: Pam & David's Event
+422: 
+423: 11: Walk for Huey
+424: 
+425: 
+426: 
+427: 10: Walk
+428: 
+429: 10: Melanie's Big event
+430: 
+431: 2: Kids Help Phone Corporate Bowlathon
+432: 
+433: 14: Giving Thanks 
+434: 
+435: 12: Event Not in Use
+436: 
+437: 5: OLD - Example Event
+438: 
+439: 10: Club De Cent
+440: 
+441: 11: Climb for Huey
+442: 
+443: 10: Philip Practice
+444: 
+445: 10: Philip's Practice 2
+446: 
+447: 
+448: 10: PMH Gala Dinner
+449: 
+450: 
+451: 10: BBBSC Alumni Member get a Member
+452: 
+453: 
+454: 
+455: 10: PMH Holiday Dinner Campaign
+456: 
+457: 11: Lunch Money Day
+458: 
+459: 
+460: 10: Framework Timeraiser
+461: 
+462: 17: Club de Cent - 
+463: 
+464: 10: Donation Template
+465: 
+466: 2: Basic Donation Form
+467: 
+468: 10: Bowl for kids sake
+469: 
+470: 
+471: 
+472: 11: eat for huey
+473: 
+474: 
+475: 2: Bell Walk for Kids Follow Up
+476: 
+477: 2: New Donors
+478: 
+479: 2: Bilingual Donation Form
+480: 
+481: 17: 2nd Annual International Beer Tasting
+482: 
+483: 10: Breath of Hope
+484: 
+485: 
+486: 11: walk for smokey
+487: 
+488: 
+489: 15: Firefighter's Climb for Wishes
+490: 
+491: 18: Breath of Hope for Sarah
+492: 
+493: 
+494: 
+495: 11: Walk Event
+496: 
+497: 16: Lunch Money Day
+498: 
+499: 20: CARE Sunday Supper Series 1
+500: 
+501: 17: Correction Website
+502: 
+503: 17: Ski for Street Kids International
+504: 
+505: 11: tj test event
+506: 
+507: 19: Walk for Memories
+508: 
+509: 21: March of Dimes - CyberMarch Demo
+510: 
+511: 22: Zahra Kazemi Justice Fund
+512: 
+513: 11: family and friends campaign
+514: 
+515: 
+516: 
+517: 
+518: 
+519: 
+520: 
+521: 
+522: 21: The Great Canadian GE-free Dinner Party
+523: 
+524: 
+525: 
+526: 
+527: 11: Write-a-thon
+528: 
+529: 23: Friends & Family Campaign
+530: 
+531: 1: Artez Master Campaign
+532: 10: remembrance day
+533: 
+534: 
+535: 
+536: 
+537: 
+538: 
+539: 
+540: 
+541: 
+542: 
+543: 
+544: 
+545: 21: Asthma Auckland Fun Run
+546: 
+547: 
+548: 
+549: 
+550: 
+551: 
+552: 
+553: 
+554: 
+555: 
+556: 
+557: 
+558: 
+559: 
+560: 
+561: 
+562: 
+563: 
+564: 
+565: 
+566: 
+567: 
+568: 
+569: 
+570: 
+571: 
+572: 11: Donate Campaign
+573: 
+574: 24: BIG ASK Campaign
+575: 
+576: 21: Teddy Bear Stroll
+577: 
+578: 11: ski day
+579: 
+580: 11: boys event
+581: 
+582: 11: tj's event day
+583: 
+584: 11: donate to huey
+585: 
+586: 11: move-a-thon
+587: 
+588: 
+589: 13: The "Hope for the Future" Bursary Campaign 
+590: 
+591: 11: Mother's Day
+592: 
+593: 11: Mother's Day Luncheon
+594: 
+595: 
+596: 25: The Moveathon
+597: 
+598: 25: 50 km Bike Ride- Deleted by Artez
+599: 
+600: 
+601: 25: 20k Family Bike Ride - Deleted by Artez
+602: 
+603: 25: 20k Girls Ride - Deleted by Artez
+604: 
+605: 25: 2k fun loop - Deleted by Artez
+606: 
+607: 25: 30k Boys Ride - Deleted by Artez
+608: 
+609: 25: 10k run - Deleted by Artez
+610: 
+611: 25: Clergy on the Move - Deleted by Artez
+612: 
+613: 11: body n soul
+614: 
+615: 
+616: 21: Macmillan Cancer Coffee Morning 2004
+617: 
+618: 11: radio thon
+619: 
+620: 11: huey's roman run
+621: 
+622: 
+623: 
+624: 
+625: 
+626: 
+627: 
+628: 11: Luncheon
+629: 
+630: 11: Leadership Campaign
+631: 
+632: 
+633: 21: My birthday party for Pueblito
+634: 
+635: 11: Race for the Cure
+636: 
+637: 11: Toronto Golf
+638: 
+639: 21: 21st century challenge
+640: 
+641: 21: Scrabble-athon for Literacy
+642: 
+643: 10: Andrea's Scholarship
+644: 
+645: 5: Cuso International Website Donations
+646: 
+647: 11: donation test
+648: 
+649: 11: wheels test
+650: 
+651: 28: Mother's Day Campaign 
+652: 
+653: 
+654: 21: Bam, Iran Fundraising Relief Campaign
+655: 
+656: 10: Orange Party Fundraising Campaign
+657: 
+658: 26: Test One
+659: 
+660: 10: The Great Gatineau 10k Race
+661: 
+662: 27: Luncheon
+663: 
+664: 11: Huey's Walk 2004
+665: 
+666: 
+667: 11: My Event
+668: 
+669: 27: Mother's Day Tribute Card
+670: 
+671: 27: Mother's Day Tribute Book Program
+672: 
+673: 29: The Big Ski 2004
+674: 
+675: 17: Chethan's Wine Tasting Event
+676: 
+677: 11: huey's snow run
+678: 
+679: 
+680: 
+681: 3: Canada Life CN Tower Team Climb for WWF
+682: 
+683: 11: partnership walk
+684: 
+685: 
+686: 10: A Better Poison Campaign
+687: 
+688: 2: 2004 Bell Walk for Kids Test Site
+689: 
+690: 
+691: 
+692: 
+693: 
+694: 
+695: 
+696: 
+697: 
+698: 
+699: 
+700: 
+701: 
+702: 
+703: 
+704: 
+705: 
+706: 
+707: 
+708: 
+709: 
+710: 
+711: 
+712: 
+713: 
+714: 
+715: 
+716: 
+717: 
+718: 
+719: 
+720: 
+721: 
+722: 
+723: 
+724: 
+725: 
+726: 
+727: 27: Mother's Day Leadership Campaign
+728: 
+729: 30: World Partnership Walk 
+730: 
+731: 11: relay2
+732: 
+733: 
+734: 10: Test Setup
+735: 
+736: 24: Inspire Party
+737: 
+738: 10: Scott's Supper Campaign
+739: 
+740: 10: Scott's Big Event
+741: 
+742: 10: 5th Annual Aylmer Ski-a-thon
+743: 
+744: 32: Belinda's Leadership Campaign
+745: 
+746: 10: Golf for UWMB
+747: 
+748: 10: French event
+749: 
+750: 9: Howard Schwartz Memorial Golf Tournament
+751: 
+752: 9: The Gala of Hope
+753: 
+754: 
+755: 
+756: 
+757: 
+758: 
+759: 
+760: 
+761: 
+762: 
+763: 31: TEMPLATE: WIM British Columbia
+764: 
+765: 11: National Hillbilly Fundraising Campaign
+766: 
+767: 2: 2004 - DO NOT USE NOW - Being There for Kids Breakfast
+768: 
+769: 
+770: 
+771: 3: Canada Life CN Tower Climb for WWF
+772: 
+773: 34: 2004 - Relay
+774: 
+775: 10: Beth TEST
+776: 
+777: 34: 2005 - Telethon (Donation)
+778: 
+779: 26: Sick Kids Radiothon
+780: 
+781: 10: Walk the Walk
+782: 
+783: 
+784: 29: Iron Man Golf Challenge 2004
+785: 
+786: 26: Sick Kids Radiothon - UTR
+787: 
+788: 35: Help us Help Others - Readathon
+789: 
+790: 35: World Aids Day 2004 Vigil
+791: 
+792: 35: Dinner Into Pills
+793: 
+794: 35: World Refugee Day Donations
+795: 
+796: 35: Alumni Campaign: Club de Cent
+797: 
+798: 10: Kipp's Feb 02 Event
+799: 
+800: 11: Run 10k event
+801: 
+802: 
+803: 33: The Ottawa Hospital Fundraising Challenge
+804: 
+805: 11: ski day
+806: 
+807: 10: Casper's Fund
+808: 
+809: 11: Cirque de Soliel
+810: 
+811: 
+812: 10: Noreen Test Direct Donation 1
+813: 
+814: 10: Leafs vs Sens
+815: 
+816: 26: Sick Kids Radiothon - UTR 2
+817: 
+818: 37: 2004 Ski For Gold
+819: 
+820: 36: Run for Research 2004 - 10km
+821: 
+822: 26: Sick Kids Radiothon - HSCF
+823: 
+824: 26: Sick Kids Radiothon - CFRB
+825: 
+826: 26: Sick Kids Radiothon - MIX
+827: 
+828: 26: Sick Kids Radiothon - EZRock
+829: 
+830: 10: PLee Test Event
+831: 
+832: 26: Sick Kids Radiothon - Data Entry
+833: 
+834: 38: Cirque Du Soleil "Quidam"
+835: 
+836: 37: Torch Run (Discontinued)
+837: 
+838: 39: Corporate Challenge 2004
+839: 
+840: 39: Individual - Deleted by Artez
+841: 
+842: 
+843: 
+844: 10: TFA Alumni Campaign
+845: 
+846: 
+847: 
+848: 10: Website donation form (basic)
+849: 
+850: 10: 75 Person Workplace Page
+851: 
+852: 10: Toronto.com Friends and Family Campaign
+853: 
+854: 
+855: 40: Ovarian Cancer Symposium
+856: 
+857: 40: 2004 Walk of Hope
+858: 
+859: 
+860: 
+861: 
+862: 
+863: 
+864: 
+865: 32: House Party Membership
+866: 
+867: 11: tj's event
+868: 
+869: 18: 2004 OPG Breath of Hope Relay
+870: 
+871: 
+872: 10: Liberal Party of Canada E-Team
+873: 
+874: 41: Canadian International Marathon
+875: 
+876: 
+877: 11: tj's copy cat
+878: 
+879: 2: 2004 Bell Walk for Kids
+880: 
+881: 
+882: 
+883: 
+884: 
+885: 
+886: 
+887: 
+888: 
+889: 
+890: 
+891: 
+892: 
+893: 
+894: 
+895: 
+896: 
+897: 
+898: 
+899: 
+900: 
+901: 
+902: 
+903: 
+904: 
+905: 
+906: 
+907: 
+908: 
+909: 
+910: 
+911: 
+912: 
+913: 
+914: 
+915: 
+916: 
+917: 
+918: 10: E Blitz Campaign
+919: 
+920: 38: Quidam
+921: 
+922: 38: Arts Umbrella 2009/10
+923: 
+924: 
+925: 
+926: 10: AJ's play date
+927: 
+928: 
+929: 10: Get Active Fundraiser!
+930: 
+931: 
+932: 3: Climb for Wilderness
+933: 
+934: 10: Wal-Mart Walk for Miracles
+935: 
+936: 
+937: 43: FVPF's 2004 Founding Fathers Campaign
+938: 
+939: 42: Tour Nortel 2004
+940: 
+941: 10: Children of Zahra
+942: 
+943: 10: Ski-a-thon Team Challenge
+944: 
+945: 11: Megan's Walk
+946: 
+947: 17: Third Annual Charity Golf Classic
+948: 
+949: 39: Individual 2004
+950: 
+951: 39: Volunteer 2004
+952: 
+953: 2: BMO Golfathon 2004
+954: 
+955: 39: Family 2004 
+956: 
+957: 9: General Donations 2004
+958: 
+959: 42: **DO NOT USE**
+960: 
+961: 11: smokey's reg fee event
+962: 
+963: 26: COREY FINDING FEATURES
+964: 
+965: 10: Sample NC Donation
+966: 
+967: 35: Homecoming 2004
+968: 
+969: 
+970: 
+971: 31: TEST EVENT - INACTIVE
+972: 
+973: 31: Wheels In Motion Ontario
+974: 
+975: 35: Walkathon for the Cure
+976: 
+977: 
+978: 
+979: 
+980: 
+981: 37: Torch Run (Discontinued)
+982: 
+983: 
+984: 42: Tour Nortel 2004 - Kids
+985: 
+986: 42: Tour Nortel 2004 - Corporate Challenge
+987: 
+988: 42: Tour Nortel 2004 - School Challenge
+989: 
+990: 35: Generic Donation Form
+991: 
+992: 35: Santa's Shuffle
+993: 
+994: 37: Torch Run
+995: 
+996: 
+997: 
+998: 9: Body 'N Soul Walk/Run For Colorectal Cancer Research
+999: 
+1000: 
+1001: 
+1002: 
+1003: 
+1004: 
+1005: 
+1006: 
+1007: 
+1008: 
+1009: 
+1010: 
+1011: 
+1012: 31: Wheels In Motion British Columbia
+
+
+1091: 31: Wheels In Motion Alberta
+1092: 
+1093: 
+1094: 
+1095: 
+1096: 31: Wheels In Motion Saskatchewan
+1097: 
+1098: 
+1099: 31: Wheels In Motion Manitoba
+1100: 
+1101: 31: Wheels In Motion Northern Territories
+1102: 
+1103: 
+1104: 31: Wheels In Motion Quebec
+
+
+1132: 31: Wheels In Motion Atlantic Canada
+
+
+1182: 17: Golf and Texas Hold'em Poker Tournament
+1183: 
+1184: 41: Toronto Marathon
+1185: 
+1186: 
+1187: 
+1188: 
+1189: 35: eFriends Campaign
+1190: 
+1191: 35: eBoard Campaign
+1192: 
+1193: 26: Meagan’s Walk, Creating A Circle of Hope
+1194: 
+1195: 44: UHN Family Campaign
+1196: 
+1197: 11: TJ&KG
+1198: 
+1199: 
+1200: 35: The Ghana Project
+1201: 
+1202: 
+1203: 
+1204: 10: Axiom Consulting GOLF FOR KIDS 2004
+1205: 
+1206: 35: Go Vols!
+1207: 
+1208: 35: Dr. Jay Golf
+1209: 
+1210: 35: Vols Campaign
+1211: 
+1212: 
+1213: 12: 04 - Scotiabank Bay Street Rat Race
+1214: 
+1215: 35: Friends of Historica Campaign
+1216: 
+1217: 35: Teacher's Campaign
+1218: 
+1219: 35: MADD Heroes
+1220: 
+1221: 43: TEST
+1222: 
+1223: 43: Founding Fathers Campaign
+1224: 
+1225: 
+1226: 
+1227: 
+1228: 
+1229: 
+1230: 
+1231: 
+1232: 
+1233: 35: Campagne
+1234: 
+1235: 11: Labatt 24 Hour relay
+1236: 
+1237: 36: Test
+1238: 
+1239: 36: Run for Research 2004 - 3km
+1240: 
+1241: 36: test2
+1242: 
+1243: 11: dr jay golf classic
+1244: 
+1245: 47: Flower Power
+1246: 
+1247: 10: Mini Egg-a-thon
+1248: 
+1249: 46: Board Campaign
+1250: 
+1251: 49: 2004 Barrie to Baycrest 
+1252: 
+1253: 
+1254: 51: PAWS in the PARK
+1255: 
+1256: 10: Shibani's Test Event
+1257: 
+1258: 
+1259: 48: Minnie Pearl Society Annual Fund Drive
+1260: 
+1261: 50: General - Report
+1262: 
+1263: 
+1264: 53: Andrea's Walk
+1265: 
+1266: 21: All Star Family Sports Jam Celebrity Fundraising
+1267: 
+1268: 21: Jennifer Lopez Childrens Hospital Los Angeles
+1269: 
+1270: 41: Layout4Leukemia
+1271: 
+1272: 55: Aliant Halifax Dragon Boat Festival
+1273: 
+1274: 26: The 32 Canadian Brigade D-Day March
+1275: 
+1276: 56: 2004 Paws for a Cause
+1277: 
+1278: 
+1279: 41: Mt. Kilimanjaro
+1280: 
+1281: 41: Gift of Life 
+1282: 
+1283: 41: Lisa Coristine Brave Heart
+1284: 
+1285: 57: Test Event
+1286: 
+1287: 35: Ride for Karen 2004
+1288: 
+1289: 
+1290: 9: Ben Blidner's 80th Birthday
+1291: 
+1292: 
+1293: 
+1294: 
+1295: 
+1296: 
+1297: 
+1298: 
+1299: 
+1300: 
+1301: 
+1302: 
+1303: 
+1304: 
+1305: 58: Salvation Army General Donations
+1306: 
+1307: 26: A Run for Liane
+1308: 
+1309: 18: 2004 Breath of Hope Alberta
+1310: 
+1311: 
+1312: 59: Walk for Life (Toronto) 2004
+1313: 
+1314: 
+1315: 
+1316: 
+1317: 
+1318: 
+1319: 
+1320: 
+1321: 
+1322: 
+1323: 
+1324: 
+1325: 
+1326: 
+1327: 
+1328: 
+1329: 
+1330: 
+1331: 
+1332: 
+1333: 
+1334: 
+1335: 
+1336: 
+1337: 
+1338: 
+1339: 
+1340: 
+1341: 
+1342: 
+1343: 
+1344: 10: Aylmer Children Donation Form
+1345: 
+1346: 57: Camp Moomba Yogathon
+1347: 
+1348: 26: Ismaili Run for Charity -10k
+1349: 
+1350: 60: GWN Dragon Boat Challenge
+1351: 
+1352: 
+1353: 26: Ismaili Run for Charity - 4K
+1354: 
+1355: 35: The Canadian Youth Campaign!
+1356: 
+1357: 38: Napa Valley Wine Tasting
+1358: 
+1359: 35: Friends of the Forest
+1360: 
+1361: 
+1362: 48: Second Event
+1363: 
+1364: 11: copy event
+1365: 
+1366: 35: Clive's Fundraiser
+1367: 
+1368: 
+1369: 
+1370: 21: Right To Play Athlete Fundraising
+1371: 
+1372: 35: Joints In Motion 2004
+1373: 
+1374: 
+1375: 49: 2004 Great Lakes Challenge
+1376: 
+1377: 11: may event 04
+1378: 
+1379: 62: Patterson Palmer Golf Tournament
+1380: 
+1381: 10: Amnesty International Canada WRITE-A-THON
+1382: 
+1383: 48: One Step at a Time
+1384: 
+1385: 17: Salsa for Street Kids International 
+1386: 
+1387: 21: Wayne Gretzky's Fundraising Page
+1388: 
+1389: 21: Right To Play Athlete Fundraising!
+1390: 
+1391: 35: Joints In Motion
+1392: 
+1393: 35: Online Tributes
+1394: 
+1395: 11: TJ's Bilingual Event
+1396: 
+1397: 35: TVO Friends and Family
+1398: 
+1399: 
+1400: 11: fr donate
+1401: 
+1402: 11: donate
+1403: 
+1404: 43: No fee Founding Fathers
+1405: 
+1406: 
+1407: 
+1408: 
+1409: 
+1410: 10: Friends and Family Campaign
+1411: 
+1412: 26: Joshua’s Voyageur’s for Juvenile Arthritis
+1413: 
+1414: 63: Summer BBQ Campaign
+1415: 
+1416: 
+1417: 11: casey house
+1418: 
+1419: 26: 32 Canadian Brigade D-Day March 
+1420: 
+1421: 47: Star with Vince Contest
+1422: 
+1423: 
+1424: 47: Revolution Rising
+1425: 
+1426: 47: Ashoka Pilot Campaign
+1427: 
+1428: 47: Ashoka 2004 Capital Campaign
+1429: 
+1430: 43: 2004 Founding Fathers Campaign-Harman International
+1431: 
+1432: 35: Ricky School Annual Appeal (Direct)
+1433: 
+1434: 35: Pratte Institute of Greater Giving
+1435: 
+1436: 10: Sporting Life 10K for Camp Oochigeas
+1437: 
+1438: 47: Evergreen Community Clean-Up
+1439: 
+1440: 64: World Youth Centre Pilot Project
+1441: 
+1442: 45: Labatt 24 Hour Relay
+1443: 
+1444: 43: 2004 Founding Fathers Campaign-Verizon Wireless
+1445: 
+1446: 
+1447: 47: Evegreen Dig In Canada
+1448: 
+1449: 47: ProAction Cops & Kids Golf Tournament
+1450: 
+1451: 47: ProAction Take Back the Streets
+1452: 
+1453: 26: Heatwave - 1-Day Tournament
+1454: 
+1455: 26: Heatwave - 2-Day Tournament 
+1456: 
+1457: 11: heatwave test
+1458: 
+1459: 
+1460: 
+1461: 
+1462: 
+1463: 11: Swim for Huey
+1464: 
+1465: 26: James Birrell Fund for Neuroblastoma Research
+1466: 
+1467: 47: Climb for CARE 2005
+1468: 
+1469: 47: Trick or Eat 2004
+1470: 
+1471: 
+1472: 
+1473: 
+1474: 
+1475: 
+1476: 11: walk montreal
+1477: 
+1478: 24: WOW Event
+1479: 
+1480: 14: Camper Kettles
+1481: 
+1482: 
+1483: 
+1484: 
+1485: 67: General Donation - NO LONGER IN USE!
+1486: 
+1487: 65: University of Mobile
+1488: 
+1489: 47: Alzheimer's Coffee Break Day 2004
+1490: 
+1491: 41: Miles to Go
+1492: 
+1493: 41: St. Regis Room Donations
+1494: 
+1495: 27: Covenant House Celebrity Classic 
+1496: 
+1497: 11: tj bilingual test
+1498: 
+1499: 35: Lupus Foundation Walkathon
+1500: 
+1501: 35: Test
+1502: 
+1503: 35: Basic Online Donation
+1504: 
+1505: 41: St. Regis Room Tickets
+1506: 
+1507: 68: WALK FOR LIFE
+1508: 
+1509: 66: Annual Fund Drive
+1510: 
+1511: 47: HISTOR!CA Personal Heroes Contest
+1512: 
+1513: 70: Trick or Eat 2004 Test
+1514: 
+1515: 
+1516: 26: Heatwave Tournament
+1517: 
+1518: 35: Donation Page
+1519: 
+1520: 69: Ric's test campaign
+1521: 
+1522: 69: WalkathonOLD
+1523: 
+1524: 34: _TEST EVENT
+1525: 
+1526: 
+1527: 71: Toronto's First Synagogues
+1528: 
+1529: 71: Bereavement
+1530: 
+1531: 71: Missions and Travel
+1532: 
+1533: 35: Emergency Fund
+1534: 
+1535: 71: Memorials
+1536: 
+1537: 47: HISTORICA Personal Heros Contest Demo
+1538: 
+1539: 
+1540: 69: Friends & Family
+1541: 
+1542: 35: Baycrest Donation Form
+1543: 
+1544: 58: BC Fires 1
+1545: 
+1546: 12: 04 Run - P&G Leaps and Bounds
+1547: 
+1548: 2: Test Annual Dinner
+1549: 
+1550: 2: Being There for Kids Dinner
+1551: 
+1552: 
+1553: 18: 2004 OPG Breath of Hope Relay, Ottawa
+1554: 
+1555: 35: North York General Donation Form
+1556: 
+1557: 1: Artez Master Tribute
+1558: 47: MLSE Accenture Ladies Summer Swing
+1559: 
+1560: 69: Thanksgiving Non-event Dinner
+1561: 
+1562: 35: Donation form 1
+1563: 
+1564: 47: AIDS Pendant
+1565: 
+1566: 40: The 2004 Ladies Annual Golf Event
+1567: 
+1568: 
+1569: 41: Gail's Fun Run
+1570: 
+1571: 35: New Concepts Test
+1572: 
+1573: 10: FPP test
+1574: 
+1575: 35: New Concepts Test2
+1576: 
+1577: 10: Tribute_sp
+1578: 
+1579: 41: Head for a Cure
+1580: 
+1581: 35: Walk
+1582: 
+1583: 12: 04 - The Great Neighbourhood Race
+1584: 
+1585: 12: 04 Walk - P&G Leaps and Bounds
+1586: 
+1587: 70: Volunteer at Large
+1588: 
+1589: 2: Kids Help Phone Ontario Corporate Challenge Boo-la-thon
+1590: 
+1591: 
+1592: 
+1593: 
+1594: 
+1595: 
+1596: 18: Oakville/King City BikeTREK Individual
+1597: 
+1598: 74: University of Toronto Alumni Campaign
+1599: 
+1600: 49: 2004 Sportsfest
+1601: 
+1602: 69: OLD walk
+1603: 
+1604: 72: 2004 Ride for Karen
+1605: 
+1606: 
+1607: 58: Santa Shuffle
+1608: 
+1609: 
+1610: 44: Hope Ball 2004
+1611: 
+1612: 41: Walking Neck and Neck
+1613: 
+1614: 35: Walk & Wheel for Arthritis
+1615: 
+1616: 
+1617: 34: Easter Seals Ontario
+1618: 
+1619: 58: Flood Relief
+1620: 
+1621: 34: 2005 - Relay
+1622: 
+1623: 47: Test
+1624: 
+1625: 
+1626: 34: 2004 - Skate
+1627: 
+1628: 
+1629: 
+1630: 
+1631: 
+1632: 69: Chicago Walkathon
+1633: 
+1634: 69: Memorial/Tribute
+1635: 
+1636: 18: Lung Champions
+1637: 
+1638: 21: Amnesty Canada Write-a-thon 2004
+1639: 
+1640: 77: 2nd Annual Direct Energy Walk, Roll & Run for Roger
+1641: 
+1642: 
+1643: 
+1644: 58: Monthly Giving Plan
+1645: 
+1646: 78: Canada Fit Run for Rose Cherry's Home for Kids
+1647: 
+1648: 
+1649: 
+1650: 69: Robin's Test Event
+1651: 
+1652: 
+1653: 
+1654: 
+1655: 
+1656: 
+1657: 
+1658: 
+1659: 
+1660: 
+1661: 
+1662: 
+1663: 
+1664: 
+1665: 
+1666: 
+1667: 
+1668: 
+1669: 
+1670: 
+1671: 
+1672: 70: TOE - template test
+1673: 
+1674: 10: Artezian General Donation Page
+1675: 
+1676: 10: Artezian Foundation Donation w/Tribute
+1677: 
+1678: 12: 04 Student - Enbridge CN Tower Stair Climb
+1679: 
+1680: 35: Gears 2005
+1681: 
+1682: 12: 04 Team (Sunday) - Enbridge CN Tower Stair Climb
+1683: 
+1684: 12: 04 Team (Thurs) - Enbridge CN Tower Stair Climb
+1685: 
+1686: 12: 04 Public - Enbridge CN Tower Stair Climb
+1687: 
+1688: 71: Annual Campaign
+1689: 
+1690: 11: general donations
+1691: 
+1692: 80: CHLA Website Form
+1693: 
+1694: 70: Trick or Eat 2004 Test with Teams
+1695: 
+1696: 80: CHLA Employee Giving Campaign 
+1697: 
+1698: 79: Life Without Lupus 5K Walk & Run
+1699: 
+1700: 81: 2004 Variety Show Mock-Up
+1701: 
+1702: 74: York Alumni Campaign
+1703: 
+1704: 
+1705: 
+1706: 
+1707: 11: My Tribute Form
+1708: 
+1709: 35: PC Children's Thanksgiving Campaign
+1710: 
+1711: 
+1712: 
+1713: 
+1714: 41: The 5th Annual Day at the Races Tickets
+1715: 
+1716: 41: The 5th Annual Day at the Races Donations
+1717: 
+1718: 26: RBC Financial Group Walk-a-thon
+1719: 
+1720: 79: Lupus Golf Outing -- Individual
+1721: 
+1722: 
+1723: 79: Education Conference and Annual Meeting
+1724: 
+1725: 82: Historica Personal Heroes 16 PlusOLD
+1726: 
+1727: 82: Historica Personal Heroes Under 16OLD
+1728: 
+1729: 38: Splash 2004
+1730: 
+1731: 21: Adopt-a-Minefield Drive-A-Thon
+1732: 
+1733: 44: Celebrity Chef Prospect Dinner
+1734: 
+1735: 41: Breathe Deep for the Cure
+1736: 
+1737: 35: Ontario SPCA Donation Form
+1738: 
+1739: 41: Walking Hand in Hand
+1740: 
+1741: 11: TJ's UW Test Event
+1742: 
+1743: 85: eBandit Blitz
+1744: 
+1745: 35: AIMS Outreach
+1746: 
+1747: 35: September Evennt
+1748: 
+1749: 35: Microsoft AIMS Recruitment Page
+1750: 
+1751: 82: Historica Generic Donation Page
+1752: 
+1753: 65: TSU Students Matter Most Capital Campaign
+1754: 
+1755: 79: Lupus Golf Outing -- Dinner Only
+1756: 
+1757: 79: Lupus Golf Outing -- Foursome
+1758: 
+1759: 79: Lupus Golf Outing -- Corporate Sponsor
+1760: 
+1761: 79: Life Without Lupus Kids' Dash
+1762: 
+1763: 80: Call Center Form
+1764: 
+1765: 47: Variety Golf Demo
+1766: 
+1767: 18: Oakville/King City BikeTREK Family/Corporate Teams
+1768: 
+1769: 58: World Services 1
+1770: 
+1771: 69: QA Walkathon
+1772: 
+1773: 
+1774: 80: K-BIG Website Form
+1775: 
+1776: 47: Lupus Golf Demo Corporate
+1777: 
+1778: 44: The 1st Birthday Ball
+1779: 
+1780: 88: Walk for the Geeks
+1781: 
+1782: 88: Tribute to Geeks
+1783: 
+1784: 69: Donation page example
+1785: 
+1786: 11: Another Tribute Form
+1787: 
+1788: 28: Bowl For Kids Sake
+1789: 
+1790: 
+1791: 66: Hurricane Charley Disaster Relief Fund
+1792: 
+1793: 21: test event
+1794: 
+1795: 48: Direct Donation Sample
+1796: 
+1797: 11: Tribute 2
+1798: 
+1799: 11: Tribute 4
+1800: 
+1801: 89: St. Michael's Hospital
+1802: 
+1803: 21: Salvation Army World Service Appeal
+1804: 
+1805: 90: Breath of Hope
+1806: 
+1807: 38: Sonoma County Wine Tasting
+1808: 
+1809: 58: World Services 2
+1810: 
+1811: 
+1812: 
+1813: 
+1814: 
+1815: 2: Kids Help Phone British Columbia Corporate Challenge Boo-la-thon
+1816: 
+1817: 90: Relais Synergie - Sherbrooke
+1818: 
+1819: 33: Donate Now
+1820: 
+1821: 37: Dec. 2004 Ski For Gold
+1822: 
+1823: 29: Match Maker Program
+1824: 
+1825: 2: Kids Help Phone Edmonton Boo-la-thon
+1826: 
+1827: 70: Meal Exchange Volunteer Template
+1828: 
+1829: 11: Donation form
+1830: 
+1831: 
+1832: 44: Christine's Marathon
+1833: 
+1834: 19: Walk for Memories 2005
+1835: 
+1836: 
+1837: 33: Ultimate Football Challenge
+1838: 
+1839: 92: Donate Now | North York General Hospital Foundation
+1840: 
+1841: 44: McEwen Centre - OLD
+1842: 
+1843: 11: write a thon
+1844: 
+1845: 80: CHLA Data Entry Form
+1846: 
+1847: 80: DO NOT SELECT - September Appeal
+1848: 
+1849: 85: Miracle Maker Campaign
+1850: 
+1851: 71: UJA Federation Beslan Relief Fund
+1852: 
+1853: 71: Technology Division Program with Uri Har
+1854: 
+1855: 26: SickKids Leaders
+1856: 
+1857: 66: Florida Hurricane Relief Fund
+1858: 
+1859: 17: General Donation Form
+1860: 
+1861: 2: Kids Help Phone Calgary Boo-la-thon
+1862: 
+1863: 70: University of Victoria Volunteer Sign-Up
+1864: 
+1865: 9: Get Behind The Cause Bash 
+1866: 
+1867: 44: TGWHF.ca Donations: General
+1868: 
+1869: 86: Write-a-thon 2004
+1870: 
+1871: 58: Earthquake Relief
+1872: 
+1873: 10: AF Great Fall Team Challenge
+1874: 
+1875: 
+1876: 10: AF Great Fall Team Challenge - Team Fee Payment
+1877: 
+1878: 70: Trick Or Eat
+1879: 
+1880: 93: Maccabi Bowlathon 2004
+1881: 
+1882: 70: University of British Columbia Volunteer Sign-up
+1883: 
+1884: 85: Monthly Giving Campaign
+1885: 
+1886: 66: TSA Direct Donation Form - New York Division
+1887: 
+1888: 60: Party in Toronto
+1889: 
+1890: 11: Change Bandits
+1891: 
+1892: 47: Breast Party in Toronto
+1893: 
+1894: 17: DO NOT USE
+1895: 
+1896: 17: Club de Cent 2004/05
+1897: 
+1898: 35: Monthly Donation Form
+1899: 
+1900: 
+1901: 
+1902: 
+1903: 
+1904: 
+1905: 
+1906: 
+1907: 
+1908: 81: 2004 Holiday Campaign
+1909: 
+1910: 
+1911: 
+1912: 
+1913: 
+1914: 40: Ovarian Cancer Symposium Fall 2004
+1915: 
+1916: 
+1917: 
+1918: 
+1919: 
+1920: 66: Hustle Up the Hancock Lottery
+1921: 
+1922: 86: Writeathon donation 
+1923: 
+1924: 94: Change Bandits for Children's
+1925: 
+1926: 90: Christmas Cards Campaign
+1927: 
+1928: 18: In Celebration
+1929: 
+1930: 11: oct test event
+1931: 
+1932: 
+1933: 58: Virtual Blitz
+1934: 
+1935: 95: Walk For Haiti
+1936: 
+1937: 14: Kettle of Compassion
+1938: 
+1939: 19: The Manulife Walk for Memories
+1940: 
+1941: 2: Kids Help Phone Montreal Bowl-a-Thon
+1942: 
+1943: 18: 2004 Christmas Seal Campaign
+1944: 
+1945: 
+1946: 35: Hilfe für den Sudan
+1947: 
+1948: 95: Walk for Haiti
+1949: 
+1950: 35: Hilfe für Afrika
+1951: 
+1952: 66: Red Cross Heroes Campaign
+1953: 
+1954: 60: The CIBC Wood Gundy Climb For The Cure
+1955: 
+1956: 
+1957: 80: Employee Giving Campaign
+1958: 
+1959: 69: Arts Event
+1960: 
+1961: 47: Toronto's Breast Sports Draw
+1962: 
+1963: 82: Historica Personal Heroes 16 Plus
+1964: 
+1965: 82: Historica Personal Heroes Under 16
+1966: 
+1967: 2: Monthly Giving
+1968: 
+1969: 2: Online Donation or Commemorative
+1970: 
+1971: 47: Beer, Balls & Boobs
+1972: 
+1973: 47: Evergreen Dig In! Pilot
+1974: 
+1975: 
+1976: 
+1977: 2: Being There for Kids Dinner Donations
+1978: 
+1979: 10: Test of Team Event
+1980: 
+1981: 11: New Donation Form
+1982: 
+1983: 96: Zarchive ON Joints in Motion
+1984: 
+1985: 
+1986: 66: ARC Tribute
+1987: 
+1988: 
+1989: 
+1990: 
+1991: 47: Variety Gala Dinner Demo
+1992: 
+1993: 
+1994: 
+1995: 34: 2005 - Telethon (Event)
+1996: 
+1997: 66: Clear Channel Mock-up
+1998: 
+1999: 
+2000: 
+2001: 
+2002: 
+2003: 
+2004: 10: Oct 20 Test
+2005: 
+2006: 93: Maccabiah Games 2005 Fundraising System
+2007: 
+2008: 47: Habitat House Party Demo
+2009: 
+2010: 66: Kettle of Hope
+2011: 
+2012: 
+2013: 
+2014: 
+2015: 
+2016: 
+2017: 
+2018: 
+2019: 65: Test01
+2020: 
+2021: 96: NL Joints In Motion
+2022: 
+2023: 
+2024: 
+2025: 97: Gears 24-Hour Spin 
+2026: 
+2027: 
+2028: 78: Dr. Jay Classic 2005
+2029: 
+2030: 71: UJA Federation Fashion Event
+2031: 
+2032: 26: SKF One-Time $CAN
+2033: 
+2034: 26: All-Purpose Donation Form
+2035: 
+2036: 56: Biscuit Fund 
+2037: 
+2038: 5: Volunteer e-Fundraising
+2039: 
+2040: 11: wwf event
+2041: 
+2042: 58: Xmas04
+2043: 
+2044: 
+2045: 
+2046: 2: 2005 Bell Walk - DO NOT USE
+2047: 
+2048: 
+2049: 
+2050: 
+2051: 
+2052: 
+2053: 
+2054: 
+2055: 98: Hurricane Ivan
+2056: 
+2057: 99: CNIB Focus on Crocus 2005
+2058: 
+2059: 2: Homes for the Holidays - Food & Wine Tasting
+2060: 
+2061: 
+2062: 98: Melia's Page
+2063: 
+2064: 98: Kristen's Practice Page
+2065: 
+2066: 11: OSPCA- Mutt Strutt
+2067: 
+2068: 41: Hibiscus Donations
+2069: 
+2070: 31: Test Event 2005
+2071: 
+2072: 59: Light the Way 2004
+2073: 
+2074: 41: AARC Donations
+2075: 
+2076: 47: Focus on Crocus (CNIB)
+2077: 
+2078: 69: Lupus test
+2079: 
+2080: 26: Phantom of the Opera Ticket Sales
+2081: 
+2082: 
+2083: 
+2084: 
+2085: 
+2086: 
+2087: 
+2088: 
+2089: 
+2090: 
+2091: 
+2092: 
+2093: 
+2094: 
+2095: 
+2096: 
+2097: 
+2098: 
+2099: 
+2100: 
+2101: 
+2102: 
+2103: 
+2104: 
+2105: 79: 2005 Annual Membership Drive
+2106: 
+2107: 
+2108: 
+2109: 
+2110: 
+2111: 
+2112: 
+2113: 
+2114: 
+2115: 
+2116: 
+2117: 
+2118: 
+2119: 
+2120: 
+2121: 
+2122: 
+2123: 
+2124: 
+2125: 
+2126: 
+2127: 
+2128: 99: General Donations
+2129: 
+2130: 
+2131: 
+2132: 
+2133: 
+2134: 
+2135: 
+2136: 
+2137: 
+2138: 
+2139: 
+2140: 
+2141: 
+2142: 
+2143: 
+2144: 
+2145: 
+2146: 
+2147: 26: The Conga Line of Hope
+2148: 
+2149: 101: CMSF Alumni Campaign 2004
+2150: 
+2151: 47: The BC Lions Society Easter Seals Regatta
+2152: 
+2153: 
+2154: 10: CHEO Test Donation Form w/Tribute
+2155: 
+2156: 
+2157: 
+2158: 28: deletedListowel
+2159: 
+2160: 69: Bowl-A-Thon
+2161: 
+2162: 29: Bowl for Kids Sake-Bank Day 2005
+2163: 
+2164: 
+2165: 
+2166: 
+2167: 
+2168: 41: Cabin Fever
+2169: 
+2170: 96: AB Direct Mail - Holiday Campaign 2006
+2171: 
+2172: 14: Demo - Kettle Campaign
+2173: 
+2174: 47: BC Lung Association Climb the Wall 
+2175: 
+2176: 98: Adopt-A-Dolphin
+2177: 
+2178: 
+2179: 
+2180: 
+2181: 
+2182: 
+2183: 41: Golf Demo - Registration
+2184: 
+2185: 26: Phantom of the Opera Ticket Sales 2
+2186: 
+2187: 47: BC Cancer Weekend to End Breast Cancer
+2188: 
+2189: 98: Dolphin Society
+2190: 
+2191: 47: S.U.C.C.E.S.S. Walk With the Dragon
+2192: 
+2193: 98: Walkway
+2194: 
+2195: 66: Komen Tribute
+2196: 
+2197: 41: Golf Demo - Buy Stuff
+2198: 
+2199: 14: Raleigh Kettle Campaign
+2200: 
+2201: 71: UJA Federation Campaign 2005 Closing Celebration
+2202: 
+2203: 71: UJA Federation Campaign 2005 Closing Celebration
+2204: 
+2205: 66: Thoroughbred Classic Registration
+2206: 
+2207: 71: YADdreidle
+2208: 
+2209: 102: Donation
+2210: 
+2211: 9: 2nd Annual Howard Schwartz Memorial Golf Tournament
+2212: 
+2213: 110: Make a Difference Christmas Campaign
+2214: 
+2215: 
+2216: 
+2217: 
+2218: 2: Being There for Kids Breakfast 2005
+2219: 
+2220: 14: Raleigh TSA WRAL Direct
+2221: 
+2222: 101: Loran Award campaign
+2223: 
+2224: 47: HSBC Childrun
+2225: 
+2226: 17: 2nd Annual Ski 4 SKI Day
+2227: 
+2228: 107: Bowl for Kids Sake
+2229: 
+2230: 
+2231: 
+2232: 
+2233: 96: AB_Shoppers_Webcast_Donations
+2234: 
+2235: 98: General Donation
+2236: 
+2237: 41: Men of the Jester
+2238: 
+2239: 96: ON_Shoppers_Webcast_Donations
+2240: 
+2241: 96: NS_Shoppers_Webcast_Donations
+2242: 
+2243: 96: NB_Shoppers_Webcast_Donations
+2244: 
+2245: 96: MB_Shoppers_Webcast_Donations
+2246: 
+2247: 96: NL_Shoppers_Webcast_Donations
+2248: 
+2249: 96: PE_Shoppers_Webcast_Donations
+2250: 
+2251: 96: SK_Shoppers_Webcast_Donations
+2252: 
+2253: 96: BC_Shoppers_Webcast_Donations
+2254: 
+2255: 96: QC_Shoppers_Webcast_Donations
+2256: 
+2257: 88: Winter Wonderland 2005
+2258: 
+2259: 
+2260: 96: QC English/French Tribute
+2261: 
+2262: 96: Zarchive - Unused Event Page - Don't delete - using for JIM logo placemark
+2263: 
+2264: 33: Loeb Fundrace
+2265: 
+2266: 71: Birthright Israel Donation Page
+2267: 
+2268: 28: deletedBFKS02
+2269: 
+2270: 28: deletedTESTSTV
+2271: 
+2272: 113: Bowl For Kids Sake
+2273: 
+2274: 28: deletedBFKS01
+2275: 
+2276: 112: Bowl For Kids Sake
+2277: 
+2278: 108: deletedbfks
+2279: 
+2280: 104: Bowl For Kids Sake
+2281: 
+2282: 109: Bowl for Kids Sake
+2283: 
+2284: 
+2285: 
+2286: 
+2287: 11: My December Event
+2288: 
+2289: 40: Christmas Tribute Campaign
+2290: 
+2291: 65: Battle Ground Academy
+2292: 
+2293: 96: NB English/French Tribute
+2294: 
+2295: 96: ON English/French Tribute
+2296: 
+2297: 96: MB English/French Tribute
+2298: 
+2299: 96: SK English/French Tribute
+2300: 
+2301: 96: AB English/French Tribute
+2302: 
+2303: 96: BC English/French Tribute
+2304: 
+2305: 96: NS English/French Tribute
+2306: 
+2307: 96: PE In Memory/In Honour
+2308: 
+2309: 96: NL English/French Tribute
+2310: 
+2311: 
+2312: 115: Bowl for Kids Sake 2005
+2313: 
+2314: 
+2315: 
+2316: 
+2317: 
+2318: 
+2319: 
+2320: 
+2321: 
+2322: 
+2323: 
+2324: 47: Artezian Foundation Walk for Civil Society
+2325: 
+2326: 
+2327: 
+2328: 29: The Big Ski 2005
+2329: 
+2330: 
+2331: 29: Ironman Golf Challenge 2005
+2332: 
+2333: 29: Bowl for Kids Sake - Media/Corporate Day
+2334: 
+2335: 29: Bowl for Kids Sake - Community Day
+2336: 
+2337: 
+2338: 
+2339: 
+2340: 
+2341: 3: Do not use
+2342: 
+2343: 3: do not use 1
+2344: 
+2345: 9: 4th Annual Gala of Hope
+2346: 
+2347: 30: 2005 World Partnership Walk
+2348: 
+2349: 114: Bowl For Kids' Sake
+2350: 
+2351: 
+2352: 79: 2005 Membership Drive -- Recurring Gift
+2353: 
+2354: 
+2355: 79: Make-a-Donation
+2356: 
+2357: 
+2358: 79: Tribute program
+2359: 
+2360: 9: 9th Annual Body 'n Soul Walk/Run
+2361: 
+2362: 
+2363: 118: Annual Fund Donation Form
+2364: 
+2365: 102: Test 
+2366: 
+2367: 
+2368: 2: Being There for Kids Breakfast 2005 Donations
+2369: 
+2370: 
+2371: 
+2372: 
+2373: 
+2374: 
+2375: 
+2376: 
+2377: 102: Wal-Mart Walk for Miracles 2005
+2378: 
+2379: 
+2380: 
+2381: 
+2382: 
+2383: 
+2384: 
+2385: 18: In Honour - Do not use
+2386: 
+2387: 26: Herbie Fund
+2388: 
+2389: 
+2390: 
+2391: 
+2392: 28: Big Brothers Big Sisters of Canada Direct email Donations
+2393: 
+2394: 11: Dr Jay 2
+2395: 
+2396: 26: Radiothon EZ-Rock Email
+2397: 
+2398: 69: Walk for Scholars
+2399: 
+2400: 
+2401: 119: Speak Silence
+2402: 
+2403: 
+2404: 
+2405: 
+2406: 
+2407: 
+2408: 
+2409: 
+2410: 
+2411: 
+2412: 
+2413: 
+2414: 
+2415: 
+2416: 
+2417: 
+2418: 96: SK Joints In Motion
+2419: 
+2420: 104: bfks deleted
+2421: 
+2422: 116: bfks DELETED
+2423: 
+2424: 111: bfks deleted
+2425: 
+2426: 117: Bowl for Kids Sake
+2427: 
+2428: 28: deletedbfktest
+2429: 
+2430: 
+2431: 
+2432: 
+2433: 65: BGA Annual Fund Donation Form
+2434: 
+2435: 
+2436: 
+2437: 
+2438: 
+2439: 
+2440: 
+2441: 
+2442: 
+2443: 
+2444: 
+2445: 
+2446: 
+2447: 
+2448: 
+2449: 
+2450: 
+2451: 
+2452: 
+2453: 
+2454: 
+2455: 
+2456: 96: NS Joints In Motion
+2457: 
+2458: 
+2459: 
+2460: 
+2461: 
+2462: 
+2463: 96: PE Joints In Motion
+2464: 
+2465: 
+2466: 
+2467: 
+2468: 
+2469: 
+2470: 
+2471: 
+2472: 96: Zarchive - Unused Event Template - don't delete - using for Arthro logo placemark
+2473: 
+2474: 111: Bowl for Kids Sake
+2475: 
+2476: 96: MB Joints In Motion
+2477: 
+2478: 
+2479: 
+2480: 
+2481: 
+2482: 
+2483: 
+2484: 
+2485: 
+2486: 
+2487: 96: AB Joints In Motion
+2488: 
+2489: 
+2490: 
+2491: 
+2492: 
+2493: 
+2494: 
+2495: 
+2496: 96: BC Joints In Motion
+2497: 
+2498: 
+2499: 
+2500: 
+2501: 
+2502: 
+2503: 
+2504: 
+2505: 
+2506: 
+2507: 
+2508: 
+2509: 
+2510: 
+2511: 
+2512: 116: Bowl for Kids Sake
+2513: 
+2514: 
+2515: 
+2516: 
+2517: 
+2518: 
+2519: 
+2520: 
+2521: 
+2522: 
+2523: 77: Raise the Roof for Roger
+2524: 
+2525: 66: Komen Race - Individual Registration
+2526: 
+2527: 
+2528: 71: UJA Federation of Greater Toronto Tsunami Disaster Relief Fund
+2529: 
+2530: 66: Komen Race - Group Registration
+2531: 
+2532: 120: Disaster Relief Donation Form (Orig)
+2533: 
+2534: 121: test donation
+2535: 
+2536: 121: Tsunami Emergency Relief Fund
+2537: 
+2538: 121: Canada Kids Earthquake Challenge
+2539: 
+2540: 45: Royal Ottawa On-Line Giving
+2541: 
+2542: 58: SouthAsia-Japan
+2543: 
+2544: 66: Disaster Relief TSA/WalMart Co-Brand
+2545: 
+2546: 38: Golf Demo
+2547: 
+2548: 71: YAD / YLA Modigliani Exhibit
+2549: 
+2550: 2: 2005 Bell Walk for Kids Help Phone 
+2551: 
+2552: 
+2553: 
+2554: 
+2555: 
+2556: 
+2557: 
+2558: 
+2559: 
+2560: 
+2561: 
+2562: 
+2563: 
+2564: 
+2565: 
+2566: 
+2567: 
+2568: 
+2569: 
+2570: 
+2571: 
+2572: 
+2573: 
+2574: 
+2575: 
+2576: 
+2577: 
+2578: 
+2579: 
+2580: 
+2581: 
+2582: 
+2583: 
+2584: 
+2585: 
+2586: 2: 2005 Aliant Walk for Kids Help Phone
+2587: 
+2588: 
+2589: 
+2590: 
+2591: 
+2592: 70: National Student Tsunami Relief Campaign
+2593: 
+2594: 121: Indian Ocean Earthquake Emergency Fund
+2595: 
+2596: 
+2597: 69: Walk-a-thon
+2598: 
+2599: 
+2600: 11: bi-ling don
+2601: 
+2602: 29: deleted Ashby01
+2603: 
+2604: 45: ZZZLabatt 24 Hour Relay
+2605: 
+2606: 29: deleted Ashby 02
+2607: 
+2608: 
+2609: 11: Relay 05
+2610: 
+2611: 71: SHIMMY & JEREMY'S BAR MITZVAH
+2612: 
+2613: 
+2614: 96: QC Joints In Motion
+2615: 
+2616: 71: Get Yourself Connected "David Jacobson"
+2617: 
+2618: 
+2619: 41: Gear Up for Healing Beyond the Body
+2620: 
+2621: 10: SHIBANI'S EVENT TEST FOR TEAMS
+2622: 
+2623: 
+2624: 47: Re:Solutions Benefit Party
+2625: 
+2626: 80: CHLA Kids Dream Golf Demo
+2627: 
+2628: 
+2629: 104: fifyiyti
+2630: 
+2631: 104: stupid is as stupid does
+2632: 
+2633: 74: University of Waterloo Alumni Fundraising
+2634: 
+2635: 17: DO NOT USE
+2636: 
+2637: 17: DO NOT USE
+2638: 
+2639: 11: york run
+2640: 
+2641: 
+2642: 36: Manulife Run for Research 2005
+2643: 
+2644: 
+2645: 49: 2005 Barrie to Baycrest TENTH
+2646: 
+2647: 96: Ontario Joints in Motion Training Team
+2648: 
+2649: 
+2650: 
+2651: 
+2652: 
+2653: 
+2654: 
+2655: 
+2656: 
+2657: 
+2658: 
+2659: 
+2660: 
+2661: 
+2662: 
+2663: 
+2664: 
+2665: 
+2666: 
+2667: 
+2668: 
+2669: 
+2670: 11: tj's new event
+2671: 
+2672: 11: event 05
+2673: 
+2674: 65: Test Class Event
+2675: 
+2676: 47: Walk for ALS
+2677: 
+2678: 
+2679: 
+2680: 
+2681: 
+2682: 
+2683: 
+2684: 
+2685: 
+2686: 
+2687: 
+2688: 
+2689: 
+2690: 
+2691: 
+2692: 96: NB Joints In Motion
+2693: 
+2694: 41: Vintages of Distinction 2005 - Corporate Sponsorship
+2695: 
+2696: 
+2697: 17: YPC Dinner & Poker 
+2698: 
+2699: 49: 2005 Boardwalk
+2700: 
+2701: 
+2702: 
+2703: 
+2704: 
+2705: 
+2706: 3: 15th Annual Canada Life CN Tower Climb for WWF
+2707: 
+2708: 3: 15th Annual Canada Life CN Tower Team Challenge for WWF
+2709: 
+2710: 10: French only
+2711: 
+2712: 10: French
+2713: 
+2714: 
+2715: 
+2716: 
+2717: 118: Test
+2718: 
+2719: 124: OTMH Classic
+2720: 
+2721: 71: Shalom Shabbas
+2722: 
+2723: 47: Ontario Lung Association Pull For Kids
+2724: 
+2725: 47: Richard Ivey School of Business demo
+2726: 
+2727: 79: Focus on Lupus Winter Education Conference
+2728: 
+2729: 
+2730: 96: ON Strike Out Arthritis
+2731: 
+2732: 
+2733: 
+2734: 10: Shibani's PRODUCTION event
+2735: 
+2736: 118: class test
+2737: 
+2738: 100: Ivey Annual Fund Campaign
+2739: 
+2740: 10: Shaun's Event
+2741: 
+2742: 
+2743: 125: 8e Festival franco-ontarien de théâtre en milieu scolaire
+2744: 
+2745: 
+2746: 
+2747: 118: Annual Fund Class Campaign
+2748: 
+2749: 108: Wendy's Bowl for Kids Sake 2005
+2750: 
+2751: 129: Toronto Walk of Life 2005
+2752: 
+2753: 
+2754: 
+2755: 71: Tribute Card Donation and Form
+2756: 
+2757: 11: Feb Bilingual Event
+2758: 
+2759: 10: Peter's Extraordinary Event
+2760: 
+2761: 
+2762: 26: Herbie Fund
+2763: 
+2764: 25: Moveathon 2005
+2765: 
+2766: 
+2767: 
+2768: 
+2769: 
+2770: 
+2771: 
+2772: 
+2773: 86: Taste For Justice
+2774: 
+2775: 11: Ticket selling
+2776: 
+2777: 128: Scotiabank Bowl for Kids Sake 
+2778: 
+2779: 103: Bowl for Kids Sake
+2780: 
+2781: 
+2782: 
+2783: 71: Lunch Speaker Series
+2784: 
+2785: 
+2786: 
+2787: 
+2788: 
+2789: 
+2790: 
+2791: 71: 2005 UJA Walk With Israel
+2792: 
+2793: 47: Reebok Star with the Raptors Contest
+2794: 
+2795: 133: Disaster Relief Donation Form
+2796: 
+2797: 10: The event
+2798: 
+2799: 40: NOCA Walk of Hope
+2800: 
+2801: 10: Event 1
+2802: 
+2803: 133: General Online Giving
+2804: 
+2805: 133: Tribute Form
+2806: 
+2807: 71: Partners Circle Dinner
+2808: 
+2809: 28: Friend 2 Friend campaign EVENT SAMPLE
+2810: 
+2811: 
+2812: 
+2813: 
+2814: 
+2815: 
+2816: 
+2817: 
+2818: 
+2819: 
+2820: 
+2821: 
+2822: 
+2823: 
+2824: 71: Yad gets Wicked
+2825: 
+2826: 
+2827: 
+2828: 
+2829: 
+2830: 
+2831: 
+2832: 
+2833: 
+2834: 
+2835: 47: Test Event - S Davis
+2836: 
+2837: 
+2838: 134: Test
+2839: 
+2840: 
+2841: 
+2842: 71: YAD Kabbalah
+2843: 
+2844: 76: eFlower Donation
+2845: 
+2846: 135: Friends For Life Bike Rally
+2847: 
+2848: 135: Crew 05
+2849: 
+2850: 133: Heroes Campaign
+2851: 
+2852: 
+2853: 
+2854: 134: March Drive Campaign
+2855: 
+2856: 52: Nowrouz
+2857: 
+2858: 96: Zarchive
+2859: 
+2860: 
+2861: 11: Tribute Fund
+2862: 
+2863: 10: OMDC prdt review
+2864: 
+2865: 39: Corporate Challenge 2005
+2866: 
+2867: 39: Individual 2005
+2868: 
+2869: 96: AB 2005 Arthritis Research Campaign 2
+2870: 
+2871: 39: Volunteer 2005
+2872: 
+2873: 39: Family 2005
+2874: 
+2875: 47: Orca Campaign
+2876: 
+2877: 66: The MOST Amazing Race
+2878: 
+2879: 
+2880: 47: Vancouver Island Donation
+2881: 
+2882: 132: Raise the Roofs 
+2883: 
+2884: 47: Basic Donation Form
+2885: 
+2886: 44: Major Gifts Processing Form [Internal]
+2887: 
+2888: 17: YPC Cooking at The Dish
+2889: 
+2890: 
+2891: 
+2892: 
+2893: 11: test Feb 21
+2894: 
+2895: 41: Layout4Leukemia 2005
+2896: 
+2897: 18: Pull for Kids TEST DO NOT USE
+2898: 
+2899: 
+2900: 136: Quixtar Virtual Egg
+2901: 
+2902: 
+2903: 
+2904: 
+2905: 
+2906: 
+2907: 
+2908: 86: Candle Fund
+2909: 
+2910: 
+2911: 
+2912: 
+2913: 
+2914: 
+2915: 
+2916: 
+2917: 
+2918: 31: Rick Hansen Wheels In Motion 2005
+2919: 
+2920: 
+2921: 
+2922: 
+2923: 
+2924: 
+2925: 
+2926: 
+2927: 71: Anne Frank
+2928: 
+2929: 71: Anne Frank: A Photo Album 
+2930: 
+2931: 24: Athletes First
+2932: 
+2933: 71: Foundation Tribute Cards
+2934: 
+2935: 71: Jewish Foundation Tribute Cards
+
+2999: 
