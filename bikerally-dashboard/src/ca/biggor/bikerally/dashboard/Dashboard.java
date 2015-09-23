@@ -109,7 +109,7 @@ public class Dashboard {
 		this.crew2015 = Bikerally_util.getCountRegistrationByDate("153652", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 		this.riders2016 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 		this.riders20161d = Bikerally_util.getCountRegistrationByDate("179193", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.crew2016 = Bikerally_util.getCountRegistrationByDate("0", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2016 = Bikerally_util.getCountRegistrationByDate("179191", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 
 		this.regAug0 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2015, Calendar.AUGUST, 1, 0, 0, 0));
 		this.regSep0 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2015, Calendar.SEPTEMBER, 1, 0, 0, 0));

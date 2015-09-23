@@ -42,6 +42,14 @@ public class Bikerally_util {
 	public static final String CREW_EVENT_ID_2011  = "57207";
 	public static final String RIDER_EVENT_ID_2010 = "39408";
 	public static final String CREW_EVENT_ID_2010  = "39410";
+	public static final String RIDER_EVENT_ID_2009 = "0";
+	public static final String CREW_EVENT_ID_2009  = "0";
+	public static final String RIDER_EVENT_ID_2008 = "0";
+	public static final String CREW_EVENT_ID_2008  = "0";
+	public static final String RIDER_EVENT_ID_2007 = "0";
+	public static final String CREW_EVENT_ID_2007  = "0";
+	public static final String RIDER_EVENT_ID_2006 = "5250";
+	public static final String CREW_EVENT_ID_2006  = "0";
 	public static final String RIDER_EVENT_ID_2005 = "2846";
 	public static final String CREW_EVENT_ID_2005  = "2848";
 	

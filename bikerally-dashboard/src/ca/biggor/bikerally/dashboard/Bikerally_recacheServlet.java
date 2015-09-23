@@ -26,10 +26,10 @@ public class Bikerally_recacheServlet extends HttpServlet {
 
 		Bikerally_util.deleteEventTotalsMemcache("177536");
 		Bikerally_util.deleteEventTotalsMemcache("179193");
-		Bikerally_util.deleteEventTotalsMemcache("0");
-		Bikerally_util.deleteJsonParticipants("177536", "0");
+		Bikerally_util.deleteEventTotalsMemcache("179191");
+		Bikerally_util.deleteJsonParticipants("177536", "179191");
 		Bikerally_util.deleteJsonParticipants("179193", "0");
-		Bikerally_util.deleteJsonDashboard("177536", "0");
+		Bikerally_util.deleteJsonDashboard("177536", "179191");
 		Bikerally_util.deleteJsonDashboard("179193", "0");
 		out.println("recached: 177536, 179193, 0");
 

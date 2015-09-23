@@ -65,7 +65,7 @@ public class Bikerally_jsdataServlet extends HttpServlet {
 		String crew2015 = Bikerally_util.getCountRegistrationByDate("153652", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 		String riders2016 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 		String riders20161d = Bikerally_util.getCountRegistrationByDate("179193", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		String crew2016 = Bikerally_util.getCountRegistrationByDate("0", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		String crew2016 = Bikerally_util.getCountRegistrationByDate("179191", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 
 		resp.getWriter().println("document.getElementById('recacheTime').innerHTML='" + recacheTime + "';");
 		resp.getWriter().println("document.getElementById('totalRaised').innerHTML='$" + totalRaised + "';");
