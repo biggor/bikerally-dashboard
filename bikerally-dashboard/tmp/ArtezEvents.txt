@@ -5456,3 +5456,1003 @@
 5997: 
 5998: 
 5999: 
+6000: 40: Windsor/Detroit Symposium - Healthcare Professionals
+6001: 
+6002: 
+6003: 
+6004: 
+6005: 57: Camp Moomba Yogathon 2006
+6006: 
+6007: 
+6008: 
+6009: 
+6010: 
+6011: 
+6012: 183: Dance Athon for Tompkins
+6013: 
+6014: 
+6015: 33: Loeb Fundrace for The Ottawa Hospital and Skate Canada - Eastern Ontario
+6016: 
+6017: 26: Sunday in the Park with Lilah
+6018: 
+6019: 
+6020: 
+6021: 
+6022: 
+6023: 
+6024: 
+6025: 
+6026: 
+6027: 
+6028: 187: Data Transfer Test - DIY Event 
+6029: 
+6030: 187: Data Transfer Test - DIY Fundraising
+6031: 
+6032: 187: Data Transfer Test - Simple Sponsorship
+6033: 
+6034: 
+6035: 136: 2008 Easter Seals Relay Template
+6036: 
+6037: 161: Bruce-Grey Branch On-Line Donations/Tributes
+6038: 
+6039: 136: General Donations 2006/07
+6040: 
+6041: 136: DANCING WITH CELEBRITIES
+6042: 
+6043: 161: Bruce-Grey Branch of the Ontario SPCA Friends for Life Walk-a-Thon
+6044: 
+6045: 
+6046: 
+6047: 41: The Butterfly Effect
+6048: 
+6049: 134: 100 Hole Golf Marathon
+6050: 
+6051: 45: Royal Ottawa On Call Campaign 2006
+6052: 
+6053: 
+6054: 
+6055: 44: RFE SOCIETY
+6056: 
+6057: 
+6058: 
+6059: 153: 2006 Pink Tie Gala
+6060: 
+6061: 203: Hike for Hospice
+6062: 
+6063: 202: Habitat for Humanity - Tradeshow
+6064: 
+6065: 
+6066: 139: Family Reg Test
+6067: 
+6068: 136: 2006 Winnipeg 24 Hour Relay
+6069: 
+6070: 77: test
+6071: 
+6072: 
+6073: 96: VOID - BC Aquatics for Arthritis
+6074: 
+6075: 
+6076: 
+6077: 
+6078: 
+6079: 
+6080: 
+6081: 
+6082: 
+6083: 
+6084: 
+6085: 
+6086: 
+6087: 
+6088: 
+6089: 
+6090: 
+6091: 
+6092: 
+6093: 
+6094: 
+6095: 
+6096: 
+6097: 96: BC_Aquatics for Arthritis
+6098: 
+6099: 67: DO NOT USE!
+6100: 
+6101: 136: 2006 Newfoundland 24 Hour Relay
+6102: 
+6103: 136: General Donations Newfoundland & Labrador
+6104: 
+6105: 204: Justin Timberlake Foundation Walk on the Wild Side
+6106: 
+6107: 34: 2006 Easter Seals Regatta
+6108: 
+6109: 182: PSR TEST ONLY
+6110: 
+6111: 136: 24 Hour Relay National Donations 2006-07
+6112: 
+6113: 
+6114: 97: Race Across America 2006
+6115: 
+6116: 
+6117: 
+6118: 134: Patty Read Open 2006
+6119: 
+6120: 
+6121: 40: Vancouver Symposium - Survivors
+6122: 
+6123: 40: Vancouver Symposium - Healthcare Professionals 
+6124: 
+6125: 
+6126: 
+6127: 96: ON Jewels and Jeans 2007
+6128: 
+6129: 
+6130: 
+6131: 
+6132: 
+6133: 
+6134: 
+6135: 
+6136: 
+6137: 
+6138: 
+6139: 
+6140: 
+6141: 
+6142: 166: Disaster Assistance
+6143: 
+6144: 33: Sponsor John Manley 2006
+6145: 
+6146: 205: Test Donation Form
+6147: 
+6148: 17: 5th Annual Street Kids International Charity Golf Classic
+6149: 
+6150: 44: Internal Gift Processing Form
+6151: 
+6152: 
+6153: 
+6154: 
+6155: 206: Bike For Tykes
+6156: 
+6157: 
+6158: 
+6159: 
+6160: 
+6161: 
+6162: 
+6163: 
+6164: 
+6165: 
+6166: 
+6167: 
+6168: 
+6169: 
+6170: 
+6171: 
+6172: 
+6173: 
+6174: 
+6175: 
+6176: 
+6177: 
+6178: 
+6179: 
+6180: 
+6181: 
+6182: 
+6183: 
+6184: 
+6185: 
+6186: 
+6187: 
+6188: 139: steph test tribute
+6189: 
+6190: 
+6191: 
+6192: 
+6193: 
+6194: 
+6195: 
+6196: 
+6197: 
+6198: 
+6199: 
+6200: 
+6201: 
+6202: 
+6203: 
+6204: 
+6205: 
+6206: 
+6207: 
+6208: 
+6209: 
+6210: 
+6211: 
+6212: 
+6213: 
+6214: 
+6215: 
+6216: 
+6217: 
+6218: 
+6219: 161: Lennox & Addington Donation/Tribute Form
+6220: 
+6221: 161: Lennox and Addington Friends for Life Walk a thon
+6222: 
+6223: 
+6224: 19: 2006 Ascent for Alzheimer's
+6225: 
+6226: 19: 2006 Ascent for Alzheimer's
+6227: 
+6228: 161: Muskoka Branch Tribute and Donation Form
+6229: 
+6230: 161: Muskoka Friends for Life Walk a Thon
+6231: 
+6232: 
+6233: 59: The Donation Form
+6234: 
+6235: 11: TJ Test Event - Apr13
+6236: 
+6237: 41: Do not use
+6238: 
+6239: 41: Get Wiggy with It
+6240: 
+6241: 17: Canadian Texas Hold'em Charity Championship - Toronto
+6242: 
+6243: 11: CCSIF Bottoms Up Gala 2006
+6244: 
+6245: 67: Noel Lurie's Birthday - CLOSED
+6246: 
+6247: 17: Canadian Texas Hold'em - Toronto Donation Only
+6248: 
+6249: 139: A Tribute to Mary Lane Marker
+6250: 
+6251: 139: Mt. Nemo Run
+6252: 
+6253: 139: Maple Leafs Test
+6254: 
+6255: 
+6256: 60: 2006 Toronto International Dragon Boat Race Festival
+6257: 
+6258: 
+6259: 77: 2006 IRONMAN Golf Challenge
+6260: 
+6261: 
+6262: 
+6263: 
+6264: 41: Do Not use Hugo Boss
+6265: 
+6266: 200: DO NOT USE - 2006 Golf Tournament
+6267: 
+6268: 19: Rafting for Memories
+6269: 
+6270: 
+6271: 
+6272: 121: Montreal Young Leaders Club Cocktail Party
+6273: 
+6274: 132: Brake the Cycle Bike Ride
+6275: 
+6276: 207: 2nd Annual Ride for Israel
+6277: 
+6278: 200: 2007 Drive to Survive
+6279: 
+6280: 
+6281: 153: 2006 Lexington Race for the Cure
+6282: 
+6283: 204: San Francisco AIDS Foundation Walk Demo
+6284: 
+6285: 10: V's Reg Types Ind + Family Package
+6286: 
+6287: 10: Location Test
+6288: 
+6289: 
+6290: 
+6291: 41: Family Campaign
+6292: 
+6293: 26: SickKids Fairchild Telethon
+6294: 
+6295: 
+6296: 
+6297: 
+6298: 
+6299: 
+6300: 
+6301: 
+6302: 
+6303: 146: Ride Happy Single
+6304: 
+6305: 
+6306: 
+6307: 
+6308: 
+6309: 
+6310: 
+6311: 44: Mother's Day E-Card Donations
+6312: 
+6313: 
+6314: 
+6315: 
+6316: 49: 2006 Barrie to Baycrest SAM
+6317: 
+6318: 
+6319: 208: Stroll for Liver 2006
+6320: 
+6321: 
+6322: 
+6323: 41: The Butterfly Effect Donation Only
+6324: 
+6325: 
+6326: 
+6327: 
+6328: 
+6329: 
+6330: 
+6331: 
+6332: 2: KBay Auction Fulfillment
+6333: 
+6334: 
+6335: 
+6336: 
+6337: 
+6338: 
+6339: 18: Black and White Ribbon Campaign
+6340: 
+6341: 
+6342: 139: ON Joints in Motion
+6343: 
+6344: 
+6345: 
+6346: 
+6347: 
+6348: 
+6349: 
+6350: 
+6351: 
+6352: 
+6353: 
+6354: 
+6355: 
+6356: 
+6357: 
+6358: 
+6359: 
+6360: 
+6361: 
+6362: 
+6363: 
+6364: 
+6365: 60: zTESTING
+6366: 
+6367: 60: Push for the Cure
+6368: 
+6369: 40: 2006 Ladies Golf Classic - Registration
+6370: 
+6371: 41: Geneva Ironman 2006
+6372: 
+6373: 96: NL Special Campaign 2
+6374: 
+6375: 
+6376: 40: 2006 Ladies Golf Classic - Sponsorship
+6377: 
+6378: 139: Bilingual Purchase
+6379: 
+6380: 96: NS Special Campaign 2
+6381: 
+6382: 96: NB Special Campaign 2
+6383: 
+6384: 96: PE Special Campaign 2
+6385: 
+6386: 96: QC Special Campaign 2
+6387: 
+6388: 96: ON Special Campaign 2
+6389: 
+6390: 96: MB Special Campaign 2
+6391: 
+6392: 96: SK Special Campaign 2
+6393: 
+6394: 96: AB Special Campaign 2
+6395: 
+6396: 96: BC Special Campaign 2 -Mother's Day National
+6397: 
+6398: 96: ON Special Campaign 3
+6399: 
+6400: 
+6401: 
+6402: 
+6403: 
+6404: 58: Corporate06
+6405: 
+6406: 
+6407: 
+6408: 
+6409: 
+6410: 
+6411: 
+6412: 49: CANCEL
+6413: 
+6414: 150: Wiggle Waggle Walkathon 2006
+6415: 
+6416: 
+6417: 134: Kazman Kidney Classic Golf Tournament
+6418: 
+6419: 139: Location Test
+6420: 
+6421: 
+6422: 
+6423: 
+6424: 44: Direct Mail - Jason
+6425: 
+6426: 44: Direct Mail - Marcia
+6427: 
+6428: 41: Susan Stern Breast Cancer Support 
+6429: 
+6430: 49: CANCEL
+6431: 
+6432: 56: 2006 Paws for a Cause
+6433: 
+6434: 
+6435: 
+6436: 
+6437: 
+6438: 
+6439: 
+6440: 
+6441: 
+6442: 
+6443: 
+6444: 
+6445: 
+6446: 
+6447: 
+6448: 
+6449: 
+6450: 
+6451: 
+6452: 
+6453: 
+6454: 
+6455: 
+6456: 
+6457: 
+6458: 
+6459: 
+6460: 
+6461: 
+6462: 
+6463: 
+6464: 
+6465: 
+6466: 
+6467: 
+6468: 59: AIDS Walk for Life 2006
+6469: 
+6470: 
+6471: 
+6472: 45: ZZZRoyal Ottawa Hospital Community Campaign
+6473: 
+6474: 45: The Royal Ottawa Hospital Community Campaign
+6475: 
+6476: 45: ZZZOpen Minds Open Doors Capital Campaign
+6477: 
+6478: 34: The Easter Seal Society, Ontario :: Tribute Donation Form
+6479: 
+6480: 26: Bob Aziz's Escape from Alcatraz
+6481: 
+6482: 
+6483: 
+6484: 96: AB Calgary Arthritis Conference 2006
+6485: 
+6486: 
+6487: 41: Get Wiggy With It
+6488: 
+6489: 96: AB Edmonton Arthritis Conference 2006
+6490: 
+6491: 
+6492: 
+6493: 
+6494: 11: Vanessa Tester
+6495: 
+6496: 
+6497: 11: Vanessa Tester 1
+6498: 
+6499: 
+6500: 
+6501: 
+6502: 
+6503: 
+6504: 11: Laurentian AIDSTrek 2006
+6505: 
+6506: 
+6507: 
+6508: 
+6509: 
+6510: 
+6511: 
+6512: 
+6513: 
+6514: 
+6515: 
+6516: 
+6517: 
+6518: 
+6519: 
+6520: 
+6521: 
+6522: 
+6523: 
+6524: 
+6525: 26: Jessica’s Footprint:  A Walk in the Park
+6526: 
+6527: 175: 2006 Harvest Challenge
+6528: 
+6529: 136: Easter Seals Winnipeg Donations 2006/07
+6530: 
+6531: 208: Mt. Kilimanjaro Do not use
+6532: 
+6533: 139: Habitat for Humanity - Tradeshow
+6534: 
+6535: 50: Ascent for Alzheimer's
+6536: 
+6537: 170: GGAC Run for the Future
+6538: 
+6539: 
+6540: 
+6541: 
+6542: 
+6543: 
+6544: 
+6545: 
+6546: 
+6547: 
+6548: 
+6549: 
+6550: 
+6551: 
+6552: 
+6553: 
+6554: 
+6555: 
+6556: 134: Southwestern Ontario Chapter’s 100 Hole Golf Challenge
+6557: 
+6558: 
+6559: 
+6560: 29: Dragon Boat 2006
+6561: 
+6562: 33: 2006 Cognos Workplace Campaign
+6563: 
+6564: 185: Trooper Concert - Edmonton
+6565: 
+6566: 152:  DO NOT USE Celebration of the life of Oded Bar-Or
+6567: 
+6568: 
+6569: 
+6570: 152: 06CH-EV-Oded Barr-Or
+6571: 
+6572: 94: Express Children's Hour 2006
+6573: 
+6574: 
+6575: 
+6576: 
+6577: 
+6578: 
+6579: 
+6580: 211: Calgary AIDS Walk for Life 2005
+6581: 
+6582: 44: Direct Mail - Doug
+6583: 
+6584: 41: The 7th Annual Day At The Races 2006 Ticket Purchase
+6585: 
+6586: 
+6587: 
+6588: 
+6589: 96: BC_The Bluebird Gala
+6590: 
+6591: 41: Sensible Fitness 5K
+6592: 
+6593: 208: Test do not use
+6594: 
+6595: 44: Father's Day E-Card Donations
+6596: 
+6597: 139: VOID (Kara is silly)
+6598: 
+6599: 
+6600: 
+6601: 
+6602: 
+6603: 
+6604: 
+6605: 
+6606: 
+6607: 
+6608: 
+6609: 
+6610: 
+6611: 
+6612: 
+6613: 
+6614: 
+6615: 
+6616: 
+6617: 
+6618: 
+6619: 
+6620: 139: Thermometer Test
+6621: 
+6622: 139: Limelight Swim-a-thon
+6623: 
+6624: 
+6625: 
+6626: 202: Adopt-a-Day (NFP)
+6627: 
+6628: 
+6629: 208: Boxing in the Ballroom
+6630: 
+6631: 170: GGAC Volunteers - use alternate site
+6632: 
+6633: 
+6634: 
+6635: 
+6636: 
+6637: 
+6638: 
+6639: 
+6640: 
+6641: 
+6642: 
+6643: 
+6644: 
+6645: 
+6646: 
+6647: 209: 8000km.org initiative
+6648: 
+6649: 
+6650: 31: Rick Hansen Wheels In Motion 2006 Related Events
+6651: 
+6652: 
+6653: 
+6654: 211: CAS Template
+6655: 
+6656: 44: Personal Page: Whitney & Dan (Not Used)
+6657: 
+6658: 96: ON Great Tray Race
+6659: 
+6660: 94: Sample Event
+6661: 
+6662: 170: LUTW Celebration or Tribute Giving
+6663: 
+6664: 170: LUTW Celebration Gifts-Nick Dye Ironman
+6665: 
+6666: 
+6667: 170: GGAC Volunteers
+6668: 
+6669: 
+6670: 
+6671: 
+6672: 
+6673: 
+6674: 
+6675: 
+6676: 
+6677: 
+6678: 
+6679: 
+6680: 
+6681: 
+6682: 
+6683: 
+6684: 
+6685: 
+6686: 
+6687: 
+6688: 
+6689: 139: House Party Demo
+6690: 
+6691: 
+6692: 198: Kids To The Rescue Online Campaign 
+6693: 
+6694: 212: Ride For Refugees 2006
+6695: 
+6696: 18: Laps for Lungs 2006
+6697: 
+6698: 139: Indigo Donation Form
+6699: 
+6700: 18: test_purchase_template
+6701: 
+6702: 
+6703: 
+6704: 
+6705: 72: 2006 Ride For Karen 
+6706: 
+6707: 
+6708: 41: The St. Regis Room Fashion Show 2006
+6709: 
+6710: 
+6711: 211: Walk for Life
+6712: 
+6713: 
+6714: 
+6715: 
+6716: 
+6717: 172: Casino Night 2006
+6718: 
+6719: 5: NOT NOT USE - OLD
+6720: 
+6721: 5: Indonesian Earthquake - May 2006
+6722: 
+6723: 136: Rolling Rampage 2006
+6724: 
+6725: 155: WALK for LIFE 2006
+6726: 
+6727: 41: Skate 4 Cancer
+6728: 
+6729: 94: Copy of Express - do not use
+6730: 
+6731: 94: London Dragon Boat Race 2006
+6732: 
+6733: 197: Do Not Use
+6734: 
+6735: 197: The Gift Of Time Gala
+6736: 
+6737: 
+6738: 
+6739: 
+6740: 
+6741: 102: WFM 2006 Donations - Fineline
+6742: 
+6743: 139: One Step at a Time
+6744: 
+6745: 60: 2006 Ride for the Cure
+6746: 
+6747: 
+6748: 210: Yoga-Thon
+6749: 
+6750: 33: 2006 Mitel Workplace Campaign
+6751: 
+6752: 
+6753: 213: 3000 Steps 
+6754: 
+6755: 
+6756: 134: COB Patient Symposium
+6757: 
+6758: 139: MacIsaac Donation
+6759: 
+6760: 134: Be a Lifesaver Walk
+6761: 
+6762: 
+6763: 
+6764: 
+6765: 
+6766: 
+6767: 
+6768: 
+6769: 
+6770: 
+6771: 
+6772: 
+6773: 
+6774: 
+6775: 
+6776: 
+6777: 
+6778: 
+6779: 
+6780: 
+6781: 
+6782: 
+6783: 
+6784: 
+6785: 49: 2006 Mark Pasternak Run
+6786: 
+6787: 24: Toronto Marathon
+6788: 
+6789: 
+6790: 
+6791: 
+6792: 
+6793: 
+6794: 
+6795: 
+6796: 
+6797: 
+6798: 
+6799: 
+6800: 
+6801: 
+6802: 96: ON Mini Grand Prix 2006
+6803: 
+6804: 139: Claire's Test Event
+6805: 
+6806: 189: Fineline Wal-Mart Walk For Miracles Tester
+6807: 
+6808: 
+6809: 
+6810: 
+6811: 
+6812: 
+6813: 
+6814: 
+6815: 
+6816: 38: Splash 2006
+6817: 
+6818: 202: ARCHIVE DO NOT USE 4th Annual Faith Leaders' Build 
+6819: 
+6820: 202: Habitat Toronto's 4th Annual Faith Leaders' Build
+6821: 
+6822: 
+6823: 10: QA Event 1 - No Fees
+6824: 
+6825: 
+6826: 139: MOCK - Sunday, Team Challenge- UWGT CN Tower Climb
+6827: 
+6828: 10: QA Event 2 - Indiv Fees
+6829: 
+6830: 
+6831: 10: QA Event 3 - Indiv Fees + Package
+6832: 
+6833: 
+6834: 10: clin - Team Fees
+6835: 
+6836: 
+6837: 214: MacIsaac Donation
+6838: 
+6839: 215: GuluWalk Canada
+6840: 
+6841: 202: DM 06-Q2
+6842: 
+6843: 
+6844: 59: Fashion Cares 20th Anniversary Book
+6845: 
+6846: 202: Many Hands E-solicitation
+6847: 
+6848: 202: Many Hands web solicitation
+6849: 
+6850: 
+6851: 49: 2007 Test Hockey
+6852: 
+6853: 217: Om for Kids Yogathon 2006
+6854: 
+6855: 
+6856: 18: The One Man Scramble 2006
+6857: 
+6858: 96: ON Owen Sound Poker Run
+6859: 
+6860: 44: Autoimmune Liver Disease Research (TWH)
+6861: 
+6862: 202: Many Hands Daniels page
+6863: 
+6864: 96: ON FUN Raisers Club
+6865: 
+6866: 
+6867: 
+6868: 
+6869: 68: Walk For Life 2006
+6870: 
+6871: 41: Michener Project Hair Grow
+6872: 
+6873: 41: Movember 2006
+6874: 
+6875: 216: 2006 Chattanooga Race for the Cure
+6876: 
+6877: 41: Pull for a Cure 2006
+6878: 
+6879: 41: 6th Annual Race Against Cancer
+6880: 
+6881: 211: TEST
+6882: 
+6883: 41: Brave Heart Walk for a Cure 2006
+6884: 
+6885: 41: Gail’s Fun Run 2006
+6886: 
+6887: 218: Walk for the Homeless 
+6888: 
+6889: 213: Test (Ignore Me)
+6890: 
+6891: 
+6892: 
+6893: 
+6894: 
+6895: 
+6896: 
+6897: 
+6898: 
+6899: 
+6900: 
+6901: 
+6902: 
+6903: 209: DELETE ME
+6904: 
+6905: 18: Laps for Lungs 06
+6906: 
+6907: 
+6908: 
+6909: 
+6910: 
+6911: 
+6912: 
+6913: 
+6914: 
+6915: 
+6916: 
+6917: 
+6918: 
+6919: 
+6920: 
+6921: 9: 5th Annual Gala of Hope
+6922: 
+6923: 24: Royal Victoria Marathon
+6924: 
+6925: 
+6926: 
+6927: 
+6928: 
+6929: 219: Relay for Life
+6930: 
+6931: 
+6932: 
+6933: 210: The Long Run
+6934: 
+6935: 
+6936: 
+6937: 
+6938: 
+6939: 
+6940: 
+6941: 
+6942: 
+6943: 
+6944: 
+6945: 
+6946: 
+6947: 
+6948: 
+6949: 
+6950: 
+6951: 60: Lady Bug Drive for the Cure
+6952: 
+6953: 60: Vernon Run For the Cure 
+6954: 
+6955: 
+6956: 210: 24 Hours of Golf
+6957: 
+6958: 134: Race About Charlottetown
+6959: 
+6960: 
+6961: 
+6962: 
+6963: 
+6964: 
+6965: 
+6966: 
+6967: 
+6968: 
+6969: 
+6970: 
+6971: 
+6972: 
+6973: 
+6974: 
+6975: 
+6976: 
+6977: 
+6978: 
+6979: 
+6980: 
+6981: 
+6982: 11: QA Bilingual Event
+6983: 
+6984: 9: Ben Blidner - Memorial Donations
+6985: 
+6986: 219: Canadian Cancer Society - Personal Pages
+6987: 
+6988: 9: General Donations 
+6989: 
+6990: 
+6991: 
+6992: 
+6993: 
+6994: 
+6995: 
+6996: 
+6997: 
+6998: 11: Relay for Life
+6999: 
