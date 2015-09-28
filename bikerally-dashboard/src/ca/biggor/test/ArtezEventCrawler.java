@@ -12,14 +12,13 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class ArtezEventCrawler {
-
+	
 	public static void main(String[] args)
 			throws ParserConfigurationException, MalformedURLException, InterruptedException {
 		Gson gson = new Gson();
-		for (int i = 157660; i < 160000; i++) {
+		for (int i = 157661; i < 160000; i++) {
 			String eventId = Integer.toString(i);
 			URL url = new URL(
 					"http://my.e2rm.com/webgetservice/get.asmx/getEvent?eventID=" + eventId + "&languageCode=");
@@ -38,12 +37,12 @@ public class ArtezEventCrawler {
 				str = str.replaceAll("titleIDs", "\"titleIDs\"");
 				str = str.replaceAll("languages", "\"languages\"");
 				str = str.replaceAll("columns", "\"columns\"");
-				str = str.replaceAll("rows", "\"rows\"");
+				str = str.replaceAll(",rows", ",\"rows\"");
 				str = str.replaceAll("paygateways", "\"paygateways\"");
 				ArtezEvent artezEvent = gson.fromJson(str, ArtezEvent.class);
 				System.out.println(artezEvent.toString());
 			} catch (SAXException | IOException e) {
-				System.err.println(eventId + ": ");
+//				System.err.println(eventId + ": ");
 			}
 			Thread.sleep(100);
 
