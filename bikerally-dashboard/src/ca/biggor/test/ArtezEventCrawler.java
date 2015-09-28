@@ -19,7 +19,7 @@ public class ArtezEventCrawler {
 	public static void main(String[] args)
 			throws ParserConfigurationException, MalformedURLException, InterruptedException {
 		Gson gson = new Gson();
-		for (int i = 6000; i < 7000; i++) {
+		for (int i = 157660; i < 160000; i++) {
 			String eventId = Integer.toString(i);
 			URL url = new URL(
 					"http://my.e2rm.com/webgetservice/get.asmx/getEvent?eventID=" + eventId + "&languageCode=");
@@ -30,6 +30,9 @@ public class ArtezEventCrawler {
 			try {
 				doc = db.parse(url.openStream());
 				str = doc.getElementsByTagName("string").item(0).getTextContent();
+				str = str.replaceAll("''R", "R");
+				str = str.replaceAll("s''", "s");
+				str = str.replaceAll("''S ", "'S ");
 				str = str.replaceAll("''", "\"\"");
 				str = str.replaceAll("eventSettings", "\"eventSettings\"");
 				str = str.replaceAll("titleIDs", "\"titleIDs\"");
@@ -42,11 +45,10 @@ public class ArtezEventCrawler {
 			} catch (SAXException | IOException e) {
 				System.err.println(eventId + ": ");
 			}
-			Thread.sleep(1000);
+			Thread.sleep(100);
 
 		}
 	}
-
 }
 
 class EventSettings {
