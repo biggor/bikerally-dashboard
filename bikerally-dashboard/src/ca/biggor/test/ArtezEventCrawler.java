@@ -18,7 +18,7 @@ public class ArtezEventCrawler {
 	public static void main(String[] args)
 			throws ParserConfigurationException, MalformedURLException, InterruptedException {
 		Gson gson = new Gson();
-		for (int i = 157661; i < 160000; i++) {
+		for (int i = 158165; i < 160000; i++) {
 			String eventId = Integer.toString(i);
 			URL url = new URL(
 					"http://my.e2rm.com/webgetservice/get.asmx/getEvent?eventID=" + eventId + "&languageCode=");
