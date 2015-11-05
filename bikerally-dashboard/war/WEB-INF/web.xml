@@ -119,6 +119,34 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<url-pattern>/bikerally_updateids</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>_addParticipantServlet</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard._addParticipantServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>_addParticipantServlet</servlet-name>
+		<url-pattern>/addparticipant</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>_deleteParticipantServlet</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard._deleteParticipantServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>_deleteParticipantServlet</servlet-name>
+		<url-pattern>/deleteparticipant</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>_updateParticipantServlet</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard._updateParticipantServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>_updateParticipantServlet</servlet-name>
+		<url-pattern>/updateparticipant</url-pattern>
+	</servlet-mapping>
+	
+
 
 	<welcome-file-list>
 		<welcome-file>dashboard.html</welcome-file>
