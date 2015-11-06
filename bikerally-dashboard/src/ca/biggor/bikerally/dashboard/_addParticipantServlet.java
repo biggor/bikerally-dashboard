@@ -10,6 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.EntityNotFoundException;
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.FilterOperator;
+import com.google.appengine.api.datastore.Query.FilterPredicate;
 
 @SuppressWarnings("serial")
 public class _addParticipantServlet extends HttpServlet {
@@ -27,12 +34,35 @@ public class _addParticipantServlet extends HttpServlet {
 		}
 		
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		Entity participant = new Entity(eventId);
-		participant.setProperty("id", String.format("%7s", registrantId.trim()));
-		// custom properties
-		participant.setProperty("riderNumber", "");
-		participant.setProperty("status", "active");
-		datastore.put(participant);
+
+		Key registrandKey = KeyFactory.createKey(eventId, registrantId);
+		System.out.println(registrandKey.toString());
+		Entity participant;
+		try {
+			participant = datastore.get(registrandKey);
+		} catch (EntityNotFoundException e) {
+			System.out.println("Participant not found, adding a new one");
+			participant = new Entity(registrandKey);
+			participant.setProperty("id", registrantId);
+			// custom properties
+			participant.setProperty("riderNumber", "");
+			participant.setProperty("status", "active");
+			datastore.put(participant);
+		}
+		
+		
+//		Query query = new Query(eventId).setFilter(new FilterPredicate("id", FilterOperator.EQUAL, registrantId));
+//		PreparedQuery pq = datastore.prepare(query);
+//		Entity participant = pq.asSingleEntity();
+//		if (participant == null) {
+//			System.out.println("Participant not found, adding a new one");
+//			participant = new Entity(eventId);
+//			participant.setProperty("id", registrantId);
+//			// custom properties
+//			participant.setProperty("riderNumber", "");
+//			participant.setProperty("status", "active");
+//			datastore.put(participant);
+//		}
 
 		resp.getWriter().println(String.format("%2s", "+") + " " + participant.getProperty("id") + ": " + participant.getProperty("firstName") + " " + participant.getProperty("lastName"));
 	}
