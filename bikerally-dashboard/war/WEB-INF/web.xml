@@ -8,112 +8,132 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<servlet-name>Bikerally_dashboard</servlet-name>
 		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_dashboardServlet</servlet-class>
 	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_dashboardServletByTotalRaised</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_dashboardServletByTotalRaised</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_dashboardArtez</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_dashboardArtezServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_updateDatabase</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_updateDatabaseServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_cuesheet</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_cuesheetServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_registrationsByMonth</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_registrationsByMonth</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_jsdata</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsdataServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_jsdata2</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsdata2Servlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_recacheServlet</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_recacheServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_jsonRouteDetailsServlet</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonRouteDetailsServlet</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_jsonParticipants</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonParticipants</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_jsonLevels</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonLevels</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_jsonDashboard</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonDashboard</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>Bikerally_updateIds</servlet-name>
-		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_updateIds</servlet-class>
-	</servlet>
-	
-
 	<servlet-mapping>
 		<servlet-name>Bikerally_dashboard</servlet-name>
 		<url-pattern>/bikerally_dashboard_old</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_dashboardServletByTotalRaised</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_dashboardServletByTotalRaised</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_dashboardServletByTotalRaised</servlet-name>
 		<url-pattern>/bikerally_dashboard_by_totalraised</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_dashboardArtez</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_dashboardArtezServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_dashboardArtez</servlet-name>
 		<url-pattern>/bikerally_dashboardArtez</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_updateDatabase</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_updateDatabaseServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_updateDatabase</servlet-name>
 		<url-pattern>/bikerally_updateDatabase</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_updateDatabaseWorker</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_updateDatabaseWorker</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Bikerally_updateDatabaseWorker</servlet-name>
+		<url-pattern>/updatedatabaseworker</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_cuesheet</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_cuesheetServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_cuesheet</servlet-name>
 		<url-pattern>/bikerally_cuesheet</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_registrationsByMonth</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_registrationsByMonth</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_registrationsByMonth</servlet-name>
 		<url-pattern>bikerally_registrationsbymonth</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_jsdata</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsdataServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsdata</servlet-name>
 		<url-pattern>/bikerally_jsdata</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_jsdata2</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsdata2Servlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsdata2</servlet-name>
 		<url-pattern>/bikerally_jsdata2</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_recacheServlet</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_recacheServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_recacheServlet</servlet-name>
 		<url-pattern>/bikerally_recache</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_jsonRouteDetailsServlet</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonRouteDetailsServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsonRouteDetailsServlet</servlet-name>
 		<url-pattern>/bikerally_routedetails</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_jsonParticipants</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonParticipants</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsonParticipants</servlet-name>
 		<url-pattern>/bikerally_participants</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_jsonLevels</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonLevels</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsonLevels</servlet-name>
 		<url-pattern>/bikerally_levels</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_jsonDashboard</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_jsonDashboard</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_jsonDashboard</servlet-name>
 		<url-pattern>/bikerally_dashboard</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Bikerally_updateIds</servlet-name>
+		<servlet-class>ca.biggor.bikerally.dashboard.Bikerally_updateIds</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Bikerally_updateIds</servlet-name>
 		<url-pattern>/bikerally_updateids</url-pattern>
