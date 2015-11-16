@@ -89,7 +89,7 @@ public class Participants {
 				}
 			}
 
-			this.participants.add(new Participant(id, firstName, lastName, riderNumber, this.teams.get(teamId), steeringCommittee, teamLead, trainingRideCoach, fundraisingLevel));
+			this.participants.add(new Participant(id, firstName, lastName, riderNumber, this.teams.get(teamId), steeringCommittee, teamLead, trainingRideCoach, fundraisingLevel, isRider));
 		}
 	}
 
