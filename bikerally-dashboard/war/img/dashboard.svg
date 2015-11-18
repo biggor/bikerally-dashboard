@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g>
+  <title>Dashboard</title>
+  <ellipse stroke-width="0" stroke="#000000" ry="103.999997" rx="103.999997" id="svg_67" cy="150.380942" cx="150.19048" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" fill="#e2e3e4"/>
+  <ellipse stroke="#000000" ry="86.666664" rx="86.666664" id="svg_68" cy="150.380933" cx="150.190478" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#ffffff"/>
+  <rect stroke="#000000" id="svg_70" height="5.583331" width="115.583338" y="196.964284" x="92.398809" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#515153"/>
+  <rect stroke="#000000" id="svg_71" height="26.583333" width="30" y="164.464286" x="95.398804" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#515153"/>
+  <rect stroke="#000000" id="svg_72" height="103.666668" width="30" y="87.943448" x="135.19047" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#e21836"/>
+  <rect stroke="#000000" id="svg_73" height="59.541661" width="30" y="132.068445" x="174.982146" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#872c91"/>
+ </g>
+</svg>
