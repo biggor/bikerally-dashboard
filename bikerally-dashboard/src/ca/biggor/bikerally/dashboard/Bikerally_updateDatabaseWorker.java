@@ -120,7 +120,7 @@ public class Bikerally_updateDatabaseWorker extends HttpServlet {
 				// otherwise the current elements match; consider the next pair
 			} else {
 				participant = slave.get(x);
-				if (req.getParameter("updateAll") != null) {
+				if (req.getParameter("refreshUpdate").equals("true")) {
 					getParticipantDetails(participant);
 					updateSymbol = "*";
 				}
@@ -133,7 +133,7 @@ public class Bikerally_updateDatabaseWorker extends HttpServlet {
 				x += 1;
 				y += 1;
 			}
-			resp.getWriter().println(String.format("%2s", updateSymbol) + " " + participant.getProperty("id") + ": " + participant.getProperty("firstName") + " " + participant.getProperty("lastName"));
+			System.out.println(String.format("%2s", updateSymbol) + " " + participant.getProperty("id") + ": " + participant.getProperty("firstName") + " " + participant.getProperty("lastName"));
 		}
 	}
 

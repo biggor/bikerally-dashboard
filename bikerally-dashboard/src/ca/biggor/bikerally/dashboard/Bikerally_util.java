@@ -27,6 +27,7 @@ import com.google.appengine.api.memcache.MemcacheServiceFactory;
 
 public class Bikerally_util {
 	
+	public static final String LOVEBOWL_EVENT_ID_2016 = "186742";
 	public static final String RIDER_EVENT_ID_2016 = "177536";
 	public static final String RIDER_EVENT_ID_ONE_DAY_2016 = "179193";
 	public static final String CREW_EVENT_ID_2016  = "179191";
@@ -56,6 +57,7 @@ public class Bikerally_util {
 	public static final String DEFAULT_RIDER_EVENT_ID = RIDER_EVENT_ID_2016;
 	public static final String DEFAULT_RIDER_ONE_DAY_EVENT_ID = RIDER_EVENT_ID_ONE_DAY_2016;
 	public static final String DEFAULT_CREW_EVENT_ID = CREW_EVENT_ID_2016;
+	public static final String DEFAULT_LOVEBOWL_EVENT_ID = LOVEBOWL_EVENT_ID_2016;
 	
 
 	static MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
