@@ -27,37 +27,54 @@ import com.google.appengine.api.memcache.MemcacheServiceFactory;
 
 public class Bikerally_util {
 	
+	public static final String LOVEBOWL_EVENT_ID_2017 = "0";
+	public static final String RIDER_EVENT_ID_2017 = "200862";
+	public static final String RIDER_EVENT_ID_ONE_DAY_2017 = "200879";
+	public static final String CREW_EVENT_ID_2017  = "0";
+
 	public static final String LOVEBOWL_EVENT_ID_2016 = "186742";
 	public static final String RIDER_EVENT_ID_2016 = "177536";
 	public static final String RIDER_EVENT_ID_ONE_DAY_2016 = "179193";
 	public static final String CREW_EVENT_ID_2016  = "179191";
+	
 	public static final String RIDER_EVENT_ID_2015 = "148513";
 	public static final String CREW_EVENT_ID_2015  = "153652";
+	
 	public static final String RIDER_EVENT_ID_2014 = "124639";
 	public static final String CREW_EVENT_ID_2014  = "125616";
+	
 	public static final String RIDER_EVENT_ID_2013 = "96529";
 	public static final String CREW_EVENT_ID_2013  = "97260";
+	
 	public static final String RIDER_EVENT_ID_2012 = "71589";
 	public static final String CREW_EVENT_ID_2012  = "75996";
+	
 	public static final String RIDER_EVENT_ID_2011 = "52935";
 	public static final String CREW_EVENT_ID_2011  = "57207";
+	
 	public static final String RIDER_EVENT_ID_2010 = "39408";
 	public static final String CREW_EVENT_ID_2010  = "39410";
+	
 	public static final String RIDER_EVENT_ID_2009 = "22590";
 	public static final String CREW_EVENT_ID_2009  = "22819";
+	
 	public static final String RIDER_EVENT_ID_2008 = "15307";
 	public static final String CREW_EVENT_ID_2008  = "0";
+	
 	public static final String RIDER_EVENT_ID_2007 = "9755";
 	public static final String CREW_EVENT_ID_2007  = "0";
+	
 	public static final String RIDER_EVENT_ID_2006 = "5250";
 	public static final String CREW_EVENT_ID_2006  = "0";
+	
 	public static final String RIDER_EVENT_ID_2005 = "2846";
 	public static final String CREW_EVENT_ID_2005  = "2848";
 	
-	public static final String DEFAULT_RIDER_EVENT_ID = RIDER_EVENT_ID_2016;
-	public static final String DEFAULT_RIDER_ONE_DAY_EVENT_ID = RIDER_EVENT_ID_ONE_DAY_2016;
-	public static final String DEFAULT_CREW_EVENT_ID = CREW_EVENT_ID_2016;
-	public static final String DEFAULT_LOVEBOWL_EVENT_ID = LOVEBOWL_EVENT_ID_2016;
+	public static final String DEFAULT_RIDER_EVENT_ID = RIDER_EVENT_ID_2017;
+	public static final String DEFAULT_RIDER_ONE_DAY_EVENT_ID = RIDER_EVENT_ID_ONE_DAY_2017;
+	public static final String DEFAULT_CREW_EVENT_ID = CREW_EVENT_ID_2017;
+	public static final String DEFAULT_LOVEBOWL_EVENT_ID = LOVEBOWL_EVENT_ID_2017;
+	public static final String LASTYEAR_RIDER_EVENT_ID = RIDER_EVENT_ID_2016;
 	
 
 	static MemcacheService memcache = MemcacheServiceFactory.getMemcacheService();
@@ -123,52 +140,57 @@ public class Bikerally_util {
 		SimpleDateFormat artezDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
 		switch (eventId) {
-		// 2016
-		case "177536":
-		case "179193":
-		case "0":
+		// 2017
+		case Bikerally_util.RIDER_EVENT_ID_2017:
+		case Bikerally_util.CREW_EVENT_ID_2017:
 			byDate.add(Calendar.YEAR, 0);
 			break;
 
-		// 2015
-		case "148513":
-		case "153652":
+		// 2016
+		case Bikerally_util.RIDER_EVENT_ID_2016:
+		case Bikerally_util.CREW_EVENT_ID_2016:
 			byDate.add(Calendar.YEAR, -1);
 			break;
 
-		// 2014
-		case "124639":
-		case "125616":
+		// 2015
+		case Bikerally_util.RIDER_EVENT_ID_2015:
+		case Bikerally_util.CREW_EVENT_ID_2015:
 			byDate.add(Calendar.YEAR, -2);
 			break;
 
-		// 2013
-		case "96529":
-		case "97260":
+		// 2014
+		case Bikerally_util.RIDER_EVENT_ID_2014:
+		case Bikerally_util.CREW_EVENT_ID_2014:
 			byDate.add(Calendar.YEAR, -3);
 			break;
 
-		// 2012
-		case "71589":
-		case "75996":
+		// 2013
+		case Bikerally_util.RIDER_EVENT_ID_2013:
+		case Bikerally_util.CREW_EVENT_ID_2013:
 			byDate.add(Calendar.YEAR, -4);
 			break;
 
-		// 2011
-		case "52935":
-		case "57207":
+		// 2012
+		case Bikerally_util.RIDER_EVENT_ID_2012:
+		case Bikerally_util.CREW_EVENT_ID_2012:
 			byDate.add(Calendar.YEAR, -5);
 			break;
 
-		// 2010
-		case "39408":
-		case "39410":
+		// 2011
+		case Bikerally_util.RIDER_EVENT_ID_2011:
+		case Bikerally_util.CREW_EVENT_ID_2011:
 			byDate.add(Calendar.YEAR, -6);
 			break;
 
+		// 2010
+		case Bikerally_util.RIDER_EVENT_ID_2010:
+		case Bikerally_util.CREW_EVENT_ID_2010:
+			byDate.add(Calendar.YEAR, -7);
+			break;
+
 		// 2005
-		case "2846":
-			byDate.add(Calendar.YEAR, -11);
+		case Bikerally_util.RIDER_EVENT_ID_2005:
+			byDate.add(Calendar.YEAR, -12);
 			break;
 
 		default:

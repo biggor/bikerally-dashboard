@@ -41,6 +41,9 @@ public class Dashboard {
 	private String riders2016;
 	private String riders20161d;
 	private String crew2016;
+	private String riders2017;
+	private String riders20171d;
+	private String crew2017;
 	private String regAug0;
 	private String regSep0;
 	private String regOct0;
@@ -63,9 +66,9 @@ public class Dashboard {
 
 		this.riderEventId = (riderEventId != null && !riderEventId.trim().isEmpty()) ? riderEventId : Bikerally_util.DEFAULT_RIDER_EVENT_ID;
 		this.crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId : Bikerally_util.DEFAULT_CREW_EVENT_ID;
-		if (this.riderEventId.equals("177536") || this.riderEventId.equals("179193")) {
-			this.riderEventId = "177536";
-			this.riderEventId1d = "179193";
+		if (this.riderEventId.equals(Bikerally_util.DEFAULT_RIDER_EVENT_ID) || this.riderEventId.equals(Bikerally_util.DEFAULT_CREW_EVENT_ID)) {
+			this.riderEventId = Bikerally_util.DEFAULT_RIDER_EVENT_ID;
+			this.riderEventId1d = Bikerally_util.DEFAULT_CREW_EVENT_ID;
 		} else {
 			this.riderEventId1d = "0";
 		}
@@ -95,36 +98,39 @@ public class Dashboard {
 
 		this.byDate = monthDayFormat.format(new GregorianCalendar().getTime());
 
-		this.riders2010 = Bikerally_util.getCountRegistrationByDate("39408", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.crew2010 = Bikerally_util.getCountRegistrationByDate("39410", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.riders2011 = Bikerally_util.getCountRegistrationByDate("52935", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.crew2011 = Bikerally_util.getCountRegistrationByDate("57207", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.riders2012 = Bikerally_util.getCountRegistrationByDate("71589", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.crew2012 = Bikerally_util.getCountRegistrationByDate("75996", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.riders2013 = Bikerally_util.getCountRegistrationByDate("96529", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.crew2013 = Bikerally_util.getCountRegistrationByDate("97260", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.riders2014 = Bikerally_util.getCountRegistrationByDate("124639", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.crew2014 = Bikerally_util.getCountRegistrationByDate("125616", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.riders2015 = Bikerally_util.getCountRegistrationByDate("148513", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.crew2015 = Bikerally_util.getCountRegistrationByDate("153652", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.riders2016 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.riders20161d = Bikerally_util.getCountRegistrationByDate("179193", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
-		this.crew2016 = Bikerally_util.getCountRegistrationByDate("179191", new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders2010 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_2010, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2010 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.CREW_EVENT_ID_2010, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders2011 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_2011, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2011 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.CREW_EVENT_ID_2011, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders2012 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_2012, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2012 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.CREW_EVENT_ID_2012, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders2013 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_2013, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2013 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.CREW_EVENT_ID_2013, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders2014 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_2014, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2014 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.CREW_EVENT_ID_2014, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders2015 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_2015, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2015 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.CREW_EVENT_ID_2015, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders2016 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_2016, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders20161d = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_ONE_DAY_2016, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2016 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.CREW_EVENT_ID_2016, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders2017 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_2017, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.riders20171d = Bikerally_util.getCountRegistrationByDate(Bikerally_util.RIDER_EVENT_ID_ONE_DAY_2017, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
+		this.crew2017 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.CREW_EVENT_ID_2017, new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH), 23, 59, 59));
 
-		this.regAug0 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2015, Calendar.AUGUST, 1, 0, 0, 0));
-		this.regSep0 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2015, Calendar.SEPTEMBER, 1, 0, 0, 0));
-		this.regOct0 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2015, Calendar.OCTOBER, 1, 0, 0, 0));
-		this.regNov0 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2015, Calendar.NOVEMBER, 1, 0, 0, 0));
-		this.regDec0 = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2015, Calendar.DECEMBER, 1, 0, 0, 0));
-		this.regJan = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.JANUARY, 1, 0, 0, 0));
-		this.regFeb = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.FEBRUARY, 1, 0, 0, 0));
-		this.regMar = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.MARCH, 1, 0, 0, 0));
-		this.regApr = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.APRIL, 1, 0, 0, 0));
-		this.regMay = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.MAY, 1, 0, 0, 0));
-		this.regJun = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.JUNE, 1, 0, 0, 0));
-		this.regJul = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.JULY, 1, 0, 0, 0));
-		this.regAug = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.AUGUST, 1, 0, 0, 0));
-		this.regSep = Bikerally_util.getCountRegistrationByDate("177536", new GregorianCalendar(2016, Calendar.SEPTEMBER, 1, 0, 0, 0));
+		this.regAug0 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2015, Calendar.AUGUST, 1, 0, 0, 0));
+		this.regSep0 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2015, Calendar.SEPTEMBER, 1, 0, 0, 0));
+		this.regOct0 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2015, Calendar.OCTOBER, 1, 0, 0, 0));
+		this.regNov0 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2015, Calendar.NOVEMBER, 1, 0, 0, 0));
+		this.regDec0 = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2015, Calendar.DECEMBER, 1, 0, 0, 0));
+		this.regJan = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.JANUARY, 1, 0, 0, 0));
+		this.regFeb = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.FEBRUARY, 1, 0, 0, 0));
+		this.regMar = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.MARCH, 1, 0, 0, 0));
+		this.regApr = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.APRIL, 1, 0, 0, 0));
+		this.regMay = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.MAY, 1, 0, 0, 0));
+		this.regJun = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.JUNE, 1, 0, 0, 0));
+		this.regJul = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.JULY, 1, 0, 0, 0));
+		this.regAug = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.AUGUST, 1, 0, 0, 0));
+		this.regSep = Bikerally_util.getCountRegistrationByDate(Bikerally_util.DEFAULT_RIDER_EVENT_ID, new GregorianCalendar(2016, Calendar.SEPTEMBER, 1, 0, 0, 0));
 	}
 
 	public String toJson() {

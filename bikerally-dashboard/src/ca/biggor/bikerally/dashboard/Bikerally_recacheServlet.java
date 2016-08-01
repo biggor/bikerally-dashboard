@@ -18,25 +18,23 @@ public class Bikerally_recacheServlet extends HttpServlet {
 
 		PrintWriter out = resp.getWriter();
 		
-		Bikerally_util.deleteEventTotalsMemcache("148513");
-		Bikerally_util.deleteEventTotalsMemcache("153652");
-		Bikerally_util.deleteJsonParticipants("148513", "153652");
-		Bikerally_util.deleteJsonDashboard("148513", "153652");
-		out.println("recached: 148513, 153652");
+		Bikerally_util.deleteEventTotalsMemcache(Bikerally_util.RIDER_EVENT_ID_2016);
+		Bikerally_util.deleteEventTotalsMemcache(Bikerally_util.RIDER_EVENT_ID_ONE_DAY_2016);
+		Bikerally_util.deleteEventTotalsMemcache(Bikerally_util.CREW_EVENT_ID_2016);
+		Bikerally_util.deleteJsonParticipants(Bikerally_util.RIDER_EVENT_ID_2016, Bikerally_util.CREW_EVENT_ID_2016);
+		Bikerally_util.deleteJsonParticipants(Bikerally_util.RIDER_EVENT_ID_ONE_DAY_2016, "0");
+		Bikerally_util.deleteJsonDashboard(Bikerally_util.RIDER_EVENT_ID_2016, Bikerally_util.CREW_EVENT_ID_2016);
+		Bikerally_util.deleteJsonDashboard(Bikerally_util.RIDER_EVENT_ID_ONE_DAY_2016, "0");
+		out.println("recached: " + Bikerally_util.RIDER_EVENT_ID_2016 + ", " + Bikerally_util.RIDER_EVENT_ID_ONE_DAY_2016 + ", " + Bikerally_util.CREW_EVENT_ID_2016);
 
-		Bikerally_util.deleteEventTotalsMemcache("177536");
-		Bikerally_util.deleteEventTotalsMemcache("179193");
-		Bikerally_util.deleteEventTotalsMemcache("179191");
-		Bikerally_util.deleteJsonParticipants("177536", "179191");
-		Bikerally_util.deleteJsonParticipants("179193", "0");
-		Bikerally_util.deleteJsonDashboard("177536", "179191");
-		Bikerally_util.deleteJsonDashboard("179193", "0");
-		out.println("recached: 177536, 179191, 179193");
-
-		Bikerally_util.deleteEventTotalsMemcache("186742");
-		Bikerally_util.deleteJsonParticipants("186742", "0");
-		Bikerally_util.deleteJsonDashboard("186742", "0");
-		out.println("recached: 186742");
+		Bikerally_util.deleteEventTotalsMemcache(Bikerally_util.DEFAULT_RIDER_EVENT_ID);
+		Bikerally_util.deleteEventTotalsMemcache(Bikerally_util.DEFAULT_RIDER_ONE_DAY_EVENT_ID);
+		Bikerally_util.deleteEventTotalsMemcache(Bikerally_util.DEFAULT_CREW_EVENT_ID);
+		Bikerally_util.deleteJsonParticipants(Bikerally_util.DEFAULT_RIDER_EVENT_ID, Bikerally_util.DEFAULT_CREW_EVENT_ID);
+		Bikerally_util.deleteJsonParticipants(Bikerally_util.DEFAULT_RIDER_ONE_DAY_EVENT_ID, "0");
+		Bikerally_util.deleteJsonDashboard(Bikerally_util.DEFAULT_RIDER_EVENT_ID, Bikerally_util.DEFAULT_CREW_EVENT_ID);
+		Bikerally_util.deleteJsonDashboard(Bikerally_util.DEFAULT_RIDER_ONE_DAY_EVENT_ID, "0");
+		out.println("recached: " + Bikerally_util.DEFAULT_RIDER_EVENT_ID + " ," + Bikerally_util.DEFAULT_RIDER_ONE_DAY_EVENT_ID + " , " + Bikerally_util.DEFAULT_CREW_EVENT_ID);
 
 	}
 }
