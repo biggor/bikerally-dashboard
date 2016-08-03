@@ -68,7 +68,7 @@ public class Dashboard {
 		this.crewEventId = (crewEventId != null && !crewEventId.trim().isEmpty()) ? crewEventId : Bikerally_util.DEFAULT_CREW_EVENT_ID;
 		if (this.riderEventId.equals(Bikerally_util.DEFAULT_RIDER_EVENT_ID) || this.riderEventId.equals(Bikerally_util.DEFAULT_CREW_EVENT_ID)) {
 			this.riderEventId = Bikerally_util.DEFAULT_RIDER_EVENT_ID;
-			this.riderEventId1d = Bikerally_util.DEFAULT_CREW_EVENT_ID;
+			this.riderEventId1d = Bikerally_util.DEFAULT_RIDER_ONE_DAY_EVENT_ID;
 		} else {
 			this.riderEventId1d = "0";
 		}
