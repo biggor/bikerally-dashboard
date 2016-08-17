@@ -70,7 +70,7 @@ public class Levels {
 		}
 		
 		this.activeRiders = Bikerally_util.getParticipantCount(this.riderEventId);
-		this.estimatedActiveRiders = 0; // TODO - some smart routine to determine the estimated number of riders that will actuall ride
+		this.estimatedActiveRiders = 0; // TODO - some smart routine to determine the estimated number of riders that will actual ride
 	}
 
 	public String toJson() {
