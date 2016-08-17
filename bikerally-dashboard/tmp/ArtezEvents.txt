@@ -56389,3 +56389,99 @@
 158160: 643: Easter SealsTM Drop Zone 2015 - Regina
 158162: 44: Welcome to My Tribute
 158164: 625: Membership Holiday Giving
+158166: 1195: Celebrity Ice Cup 2015
+158169: 367: Deloitte - American Red Cross West Africa Ebola Outbreak
+158172: 33: Do the Blue
+158174: 803: Polar Plunge
+158176: 888: Coldest Night of the Year 2015
+158244: 888: Memory Makers
+158246: 1199: Niagara Children's Centre Foundation
+158248: 26: 2015 Toronto 5k 
+158250: 1195: Celebrity Ice Cup
+158252: 577: John G Watt
+158254: 831: Rivals Luncheon 2015
+158257: 591: (DECEMBER CALENDAR) Bible Distribution in Israel
+158259: 591: [FEBRUARY_CALENDAR] Suriname
+158261: 591: [MARCH2015 CALENDAR] Bible Distribution in Rwanda
+158263: 831: Table & Team Sponsorship Combo 2015
+158265: 831: Team Sponsorship 2015
+158267: 237: Children's Wish Poker Tournament 2015
+158269: 912: Highland Valley Copper Dunk Tank Challenge
+158271: 26: Donate Today for Better Tomorrows l SickKids
+158273: 10: Omar Sprint 7 Release Test
+158276: 58: FordDealerToyMtn2014
+158278: 33: Test Trib
+158280: 2: Please Support Kids Help Phone - Monthly
+158283: 681: Annual Giving Campaign
+158285: 1153: United Way Holiday Giving Cards
+158287: 790: Pink Is The New Orange
+158289: 892: Default Direct Donation English 141105
+158291: 892: Default Tribute English 141105
+158293: 1188: The Willis Foundation
+158295: 60: PR - Skate Pink 2015
+158297: 591: [APRIL2015 CALENDAR] Bible distribution in Egypt
+158299: 591: [JUNE2015_CALENDAR] Bibles to Cuba
+158301: 591: [JUNE2015_CALENDAR] Bibles to Cuba
+158303: 591: [JULY2015_CALENDAR] Scriptures for Canadian Youth and Children
+158305: 591: [AUGUST2015_CALENDAR] Share God's Word in Ethiopia
+158307: 1192: Test Donation Form
+158310: 60: BC-2014 GivingTuesday Campaign
+158312: 591: [SEPTEMBER2015_CALENDAR] Help stop violence in Honduras
+158314: 591: CALENDAR_OCTOBER2015_CHINA
+158316: 2: Please Support Kids Help Phone - Tribute
+158318: 591: CALENDAR_NOVEMBER2015_UKRAINE
+158320: 77: Shelly and Catherine take Mount Kilimanjaro
+158324: 947: Canadian Mental Health Association Mid Island Mental Health Speaker Evening "Short & Long Term Effec
+158326: 1177: The Emma Fund
+158328: 271: International Disaster Relief Fund - HON MWF OTG Tribute
+158330: 367: Andrew's Event
+158332: 367: Andrew's Ride for the Cause
+158334: 864: Live Free 2015
+158336: 271: International Programs Fund - HON MWF OTG Tribute
+158338: 271: Syria Crisis - HON MWF OTG Tribute
+158340: 202: 2015 Second Annual ReSource Group Canada Campaign for Habitat
+158342: 271: West Africa Ebola Fund - HON MWF OTG Tribute
+158344: 591: Child of Bethlehem
+158346: 997: 2014 CNC Dodgeball Tournament 
+158353: 401: TomStrong Hockey Game 2015
+158355: 829: 2015 Winter Games - Final Leg
+158357: 892: 2015 Wounded Warriors Canada Battlefield Bike Ride
+158359: 932: Symbolic Giving Catalogue 
+158361: 988: Western Communities Foundation Fundraising
+158363: 988: Western Communities Foundation Fundraising
+158365: 26: Corporate - Fujifilm Employee Holiday Giving Campaign
+158368: 829: CAPITAL JEEP PRE5ENT5: 5PECIAL OLYMPIC5 Alberta-Edmonton & 5PARKs - CONDITIONED TO WIN
+158370: 26: Fujifilm Employee Holiday Giving Campaign 2014
+158372: 271: West Africa Ebola Fund - ECS OTG Don
+158374: 892: 2015 PUT Application Form
+158377: 892: 2015 PUT Fundraising Form
+158380: 10: United Way Holiday Giving Cards_TEST_COPY
+158382: 988: Western Communities Foundation Fundraising
+158388: 988: Western Communities Foundation Fundraising
+158390: 971: Clinic
+158392: 77: Sens MOTB
+158395: 567: TFR Test
+159161: 567: Terry Fox Run 2015
+159927: 367: Church Donation Form
+159929: 60: PR - Samantha Cheuk Brave the Shave 2014
+159932: 892: *Direct Donation Default - English only
+159934: 237: Jewel FM - Ugly Christmas Sweater
+159940: 152: RBC Life Savers Match
+159942: 1201: 6 Hours of Gibraltar
+159944: 801: Alzheimer Society of Ontario - Holiday Campaign
+159946: 444: Ride to fight ALS 2015
+159948: 237: 343
+159950: 475: 2015 TEST Scotiabank Charity Challenge
+159954: 202: 2015 Habitat for Humanity GTA's Corporate Adopt-a-Day 
+159960: 1202: Donation TEST
+159962: 914: Advent Tea
+159965: 892: Master NAMIRun Template
+159968: 602: CLOSED - 2014 Winter Campaign B - Stronger Together
+159970: 968: Walk Event
+159972: 932: Holiday Cards 2014 - SPACE HOLIDAY CARD
+159975: 45: Power to the Purple 2015 
+159977: 737: 2014 GCF Give-A-Gift
+159979: 366: Ryan Beaumaster
+159981: 1058: Christmas Sponsorship 2014 
+159983: 797: Anaphylaxis Canada Family Campaign 2014
+159985: 34: 2015 Snowarama for Easter Seals Kids - Supported by the OFSC
